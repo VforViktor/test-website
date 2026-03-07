@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VforViktor — LinkedIn Ad Creatives</title>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: #f0f0f0;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      align-items: center;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 0.75rem;
+      text-align: left;
+      width: 1200px;
+      max-width: 100%;
+    }
+
+    /* ─── AD WRAPPER ─────────────────────────────────────────────────── */
+    .ad {
+      width: 1200px;
+      max-width: 100%;
+      aspect-ratio: 1200 / 627;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+    }
+
+    /* ─── AD 1: PAIN ─────────────────────────────────────────────────── */
+    .ad-1 {
+      background-color: #0a0a0a;
+      color: #fafafa;
+      align-items: stretch;
+    }
+
+    .ad-1 .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 6% 7%;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .ad-1 .right {
+      width: 38%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 6% 7% 6% 6%;
+      gap: 1.2rem;
+    }
+
+    .ad-1 .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: clamp(0.6rem, 0.9vw, 0.75rem);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(250,250,250,0.45);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      padding: 0.25rem 0.75rem;
+      width: fit-content;
+    }
+
+    .ad-1 .headline {
+      font-size: clamp(1.6rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .ad-1 .headline .dim { color: rgba(250,250,250,0.4); }
+
+    .ad-1 .logo {
+      height: clamp(18px, 2.2vw, 28px);
+      width: auto;
+      filter: invert(1);
+      opacity: 0.6;
+    }
+
+    .ad-1 .stat-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      padding: 1rem 1.2rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+    }
+
+    .ad-1 .stat-num {
+      font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .ad-1 .stat-label {
+      font-size: clamp(0.55rem, 0.8vw, 0.7rem);
+      color: rgba(250,250,250,0.4);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .ad-1 .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: clamp(0.65rem, 0.9vw, 0.8rem);
+      font-weight: 600;
+      color: #0a0a0a;
+      background: #fafafa;
+      padding: 0.55rem 1.1rem;
+      border-radius: 6px;
+      width: fit-content;
+      letter-spacing: 0.01em;
+    }
+
+    .ad-1 .divider-line {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .ad-1 .sub {
+      font-size: clamp(0.6rem, 0.85vw, 0.72rem);
+      color: rgba(250,250,250,0.35);
+      line-height: 1.6;
+      letter-spacing: 0.01em;
+    }
+
+    /* ─── AD 2: TRANSFORMATION ───────────────────────────────────────── */
+    .ad-2 {
+      background-color: #ffffff;
+      color: #0a0a0a;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 6% 7%;
+      border: 1px solid #e5e5e5;
+    }
+
+    .ad-2 .top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .ad-2 .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: clamp(0.6rem, 0.8vw, 0.72rem);
+      font-weight: 500;
+      color: #737373;
+      border: 1px solid #e5e5e5;
+      border-radius: 999px;
+      padding: 0.25rem 0.75rem;
+    }
+
+    .ad-2 .badge-dot {
+      width: 6px; height: 6px;
+      background: #22c55e;
+      border-radius: 50%;
+    }
+
+    .ad-2 .logo {
+      height: clamp(18px, 2vw, 26px);
+      width: auto;
+      opacity: 0.7;
+    }
+
+    .ad-2 .middle {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .ad-2 .headline {
+      font-size: clamp(1.5rem, 3.2vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+
+    .ad-2 .headline .muted { color: #a3a3a3; }
+
+    .ad-2 .sub {
+      font-size: clamp(0.65rem, 0.9vw, 0.8rem);
+      color: #737373;
+      max-width: 55ch;
+      line-height: 1.6;
+    }
+
+    .ad-2 .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ad-2 .services {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .ad-2 .service-pill {
+      font-size: clamp(0.55rem, 0.75vw, 0.68rem);
+      font-weight: 500;
+      color: #171717;
+      background: #f5f5f5;
+      border: 1px solid #e5e5e5;
+      border-radius: 4px;
+      padding: 0.2rem 0.55rem;
+      letter-spacing: 0.01em;
+    }
+
+    .ad-2 .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: clamp(0.65rem, 0.85vw, 0.78rem);
+      font-weight: 600;
+      color: #fafafa;
+      background: #171717;
+      padding: 0.55rem 1.1rem;
+      border-radius: 6px;
+      white-space: nowrap;
+      letter-spacing: 0.01em;
+    }
+
+    /* ─── AD 3: CREDIBILITY ──────────────────────────────────────────── */
+    .ad-3 {
+      background-color: #0a0a0a;
+      color: #fafafa;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 6% 7%;
+    }
+
+    .ad-3 .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ad-3 .logo {
+      height: clamp(18px, 2.2vw, 28px);
+      width: auto;
+      filter: invert(1);
+      opacity: 0.5;
+    }
+
+    .ad-3 .badge {
+      font-size: clamp(0.55rem, 0.78vw, 0.7rem);
+      font-weight: 500;
+      color: rgba(250,250,250,0.4);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 999px;
+      padding: 0.25rem 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .ad-3 .middle {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .ad-3 .headline {
+      font-size: clamp(1.5rem, 3.2vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+
+    .ad-3 .headline .dim { color: rgba(250,250,250,0.35); }
+
+    .ad-3 .sub {
+      font-size: clamp(0.62rem, 0.85vw, 0.75rem);
+      color: rgba(250,250,250,0.4);
+      line-height: 1.65;
+      max-width: 52ch;
+    }
+
+    .ad-3 .bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .ad-3 .service-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .ad-3 .service-row {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: clamp(0.6rem, 0.82vw, 0.73rem);
+      font-weight: 500;
+      color: rgba(250,250,250,0.55);
+    }
+
+    .ad-3 .service-row::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(250,250,250,0.25);
+      flex-shrink: 0;
+    }
+
+    .ad-3 .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: clamp(0.62rem, 0.85vw, 0.78rem);
+      font-weight: 600;
+      color: #0a0a0a;
+      background: #fafafa;
+      padding: 0.55rem 1.1rem;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    /* ─── LINKEDIN COPY BLOCK ────────────────────────────────────────── */
+    .copy-block {
+      width: 1200px;
+      max-width: 100%;
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+    }
+
+    .copy-block h3 {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+
+    .copy-field {
+      margin-bottom: 1rem;
+    }
+
+    .copy-field label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #a3a3a3;
+      margin-bottom: 0.35rem;
+    }
+
+    .copy-field p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #171717;
+      padding: 0.75rem 1rem;
+      background: #fafafa;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+    }
+
+    .char-count {
+      font-size: 0.65rem;
+      color: #a3a3a3;
+      margin-top: 0.2rem;
+    }
+
+    /* ─── AD GROUP WRAPPER ───────────────────────────────────────────── */
+    .ad-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      width: 1200px;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─────────────────────────────────────────────────────────────────
+       AD 1: PAIN-FOCUSED
+       ───────────────────────────────────────────────────────────────── -->
+  <div class="ad-group">
+    <div class="label">Ad 1 / 3 — Pain-Focused (1200×627)</div>
+
+    <div class="ad ad-1">
+      <div class="left">
+        <div>
+          <div class="badge">VforViktor</div>
+        </div>
+        <h2 class="headline">
+          Good ideas<br>don't grow<br>businesses.<br>
+          <span class="dim">Execution does.</span>
+        </h2>
+        <img src="brand_assets/VforViktor_logo.png" class="logo" alt="VforViktor" />
+      </div>
+      <div class="right">
+        <div class="stat-block">
+          <span class="stat-num">78%</span>
+          <span class="stat-label">of brands have strategy. Few execute it.</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">3×</span>
+          <span class="stat-label">faster to market with done-for-you execution</span>
+        </div>
+        <div class="divider-line"></div>
+        <p class="sub">Marketing · AI · Ads · Design · Automations · Landing Pages</p>
+        <a class="cta">Book a Strategy Call &rarr;</a>
+      </div>
+    </div>
+
+    <div class="copy-block">
+      <h3>LinkedIn Post Copy — Ad 1 (Pain)</h3>
+      <div class="copy-field">
+        <label>Intro text (150 chars rec.)</label>
+        <p>Most brands don't have a marketing problem. They have an execution problem. Here's what's actually costing you growth.</p>
+        <div class="char-count">112 characters</div>
+      </div>
+      <div class="copy-field">
+        <label>Headline (70 chars rec.)</label>
+        <p>Good ideas don't grow businesses. Execution does.</p>
+        <div class="char-count">50 characters</div>
+      </div>
+      <div class="copy-field">
+        <label>Description (100 chars rec.)</label>
+        <p>Done-for-you marketing, AI, ads, and automations. VforViktor closes the gap.</p>
+        <div class="char-count">78 characters</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────────────────
+       AD 2: TRANSFORMATION-FOCUSED
+       ───────────────────────────────────────────────────────────────── -->
+  <div class="ad-group">
+    <div class="label">Ad 2 / 3 — Transformation-Focused (1200×627)</div>
+
+    <div class="ad ad-2">
+      <div class="top">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Open for new projects
+        </div>
+        <img src="brand_assets/VforViktor_logo.png" class="logo" alt="VforViktor" />
+      </div>
+
+      <div class="middle">
+        <h2 class="headline">
+          From overwhelmed<br>
+          <span class="muted">to growing.</span>
+        </h2>
+        <p class="sub">
+          You have the ideas. VforViktor handles the execution — strategy, AI systems, ads, design, and landing pages that convert. One team, end to end.
+        </p>
+      </div>
+
+      <div class="bottom">
+        <div class="services">
+          <span class="service-pill">Marketing</span>
+          <span class="service-pill">AI Implementation</span>
+          <span class="service-pill">Paid Ads</span>
+          <span class="service-pill">Design</span>
+          <span class="service-pill">Automations</span>
+          <span class="service-pill">Landing Pages</span>
+        </div>
+        <a class="cta">Book a Call &rarr;</a>
+      </div>
+    </div>
+
+    <div class="copy-block">
+      <h3>LinkedIn Post Copy — Ad 2 (Transformation)</h3>
+      <div class="copy-field">
+        <label>Intro text (150 chars rec.)</label>
+        <p>The gap between your strategy and your results isn't a knowledge problem. It's an execution problem. That's what we solve.</p>
+        <div class="char-count">124 characters</div>
+      </div>
+      <div class="copy-field">
+        <label>Headline (70 chars rec.)</label>
+        <p>From overwhelmed to growing — without hiring a team.</p>
+        <div class="char-count">52 characters</div>
+      </div>
+      <div class="copy-field">
+        <label>Description (100 chars rec.)</label>
+        <p>Marketing, AI, ads, design, automations. Done for you. Open for new projects.</p>
+        <div class="char-count">79 characters</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────────────────
+       AD 3: CREDIBILITY-FOCUSED
+       ───────────────────────────────────────────────────────────────── -->
+  <div class="ad-group">
+    <div class="label">Ad 3 / 3 — Credibility-Focused (1200×627)</div>
+
+    <div class="ad ad-3">
+      <div class="top">
+        <img src="brand_assets/VforViktor_logo.png" class="logo" alt="VforViktor" />
+        <div class="badge">Marketing &amp; AI Consultancy</div>
+      </div>
+
+      <div class="middle">
+        <h2 class="headline">
+          One team.<br>
+          Every lever<br>
+          <span class="dim">that grows brands.</span>
+        </h2>
+        <p class="sub">
+          No agencies to brief. No contractors to manage. No gaps between strategy and execution. Just the work — done right.
+        </p>
+      </div>
+
+      <div class="bottom">
+        <div class="service-list">
+          <span class="service-row">Marketing Strategy &amp; Positioning</span>
+          <span class="service-row">AI Implementation &amp; Automation</span>
+          <span class="service-row">Paid Ads — Meta, Google, TikTok</span>
+          <span class="service-row">Brand Design &amp; Landing Pages</span>
+        </div>
+        <a class="cta">Book a Strategy Call &rarr;</a>
+      </div>
+    </div>
+
+    <div class="copy-block">
+      <h3>LinkedIn Post Copy — Ad 3 (Credibility)</h3>
+      <div class="copy-field">
+        <label>Intro text (150 chars rec.)</label>
+        <p>Stop briefing five different agencies for work that should move together. Here's how ambitious brands grow without the overhead.</p>
+        <div class="char-count">131 characters</div>
+      </div>
+      <div class="copy-field">
+        <label>Headline (70 chars rec.)</label>
+        <p>One team. Every growth lever your brand needs.</p>
+        <div class="char-count">46 characters</div>
+      </div>
+      <div class="copy-field">
+        <label>Description (100 chars rec.)</label>
+        <p>Marketing, AI, ads, design, automations — no handoffs, no gaps. VforViktor.</p>
+        <div class="char-count">77 characters</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
