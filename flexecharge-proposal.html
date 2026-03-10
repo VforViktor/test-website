@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlexeCharge × Growth Partnership — Expanded Scope Proposal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --deep-blue: #1C2B35;
+    --turquoise: #00DBDB;
+    --rose: #F79494;
+    --gray: #DADADA;
+    --mid-blue: #243545;
+    --light-blue: #2E4558;
+    --white: #FFFFFF;
+    --off-white: #F5F8FA;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--deep-blue);
+    color: var(--white);
+    line-height: 1.6;
+  }
+
+  /* ─── COVER ─────────────────────────────────────────── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(0,219,219,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(247,148,148,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .logo-mark {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 60px;
+  }
+
+  .bar { height: 6px; border-radius: 3px; }
+  .bar-1 { width: 120px; background: var(--turquoise); }
+  .bar-2 { width: 80px; background: var(--rose); }
+  .bar-3 { width: 120px; background: var(--turquoise); }
+
+  .cover-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--turquoise);
+    margin-bottom: 24px;
+  }
+
+  .cover h1 {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+  }
+
+  .cover h1 strong { font-weight: 700; color: var(--turquoise); }
+
+  .cover-sub {
+    font-size: 18px;
+    color: var(--gray);
+    font-weight: 300;
+    margin-bottom: 60px;
+    max-width: 500px;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 60px;
+  }
+
+  .cover-meta-item label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--turquoise);
+    margin-bottom: 6px;
+  }
+
+  .cover-meta-item span {
+    font-size: 15px;
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .cover-price {
+    position: absolute;
+    right: 80px;
+    bottom: 80px;
+    text-align: right;
+  }
+
+  .cover-price .price-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 8px;
+  }
+
+  .cover-price .price-amount {
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .cover-price .price-period {
+    font-size: 16px;
+    color: var(--turquoise);
+    font-weight: 400;
+  }
+
+  /* ─── SECTIONS ──────────────────────────────────────── */
+  section {
+    padding: 80px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  section.light {
+    background: var(--off-white);
+    color: var(--deep-blue);
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--turquoise);
+    margin-bottom: 16px;
+  }
+
+  .section-label.dark { color: var(--deep-blue); opacity: 0.5; }
+
+  h2 {
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+  }
+
+  .section-intro {
+    font-size: 17px;
+    color: rgba(255,255,255,0.65);
+    max-width: 620px;
+    margin-bottom: 56px;
+    line-height: 1.7;
+  }
+
+  .section-intro.dark-text { color: rgba(28,43,53,0.65); }
+
+  /* ─── OPPORTUNITY BLOCK ─────────────────────────────── */
+  .opportunity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .opp-card {
+    background: var(--mid-blue);
+    padding: 40px;
+  }
+
+  .opp-card:first-child { border-radius: 12px 0 0 0; }
+  .opp-card:nth-child(2) { border-radius: 0 12px 0 0; }
+  .opp-card:nth-child(3) { border-radius: 0 0 0 12px; }
+  .opp-card:last-child { border-radius: 0 0 12px 0; }
+
+  .opp-card .opp-number {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--turquoise);
+    margin-bottom: 16px;
+  }
+
+  .opp-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--white);
+  }
+
+  .opp-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+  }
+
+  .opp-card .opp-tag {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background: rgba(0,219,219,0.12);
+    color: var(--turquoise);
+    border: 1px solid rgba(0,219,219,0.25);
+  }
+
+  /* ─── SCOPE TABLE ───────────────────────────────────── */
+  .scope-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .scope-card {
+    background: var(--mid-blue);
+    border-radius: 12px;
+    padding: 36px;
+    border: 1px solid rgba(0,219,219,0.1);
+    position: relative;
+  }
+
+  .scope-card.featured {
+    border-color: var(--turquoise);
+    background: linear-gradient(145deg, #243545, #1C2B35);
+  }
+
+  .scope-card.featured::before {
+    content: 'NEW';
+    position: absolute;
+    top: -12px; right: 24px;
+    background: var(--turquoise);
+    color: var(--deep-blue);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border-radius: 10px;
+  }
+
+  .scope-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: rgba(0,219,219,0.12);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  .scope-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+
+  .scope-card p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .scope-list {
+    list-style: none;
+  }
+
+  .scope-list li {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.65);
+    padding: 7px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+
+  .scope-list li::before {
+    content: '→';
+    color: var(--turquoise);
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ─── AD CREATIVE SAMPLES ───────────────────────────── */
+  .ads-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .ad-card {
+    background: var(--mid-blue);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .ad-preview {
+    background: var(--deep-blue);
+    padding: 32px 28px;
+    min-height: 200px;
+    position: relative;
+    border-bottom: 3px solid var(--turquoise);
+  }
+
+  .ad-preview.rose-accent { border-bottom-color: var(--rose); }
+
+  .ad-eyebrow {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--turquoise);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .ad-headline {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .ad-headline .turq { color: var(--turquoise); }
+  .ad-headline .rose-col { color: var(--rose); }
+
+  .ad-body-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .ad-cta {
+    display: inline-block;
+    background: var(--turquoise);
+    color: var(--deep-blue);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 30px;
+    letter-spacing: 0.3px;
+  }
+
+  .ad-cta.ghost {
+    background: transparent;
+    border: 1.5px solid var(--turquoise);
+    color: var(--turquoise);
+  }
+
+  .ad-meta {
+    padding: 18px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .ad-meta-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .ad-meta-format {
+    font-size: 11px;
+    background: rgba(0,219,219,0.1);
+    color: var(--turquoise);
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .ad-card.wide {
+    grid-column: 1 / -1;
+  }
+
+  .carousel-frames {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--deep-blue);
+    border-bottom: 3px solid var(--turquoise);
+  }
+
+  .carousel-frame {
+    padding: 24px 20px;
+    background: var(--mid-blue);
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .carousel-frame:first-child { background: var(--deep-blue); }
+
+  .frame-num {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 8px;
+  }
+
+  .carousel-frame h4 {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--white);
+  }
+
+  .carousel-frame h4 span { color: var(--turquoise); }
+
+  .carousel-frame p {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+    margin-top: 8px;
+  }
+
+  /* ─── EMAIL FLOW ─────────────────────────────────────── */
+  .email-flow {
+    position: relative;
+    margin-top: 48px;
+  }
+
+  .email-flow::before {
+    content: '';
+    position: absolute;
+    left: 27px;
+    top: 44px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--turquoise), rgba(0,219,219,0.1));
+  }
+
+  .email-step {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .email-step-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--mid-blue);
+    border: 2px solid var(--turquoise);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--turquoise);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .email-content {
+    background: var(--mid-blue);
+    border-radius: 12px;
+    padding: 28px 32px;
+    flex: 1;
+    border: 1px solid rgba(0,219,219,0.08);
+  }
+
+  .email-timing {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--turquoise);
+    margin-bottom: 8px;
+  }
+
+  .email-content h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--white);
+  }
+
+  .email-subject {
+    font-size: 13px;
+    font-style: italic;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 12px;
+  }
+
+  .email-content p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+  }
+
+  .email-goal {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--rose);
+    background: rgba(247,148,148,0.1);
+    padding: 4px 12px;
+    border-radius: 8px;
+  }
+
+  /* ─── LANDING PAGE COPY ──────────────────────────────── */
+  .lp-preview {
+    background: var(--deep-blue);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(0,219,219,0.15);
+    margin-top: 48px;
+  }
+
+  .lp-nav {
+    background: rgba(255,255,255,0.04);
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .lp-nav-logo {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--turquoise);
+    letter-spacing: 1px;
+  }
+
+  .lp-nav-cta {
+    font-size: 12px;
+    background: var(--turquoise);
+    color: var(--deep-blue);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+  }
+
+  .lp-hero {
+    padding: 80px 80px 60px;
+    text-align: center;
+    position: relative;
+  }
+
+  .lp-hero-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--turquoise);
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  .lp-hero h2 {
+    font-size: clamp(30px, 4vw, 52px);
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .lp-hero p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.6);
+    max-width: 540px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+
+  .lp-form-preview {
+    background: var(--mid-blue);
+    border-radius: 12px;
+    padding: 32px;
+    max-width: 440px;
+    margin: 0 auto;
+    border: 1px solid rgba(0,219,219,0.2);
+    text-align: left;
+  }
+
+  .lp-form-preview h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--white);
+  }
+
+  .form-field {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .form-submit {
+    width: 100%;
+    background: var(--turquoise);
+    color: var(--deep-blue);
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 8px;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+  }
+
+  .lp-social-proof {
+    padding: 32px 80px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .lp-social-proof-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .lp-logos {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .lp-logo-pill {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.05);
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .lp-benefits {
+    padding: 60px 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .lp-benefit h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--turquoise);
+  }
+
+  .lp-benefit p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  /* ─── TESTING FRAMEWORK ──────────────────────────────── */
+  .testing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .test-phase {
+    background: var(--mid-blue);
+    border-radius: 12px;
+    padding: 32px;
+    border-left: 3px solid var(--turquoise);
+  }
+
+  .test-phase.phase-2 { border-left-color: var(--rose); }
+
+  .test-phase h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--white);
+  }
+
+  .test-phase-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--turquoise);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .test-phase.phase-2 .test-phase-label { color: var(--rose); }
+
+  .test-phase ul {
+    list-style: none;
+  }
+
+  .test-phase ul li {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    padding: 8px 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    gap: 10px;
+    line-height: 1.5;
+  }
+
+  .test-phase ul li::before {
+    content: '↗';
+    color: var(--turquoise);
+    flex-shrink: 0;
+  }
+
+  .test-phase.phase-2 ul li::before { color: var(--rose); }
+
+  .velocity-bar {
+    background: var(--mid-blue);
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    overflow: hidden;
+  }
+
+  .velocity-item {
+    padding: 24px 28px;
+    background: rgba(255,255,255,0.02);
+    text-align: center;
+  }
+
+  .velocity-item .v-num {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--turquoise);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .velocity-item .v-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.4;
+  }
+
+  /* ─── PRICING ────────────────────────────────────────── */
+  .pricing-section {
+    background: var(--mid-blue);
+  }
+
+  .pricing-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .pricing-card {
+    background: var(--deep-blue);
+    border-radius: 16px;
+    padding: 40px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .pricing-card.current {
+    opacity: 0.7;
+  }
+
+  .pricing-card.new-scope {
+    border-color: var(--turquoise);
+    position: relative;
+  }
+
+  .pricing-card.new-scope::before {
+    content: 'PROPOSED';
+    position: absolute;
+    top: -14px; left: 32px;
+    background: var(--turquoise);
+    color: var(--deep-blue);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 5px 16px;
+    border-radius: 10px;
+  }
+
+  .pricing-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 20px;
+  }
+
+  .pricing-amount {
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .pricing-amount span {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--gray);
+  }
+
+  .pricing-period {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 32px;
+  }
+
+  .pricing-features {
+    list-style: none;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .pricing-features li {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.6);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .pricing-features li .check {
+    color: var(--turquoise);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .pricing-features li.new-item .check {
+    color: var(--rose);
+  }
+
+  .pricing-features li.new-item {
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+  }
+
+  .pricing-delta {
+    margin-top: 48px;
+    background: rgba(0,219,219,0.06);
+    border: 1px solid rgba(0,219,219,0.2);
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .pricing-delta h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .pricing-delta p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    max-width: 500px;
+    line-height: 1.6;
+  }
+
+  .delta-num {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .delta-num .delta-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--turquoise);
+    margin-bottom: 8px;
+  }
+
+  .delta-num .delta-amount {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--turquoise);
+    line-height: 1;
+  }
+
+  .delta-num .delta-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* ─── CLOSING ────────────────────────────────────────── */
+  .closing {
+    text-align: center;
+    padding: 100px 80px;
+  }
+
+  .closing h2 {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+  }
+
+  .closing p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.55);
+    max-width: 500px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+  }
+
+  .cta-pill {
+    display: inline-block;
+    background: var(--turquoise);
+    color: var(--deep-blue);
+    font-weight: 700;
+    font-size: 16px;
+    padding: 18px 48px;
+    border-radius: 50px;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+  }
+
+  .closing-bar {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 64px;
+  }
+
+  /* ─── DIVIDER ────────────────────────────────────────── */
+  .divider-bar {
+    height: 4px;
+    background: linear-gradient(to right, var(--turquoise), var(--rose), var(--turquoise));
+  }
+
+  /* ─── UTILS ──────────────────────────────────────────── */
+  .mt-8 { margin-top: 8px; }
+  .mt-16 { margin-top: 16px; }
+  .mt-24 { margin-top: 24px; }
+  .mt-48 { margin-top: 48px; }
+
+  .text-turq { color: var(--turquoise); }
+  .text-rose { color: var(--rose); }
+  .text-muted { color: rgba(255,255,255,0.5); }
+
+  @media (max-width: 900px) {
+    section { padding: 48px 32px; }
+    .cover { padding: 48px 32px; }
+    .opportunity-grid { grid-template-columns: 1fr; }
+    .scope-grid { grid-template-columns: 1fr; }
+    .ads-grid { grid-template-columns: 1fr; }
+    .carousel-frames { grid-template-columns: 1fr 1fr; }
+    .testing-grid { grid-template-columns: 1fr; }
+    .pricing-table { grid-template-columns: 1fr; }
+    .lp-benefits { grid-template-columns: 1fr; }
+    .lp-hero { padding: 48px 32px; }
+    .lp-social-proof { padding: 24px 32px; flex-direction: column; gap: 16px; }
+    .cover-meta { flex-direction: column; gap: 24px; }
+    .cover-price { position: static; text-align: left; margin-top: 48px; }
+    .pricing-delta { flex-direction: column; }
+    .delta-num { text-align: left; }
+    .velocity-bar { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ COVER ══════════════════ -->
+<div class="cover">
+  <div class="logo-mark">
+    <div class="bar bar-1"></div>
+    <div class="bar bar-2"></div>
+    <div class="bar bar-3"></div>
+  </div>
+
+  <div class="cover-label">Growth Partnership — Updated Scope</div>
+  <h1>From ads.<br><strong>To a full growth engine.</strong></h1>
+  <p class="cover-sub">A proposal to expand your marketing infrastructure — faster creative testing, higher-converting funnels, and a systematic email engine that works while you sleep.</p>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <label>Prepared for</label>
+      <span>FlexeCharge Founder</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Date</label>
+      <span>March 2026</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Current engagement</label>
+      <span>LinkedIn Ads — DKK 10,000/mo</span>
+    </div>
+  </div>
+
+  <div class="cover-price">
+    <div class="price-label">New Monthly Retainer</div>
+    <div class="price-amount">18.000 <span class="price-period">DKK/mo</span></div>
+  </div>
+</div>
+<div class="divider-bar"></div>
+
+
+<!-- ══════════════════ THE OPPORTUNITY ══════════════════ -->
+<section>
+  <div class="section-label">Context</div>
+  <h2>You have traction.<br>You're missing the system.</h2>
+  <p class="section-intro">The LinkedIn ads are working. But right now you're running a single channel with no funnel beneath it, no email engine nurturing leads, and creative testing that moves too slowly to compound learnings. Kasia's departure is the moment to build this properly — not hire back the same role.</p>
+
+  <div class="opportunity-grid">
+    <div class="opp-card">
+      <div class="opp-number">01</div>
+      <h3>Ad creative is a bottleneck</h3>
+      <p>Without in-house design capability in the retainer, each new creative variation requires a separate brief, delay, and back-and-forth. You can't test fast enough to find winning angles.</p>
+      <span class="opp-tag">Solved: Ad Creative Design</span>
+    </div>
+    <div class="opp-card">
+      <div class="opp-number">02</div>
+      <h3>Paid leads go cold without email</h3>
+      <p>CPOs and energy operators don't buy in a single visit. Without an automated email sequence, every lead captured from a whitepaper download or demo request is left to go cold.</p>
+      <span class="opp-tag">Solved: Email Flow Optimisation</span>
+    </div>
+    <div class="opp-card">
+      <div class="opp-number">03</div>
+      <h3>No dedicated landing pages = wasted spend</h3>
+      <p>Sending LinkedIn ad traffic to the homepage dilutes intent. Purpose-built landing pages tied to each ad angle dramatically improve conversion rates and reduce CPL.</p>
+      <span class="opp-tag">Solved: Funnel Landing Pages</span>
+    </div>
+    <div class="opp-card">
+      <div class="opp-number">04</div>
+      <h3>Creative testing is slow and ad-hoc</h3>
+      <p>Currently there's no structured test-and-learn cadence. This means it takes months instead of weeks to identify what messaging and visual style converts, burning budget in the process.</p>
+      <span class="opp-tag">Solved: Creative Testing Framework</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════ SCOPE ══════════════════ -->
+<section>
+  <div class="section-label">What's included</div>
+  <h2>Six pillars.<br>One retainer.</h2>
+  <p class="section-intro">Everything below is covered at DKK 18,000/month — replacing Kasia's role and the need for a separate creative agency or email consultant.</p>
+
+  <div class="scope-grid">
+    <div class="scope-card">
+      <div class="scope-icon">📣</div>
+      <h3>LinkedIn Ads Management</h3>
+      <p>Continued campaign management, audience refinement, bid optimisation, and weekly performance reporting.</p>
+      <ul class="scope-list">
+        <li>Audience segmentation (CPOs, utilities, fleet operators)</li>
+        <li>A/B testing of copy angles every 2 weeks</li>
+        <li>Budget allocation across campaign objectives</li>
+        <li>Weekly performance dashboard</li>
+        <li>Monthly strategy review</li>
+      </ul>
+    </div>
+
+    <div class="scope-card featured">
+      <div class="scope-icon">🎨</div>
+      <h3>Ad Creative Design</h3>
+      <p>On-brand creative production for every ad variant — no more waiting on a separate designer. Built to the FlexeCharge brand system.</p>
+      <ul class="scope-list">
+        <li>6–8 new creative variants/month (single, carousel, video stills)</li>
+        <li>Full brand compliance — your exact colors, typography, mark</li>
+        <li>Dark/light version pairs for testing</li>
+        <li>Case study creative for Q8, E.ON, Electra, Recharge</li>
+        <li>Story + feed formats for all placements</li>
+      </ul>
+    </div>
+
+    <div class="scope-card featured">
+      <div class="scope-icon">✉️</div>
+      <h3>Email Flow Optimisation</h3>
+      <p>A 5-email automated nurture sequence that converts whitepaper downloads and demo requests into qualified pipeline.</p>
+      <ul class="scope-list">
+        <li>Welcome + value delivery sequence</li>
+        <li>BESS ROI education series</li>
+        <li>Case study delivery (Q8, Electra, E.ON)</li>
+        <li>Demo request trigger email</li>
+        <li>Re-engagement flow for cold leads</li>
+      </ul>
+    </div>
+
+    <div class="scope-card featured">
+      <div class="scope-icon">🏗️</div>
+      <h3>Conversion Landing Pages</h3>
+      <p>Purpose-built pages for each major ad angle — not your homepage. Each page is copy + structure, ready to hand to your dev.</p>
+      <ul class="scope-list">
+        <li>Demo request page (product-led)</li>
+        <li>Whitepaper download page (lead-gen)</li>
+        <li>BESS ROI calculator landing page</li>
+        <li>Case study feature pages</li>
+        <li>A/B test variants for headline + CTA</li>
+      </ul>
+    </div>
+
+    <div class="scope-card featured">
+      <div class="scope-icon">⚡</div>
+      <h3>Creative Testing Framework</h3>
+      <p>A systematic 4-week sprint model that tells you — with data — what message wins, what format wins, and what to kill.</p>
+      <ul class="scope-list">
+        <li>Structured hypothesis-based creative briefs</li>
+        <li>4 variables tested simultaneously per sprint</li>
+        <li>Statistical significance threshold before scaling</li>
+        <li>Monthly winner report and scaling plan</li>
+        <li>Creative angle library that compounds over time</li>
+      </ul>
+    </div>
+
+    <div class="scope-card">
+      <div class="scope-icon">📊</div>
+      <h3>Copy & Messaging Strategy</h3>
+      <p>Quarterly messaging reviews ensuring your positioning stays sharp against the competitive EV charging software landscape.</p>
+      <ul class="scope-list">
+        <li>Homepage and product page copy review</li>
+        <li>LinkedIn organic post copy (4/month)</li>
+        <li>New feature and product launch copywriting</li>
+        <li>Competitor positioning analysis</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════ AD CREATIVE SAMPLES ══════════════════ -->
+<section>
+  <div class="section-label">Deliverable Sample — Ad Creative</div>
+  <h2>New creative angles,<br>ready to test.</h2>
+  <p class="section-intro">Here are five LinkedIn ad concepts, written and structured to your brand, ready for design production. Each tests a distinct psychological angle.</p>
+
+  <div class="ads-grid">
+
+    <!-- AD 1: Problem / Consequence -->
+    <div class="ad-card">
+      <div class="ad-preview">
+        <div class="ad-eyebrow">FlexeCharge · HARMON-E Platform</div>
+        <div class="ad-headline">Your grid connection<br>is <span class="turq">costing you more</span><br>than it should.</div>
+        <div class="ad-body-text">Most CPOs are overpaying for peak demand that BESS and smart load management could eliminate. See what intelligent energy management changes for operators like you.</div>
+        <a class="ad-cta">Calculate your savings →</a>
+      </div>
+      <div class="ad-meta">
+        <span class="ad-meta-label">Angle: Loss aversion / Cost pain</span>
+        <span class="ad-meta-format">1200×628</span>
+      </div>
+    </div>
+
+    <!-- AD 2: Outcome / Aspiration -->
+    <div class="ad-card">
+      <div class="ad-preview rose-accent">
+        <div class="ad-eyebrow">FlexeCharge · For Charge Point Operators</div>
+        <div class="ad-headline"><span class="turq">OPEN.</span><br><span class="turq">CHARGE.</span><br><span class="rose-col">EARN MORE.</span></div>
+        <div class="ad-body-text">Q8 didn't just build an EV network. They built a revenue-generating energy hub. The difference? Charge Point Intelligence.</div>
+        <a class="ad-cta ghost">See the Q8 case study →</a>
+      </div>
+      <div class="ad-meta">
+        <span class="ad-meta-label">Angle: Social proof / Aspiration</span>
+        <span class="ad-meta-format">1080×1080</span>
+      </div>
+    </div>
+
+    <!-- AD 3: Stat Hook -->
+    <div class="ad-card">
+      <div class="ad-preview">
+        <div class="ad-eyebrow">FlexeCharge · Energy Intelligence</div>
+        <div class="ad-headline">Compliance is<br>step one.<br><span class="turq">Revenue is step two.</span></div>
+        <div class="ad-body-text">European grid regulations are tightening. Operators who treat this as an energy strategy moment — not just a compliance checkbox — are unlocking new revenue streams through FCR-D and aFFR flexibility markets.</div>
+        <a class="ad-cta">Get the free guide →</a>
+      </div>
+      <div class="ad-meta">
+        <span class="ad-meta-label">Angle: Reframe / Opportunity</span>
+        <span class="ad-meta-format">1200×628</span>
+      </div>
+    </div>
+
+    <!-- AD 4: Fear / Risk -->
+    <div class="ad-card">
+      <div class="ad-preview rose-accent">
+        <div class="ad-eyebrow">FlexeCharge · For Energy Providers</div>
+        <div class="ad-headline">Building a<br>charging network<br><span class="rose-col">without EMS?</span></div>
+        <div class="ad-body-text">Grid capacity is the #1 barrier to scaling EV infrastructure. Without intelligent load management, your sites hit ceilings you didn't plan for. See how HARMON-E removes them.</div>
+        <a class="ad-cta">Book a 20-min demo →</a>
+      </div>
+      <div class="ad-meta">
+        <span class="ad-meta-label">Angle: Fear / Risk aversion</span>
+        <span class="ad-meta-format">1080×1080</span>
+      </div>
+    </div>
+
+    <!-- AD 5: Carousel -->
+    <div class="ad-card wide">
+      <div class="carousel-frames">
+        <div class="carousel-frame" style="background: var(--deep-blue);">
+          <div>
+            <div class="frame-num">SLIDE 01 / 04</div>
+            <h4>Your EV charging site could be generating <span>3 revenue streams</span>. Is it?</h4>
+          </div>
+          <p>Swipe to see how →</p>
+        </div>
+        <div class="carousel-frame">
+          <div>
+            <div class="frame-num">SLIDE 02 / 04</div>
+            <h4><span>Revenue stream 1:</span> Charging fees</h4>
+          </div>
+          <p>The obvious one. But it doesn't have to be the only one.</p>
+        </div>
+        <div class="carousel-frame">
+          <div>
+            <div class="frame-num">SLIDE 03 / 04</div>
+            <h4><span>Revenue stream 2:</span> Grid flexibility markets</h4>
+          </div>
+          <p>FCR-D, aFFR, peak shaving — your BESS can earn money selling capacity back to the grid.</p>
+        </div>
+        <div class="carousel-frame">
+          <div>
+            <div class="frame-num">SLIDE 04 / 04</div>
+            <h4><span>Revenue stream 3:</span> Demand charge elimination</h4>
+          </div>
+          <p>Intelligent load management cuts your biggest cost. That margin is yours to keep. → Get the white paper</p>
+        </div>
+      </div>
+      <div class="ad-meta">
+        <span class="ad-meta-label">Angle: Education / Curiosity loop</span>
+        <span class="ad-meta-format">LinkedIn Carousel · 1080×1080 each</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════ EMAIL FLOW ══════════════════ -->
+<section>
+  <div class="section-label">Deliverable Sample — Email Flow</div>
+  <h2>5 emails that convert<br>downloads into demos.</h2>
+  <p class="section-intro">Triggered when a lead downloads the BESS white paper or requests content. Each email does one job. The sequence is designed for a 14-day window with the right amount of friction at each step.</p>
+
+  <div class="email-flow">
+
+    <div class="email-step">
+      <div class="email-step-num">1</div>
+      <div class="email-content">
+        <div class="email-timing">Immediate — Day 0</div>
+        <h3>Deliver the value, fast.</h3>
+        <div class="email-subject">Subject: "Your BESS guide + one thing most operators miss"</div>
+        <p>Delivers the white paper instantly. Opens with a single insight from the guide that most operators get wrong — peak demand charges vs. grid flexibility revenue. Short, high-value, no sales pressure. CTA: read section 3 of the guide.</p>
+        <span class="email-goal">Goal: open rate + content consumption</span>
+      </div>
+    </div>
+
+    <div class="email-step">
+      <div class="email-step-num">2</div>
+      <div class="email-content">
+        <div class="email-timing">Day 3</div>
+        <h3>The proof. Not your words — theirs.</h3>
+        <div class="email-subject">Subject: "How Q8 turned a compliance headache into a revenue stream"</div>
+        <p>One case study, told as a short narrative. The before (scarce grid capacity, rising costs) → the after (HARMON-E deployed, peak shaving active, new flexibility market income). Closes with a quote from the Q8 team. CTA: see the full case.</p>
+        <span class="email-goal">Goal: credibility + interest signal</span>
+      </div>
+    </div>
+
+    <div class="email-step">
+      <div class="email-step-num">3</div>
+      <div class="email-content">
+        <div class="email-timing">Day 6</div>
+        <h3>The ROI question.</h3>
+        <div class="email-subject">Subject: "What does intelligent EMS actually cost you not to have?"</div>
+        <p>Reframes the cost of inaction. Uses concrete numbers — typical demand charge savings, flexibility market revenue benchmarks, uptime improvement. Not a pitch — a calculation framing. CTA: book a 20-minute site analysis call.</p>
+        <span class="email-goal">Goal: move from awareness to consideration</span>
+      </div>
+    </div>
+
+    <div class="email-step">
+      <div class="email-step-num">4</div>
+      <div class="email-content">
+        <div class="email-timing">Day 10</div>
+        <h3>Objection handling, pre-emptively.</h3>
+        <div class="email-subject">Subject: "The 3 questions operators always ask us before signing"</div>
+        <p>"Does it work with our existing chargers?" (Yes — vendor-agnostic via OCPP.) "What does deployment look like?" (GATEWAY on-site, online in days.) "What if our grid connectivity drops?" (Local offline operation is built in.) One tight FAQ email that dismantles hesitation without a sales call.</p>
+        <span class="email-goal">Goal: reduce friction, increase demo bookings</span>
+      </div>
+    </div>
+
+    <div class="email-step">
+      <div class="email-step-num">5</div>
+      <div class="email-content">
+        <div class="email-timing">Day 14</div>
+        <h3>The direct ask. One clear CTA.</h3>
+        <div class="email-subject">Subject: "Worth 20 minutes?"</div>
+        <p>Short, personal tone. No fluff. "You downloaded our guide two weeks ago — I don't know if the timing was right then, but if you're thinking about energy strategy for your charging network, I'd like to show you what we're doing for operators like yours. 20 minutes. No deck." One CTA button: Book a call.</p>
+        <span class="email-goal">Goal: demo conversion</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════ LANDING PAGE ══════════════════ -->
+<section>
+  <div class="section-label">Deliverable Sample — Landing Page</div>
+  <h2>A page built to convert,<br>not to impress.</h2>
+  <p class="section-intro">Below is the copy architecture for the primary lead generation landing page — mapped to your whitepaper download funnel. No navigation. One goal. One CTA.</p>
+
+  <div class="lp-preview">
+    <div class="lp-nav">
+      <span class="lp-nav-logo">FLEX≡CHARGE™</span>
+      <span class="lp-nav-cta">Get the free guide →</span>
+    </div>
+
+    <div class="lp-hero">
+      <div class="lp-hero-label">For Charge Point Operators & Energy Providers</div>
+      <h2>Turn your EV charging sites into <span class="text-turq">energy revenue hubs.</span></h2>
+      <p>Download the free white paper: how intelligent BESS management unlocks three revenue streams from the same infrastructure — and cuts grid costs by up to 40%.</p>
+
+      <div class="lp-form-preview">
+        <h4>Get the white paper — free</h4>
+        <div class="form-field">First name</div>
+        <div class="form-field">Work email</div>
+        <div class="form-field">Company / Organisation</div>
+        <div class="form-field">Number of charge points</div>
+        <button class="form-submit">Send me the guide →</button>
+        <p style="font-size: 11px; color: rgba(255,255,255,0.25); margin-top: 12px; line-height: 1.5;">No spam. One email with your guide, then our 5-email energy strategy series — unsubscribe anytime.</p>
+      </div>
+    </div>
+
+    <div class="lp-social-proof">
+      <span class="lp-social-proof-label">TRUSTED BY</span>
+      <div class="lp-logos">
+        <span class="lp-logo-pill">Q8 Electric</span>
+        <span class="lp-logo-pill">E.ON Drive</span>
+        <span class="lp-logo-pill">Electra</span>
+        <span class="lp-logo-pill">Recharge</span>
+        <span class="lp-logo-pill">Orkan</span>
+      </div>
+    </div>
+
+    <div class="lp-benefits">
+      <div class="lp-benefit">
+        <h4>Reduce grid costs</h4>
+        <p>Intelligent peak shaving and load balancing cuts demand charges — often the largest line on an operator's energy bill.</p>
+      </div>
+      <div class="lp-benefit">
+        <h4>Unlock flexibility revenue</h4>
+        <p>Your BESS can participate in FCR-D and aFFR markets, earning revenue from capacity you already have on-site.</p>
+      </div>
+      <div class="lp-benefit">
+        <h4>Scale without grid constraints</h4>
+        <p>HARMON-E lets you expand your charging network without waiting years for grid upgrades that may never come.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════ TESTING FRAMEWORK ══════════════════ -->
+<section>
+  <div class="section-label">Creative Testing Framework</div>
+  <h2>From ad idea to<br>winner in 4 weeks.</h2>
+  <p class="section-intro">Instead of guessing which creative works best, we run a structured sprint model that isolates one variable at a time. After 3 sprints, you have a creative playbook that compounds — each winner informs the next test.</p>
+
+  <div class="testing-grid">
+
+    <div class="test-phase">
+      <div class="test-phase-label">Week 1–2 · Launch</div>
+      <h3>Sprint: Test the angle</h3>
+      <ul>
+        <li>Deploy 4 ad variants with identical format but different copy angles (cost pain, aspiration, compliance reframe, social proof)</li>
+        <li>Minimum DKK 400/day budget per variant to reach significance</li>
+        <li>Measure: CTR, engagement rate, CPL</li>
+        <li>Kill the 2 weakest performers at Day 10</li>
+      </ul>
+    </div>
+
+    <div class="test-phase phase-2">
+      <div class="test-phase-label">Week 3–4 · Optimise</div>
+      <h3>Sprint: Test the format</h3>
+      <ul>
+        <li>Take the winning angle — now test the format: single image vs carousel vs video still</li>
+        <li>Keep copy identical to isolate the format variable</li>
+        <li>Measure: scroll depth, secondary CTA clicks, demo book rate</li>
+        <li>Winning format becomes the new control creative</li>
+      </ul>
+    </div>
+
+    <div class="test-phase">
+      <div class="test-phase-label">Month 2 · Refine</div>
+      <h3>Sprint: Test the visual hook</h3>
+      <ul>
+        <li>Lock angle + format. Now test the visual — photography vs illustration vs bold type treatment</li>
+        <li>FlexeCharge has strong real-world photography (Q8, Electra sites). Test against graphic/typographic styles</li>
+        <li>By Month 2 you have a proven angle, format, and visual combination</li>
+      </ul>
+    </div>
+
+    <div class="test-phase phase-2">
+      <div class="test-phase-label">Month 3+ · Scale</div>
+      <h3>The compounding library</h3>
+      <ul>
+        <li>Every winner is documented in a Creative Angle Library — a growing asset of proven concepts</li>
+        <li>New campaigns start from the library, not from scratch — dramatically reducing production time</li>
+        <li>New angles are tested against the existing champion, not against each other</li>
+        <li>The system gets smarter every month</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="velocity-bar">
+    <div class="velocity-item">
+      <div class="v-num">4×</div>
+      <div class="v-label">faster to a winning creative vs. ad-hoc testing</div>
+    </div>
+    <div class="velocity-item">
+      <div class="v-num">6–8</div>
+      <div class="v-label">new creative variants produced every month</div>
+    </div>
+    <div class="velocity-item">
+      <div class="v-num">1</div>
+      <div class="v-label">unified brief, strategy & production team — no coordination overhead</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════ PRICING ══════════════════ -->
+<section class="pricing-section">
+  <div class="section-label">Investment</div>
+  <h2>What you're getting<br>for DKK 18,000/month.</h2>
+  <p class="section-intro">At DKK 18k/month, this replaces Kasia's salary, a separate design agency, and an email consultant — while delivering a more integrated and measurable system than any of those individually.</p>
+
+  <div class="pricing-table">
+
+    <div class="pricing-card current">
+      <h3>Current Scope</h3>
+      <div class="pricing-amount">10.000 <span>DKK</span></div>
+      <div class="pricing-period">per month</div>
+      <ul class="pricing-features">
+        <li><span class="check">✓</span> LinkedIn ads campaign management</li>
+        <li><span class="check">✓</span> Audience targeting &amp; bid optimisation</li>
+        <li><span class="check">✓</span> Copy for ad text</li>
+        <li><span class="check">✓</span> Weekly performance reporting</li>
+      </ul>
+    </div>
+
+    <div class="pricing-card new-scope">
+      <h3>Expanded Scope</h3>
+      <div class="pricing-amount">18.000 <span>DKK</span></div>
+      <div class="pricing-period">per month</div>
+      <ul class="pricing-features">
+        <li><span class="check">✓</span> Everything in current scope</li>
+        <li class="new-item"><span class="check">+</span> Ad creative design (6–8 variants/month)</li>
+        <li class="new-item"><span class="check">+</span> 5-email automated nurture flow</li>
+        <li class="new-item"><span class="check">+</span> Conversion landing pages (copy + structure)</li>
+        <li class="new-item"><span class="check">+</span> 4-week creative testing sprint framework</li>
+        <li class="new-item"><span class="check">+</span> Carousel &amp; multi-format creative production</li>
+        <li class="new-item"><span class="check">+</span> Monthly messaging &amp; copy strategy review</li>
+        <li class="new-item"><span class="check">+</span> Creative angle library — compounds over time</li>
+        <li class="new-item"><span class="check">+</span> LinkedIn organic post copy (4/month)</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="pricing-delta">
+    <div>
+      <h3>DKK 8,000/month uplift.<br>What that replaces.</h3>
+      <p>A junior in-house designer costs DKK 35–45k/month in salary alone. A freelance email specialist is DKK 10–15k per project. A design agency retainer starts at DKK 20k/month. This scope delivers all three, integrated, for DKK 8k more than you're already spending.</p>
+    </div>
+    <div class="delta-num">
+      <div class="delta-label">Monthly delta</div>
+      <div class="delta-amount">+8.000</div>
+      <div class="delta-sub">DKK / month</div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════ CLOSING ══════════════════ -->
+<div class="divider-bar"></div>
+<div class="closing">
+  <div class="logo-mark" style="margin: 0 auto 48px; width: fit-content;">
+    <div class="bar bar-1"></div>
+    <div class="bar bar-2"></div>
+    <div class="bar bar-3"></div>
+  </div>
+
+  <h2>Ready to build the<br><span class="text-turq">full growth engine.</span></h2>
+  <p>This is the moment to go beyond ads. The pieces are here — let's put them together and turn FlexeCharge's marketing into a system that compounds every month.</p>
+
+  <a href="mailto:" class="cta-pill">Let's talk →</a>
+
+  <div class="closing-bar">
+    <div class="bar" style="width: 60px; height: 4px; border-radius: 2px; background: var(--turquoise);"></div>
+    <div class="bar" style="width: 40px; height: 4px; border-radius: 2px; background: var(--rose);"></div>
+    <div class="bar" style="width: 60px; height: 4px; border-radius: 2px; background: var(--turquoise);"></div>
+  </div>
+</div>
+
+</body>
+</html>
