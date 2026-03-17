@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flexecharge — Lead Nurture Story for Sales</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-blue:   #1C2B35;
+    --mid-blue:    #243545;
+    --light-blue:  #2E4558;
+    --turquoise:   #00DBDB;
+    --turquoise-dim: rgba(0,219,219,0.12);
+    --turquoise-glow: rgba(0,219,219,0.25);
+    --rose:        #F79494;
+    --gray:        #DADADA;
+    --text-muted:  #8BA4B4;
+    --white:       #FFFFFF;
+    --border:      rgba(255,255,255,0.08);
+    --radius:      12px;
+    --radius-lg:   20px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'Inter', sans-serif; background: var(--deep-blue); color: var(--white); }
+
+  /* Slide deck */
+  .deck {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 52px 64px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+    background: var(--deep-blue);
+    overflow: hidden;
+  }
+
+  .slide.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* Ambient background orb */
+  .slide::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,219,219,0.07) 0%, transparent 70%);
+    top: -150px; right: -100px;
+    pointer-events: none;
+  }
+
+  /* Header */
+  .slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    flex-shrink: 0;
+  }
+
+  .slide-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--turquoise);
+    background: var(--turquoise-dim);
+    border: 1px solid rgba(0,219,219,0.2);
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  .slide-number {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  h1 span { color: var(--turquoise); }
+
+  .subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+    font-weight: 400;
+    max-width: 560px;
+    line-height: 1.6;
+    margin-bottom: 44px;
+  }
+
+  /* ─────────────────────────────────────────────── */
+  /* SLIDE 1 — Funnel journey */
+  /* ─────────────────────────────────────────────── */
+
+  .funnel-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    flex: 1;
+    align-items: stretch;
+  }
+
+  .funnel-step {
+    background: var(--mid-blue);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .funnel-step::after {
+    content: '→';
+    position: absolute;
+    right: -22px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--turquoise);
+    font-weight: 700;
+    z-index: 2;
+  }
+
+  .funnel-step:last-child::after { display: none; }
+
+  .funnel-step.highlight {
+    border-color: rgba(0,219,219,0.35);
+    background: linear-gradient(135deg, var(--mid-blue) 0%, rgba(0,219,219,0.06) 100%);
+  }
+
+  .step-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .step-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .step-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--white);
+  }
+
+  .step-metric {
+    margin-bottom: 8px;
+  }
+
+  .step-metric .metric-value {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--turquoise);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .step-metric .metric-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+
+  .step-detail {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .step-detail strong { color: var(--gray); }
+
+  /* ─────────────────────────────────────────────── */
+  /* SLIDE 2 — Frequency as trust signal */
+  /* ─────────────────────────────────────────────── */
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .col-left {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .col-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 12px;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .stat-card {
+    background: var(--mid-blue);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .stat-card.primary {
+    border-color: rgba(0,219,219,0.3);
+    background: linear-gradient(135deg, var(--mid-blue), rgba(0,219,219,0.07));
+  }
+
+  .stat-val {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--turquoise);
+    letter-spacing: -0.03em;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .stat-body .stat-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .stat-body .stat-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .penetration-bar-wrap {
+    background: var(--mid-blue);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 18px 22px;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .penetration-bar-wrap h3 {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+  }
+
+  .bar-row {
+    margin-bottom: 12px;
+  }
+
+  .bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 7px;
+  }
+
+  .bar-label .bar-name { color: var(--gray); }
+  .bar-label .bar-pct { color: var(--turquoise); font-weight: 700; }
+
+  .bar-track {
+    height: 8px;
+    background: var(--light-blue);
+    border-radius: 4px;
+    overflow: visible;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--turquoise), #00b3b3);
+    position: relative;
+    transition: width 0.8s ease;
+  }
+
+  /* 100% marker */
+  .bar-track::after {
+    content: '100%';
+    position: absolute;
+    top: -18px;
+    left: 65%;
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+
+  .bar-track::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 65%;
+    width: 1px;
+    height: 24px;
+    background: rgba(255,255,255,0.15);
+    z-index: 2;
+  }
+
+  .bar-prev {
+    height: 100%;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.1);
+    position: absolute;
+    top: 0; left: 0;
+  }
+
+  .sales-box {
+    background: linear-gradient(135deg, rgba(0,219,219,0.12), rgba(0,219,219,0.04));
+    border: 1px solid rgba(0,219,219,0.3);
+    border-radius: var(--radius-lg);
+    padding: 16px 20px;
+  }
+
+  .sales-box h3 {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--turquoise);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+
+  .sales-box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .sales-box li {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.4;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .sales-box li::before {
+    content: '→';
+    color: var(--turquoise);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ─────────────────────────────────────────────── */
+  /* SLIDE 3 — Pipeline this month */
+  /* ─────────────────────────────────────────────── */
+
+  .pipeline-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 16px;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .campaign-table-wrap {
+    background: var(--mid-blue);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 18px 22px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .campaign-table-wrap h3 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  thead th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  tbody tr {
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  tbody td {
+    padding: 8px 0;
+    color: var(--gray);
+    vertical-align: top;
+  }
+
+  tbody td:first-child { color: var(--white); font-weight: 600; }
+
+  .role-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    margin-top: 4px;
+  }
+
+  .role-awareness { background: rgba(0,219,219,0.15); color: var(--turquoise); }
+  .role-engage    { background: rgba(100,180,255,0.15); color: #64B4FF; }
+  .role-traffic   { background: rgba(255,200,100,0.15); color: #FFC864; }
+  .role-convert   { background: rgba(247,148,148,0.15); color: var(--rose); }
+
+  .metric-good { color: var(--turquoise); font-weight: 700; }
+  .metric-note { color: var(--text-muted); font-size: 11px; }
+
+  .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .result-card {
+    background: var(--mid-blue);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .result-card.highlight {
+    background: linear-gradient(135deg, var(--mid-blue), rgba(0,219,219,0.08));
+    border-color: rgba(0,219,219,0.3);
+    flex: 1;
+  }
+
+  .result-card .rc-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .result-card .rc-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--turquoise);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .result-card .rc-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+
+  .result-card .rc-sub strong { color: var(--gray); }
+
+  .delta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #5DE8A0;
+    background: rgba(93,232,160,0.12);
+    border-radius: 20px;
+    padding: 3px 10px;
+    margin-top: 8px;
+    width: fit-content;
+  }
+
+  /* ─────────────────────────────────────────────── */
+  /* Navigation */
+  /* ─────────────────────────────────────────────── */
+
+  .nav {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--mid-blue);
+    border: 1px solid var(--border);
+    border-radius: 40px;
+    padding: 10px 20px;
+    z-index: 100;
+  }
+
+  .nav-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+
+  .nav-btn:hover { background: var(--light-blue); color: var(--white); }
+  .nav-btn:disabled { opacity: 0.25; cursor: default; }
+
+  .nav-dots {
+    display: flex;
+    gap: 8px;
+  }
+
+  .nav-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--light-blue);
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+  }
+
+  .nav-dot.active {
+    background: var(--turquoise);
+    width: 24px;
+    border-radius: 4px;
+  }
+
+  .logo-mark {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .logo-mark span { color: var(--turquoise); }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ============================================================ -->
+  <!-- SLIDE 1: From Stranger to Warm Lead                          -->
+  <!-- ============================================================ -->
+  <section class="slide active" id="slide-1">
+    <div class="slide-header">
+      <span class="slide-tag">Sales Enablement — LinkedIn Nurture Story</span>
+      <span class="slide-number">01 / 03</span>
+    </div>
+
+    <h1>Prepare for the<br><span>Sales-Ready Lead</span></h1>
+    <p class="subtitle">How our LinkedIn strategy systematically exposed decision-makers to Flexecharge — before your first call.</p>
+
+    <div class="funnel-row">
+
+      <div class="funnel-step">
+        <div class="step-icon">📡</div>
+        <div class="step-label">Stage 1</div>
+        <div class="step-title">Awareness</div>
+        <div class="step-metric">
+          <div class="metric-value">150K</div>
+          <div class="metric-label">professionals reached</div>
+        </div>
+        <div class="step-metric" style="margin-top:10px">
+          <div class="metric-value" style="font-size:22px">$9</div>
+          <div class="metric-label">CPM (BESS campaign)</div>
+        </div>
+        <div class="step-detail">
+          Top-funnel BESS campaign reached <strong>66,679 unique decision-makers</strong> with problem-level storytelling at cost-efficient scale.
+        </div>
+      </div>
+
+      <div class="funnel-step highlight">
+        <div class="step-icon">🔁</div>
+        <div class="step-label">Stage 2</div>
+        <div class="step-title">Frequency &amp; Recognition</div>
+        <div class="step-metric">
+          <div class="metric-value">1.87×</div>
+          <div class="metric-label">avg. exposures per person</div>
+        </div>
+        <div class="step-metric" style="margin-top:10px">
+          <div class="metric-value" style="font-size:22px">124%</div>
+          <div class="metric-label">audience penetration (TF)</div>
+        </div>
+        <div class="step-detail">
+          Controlled frequency built brand recognition without fatigue. Audience penetration jumped from <strong>73% → 124%</strong> — decision-makers now recognise Flexecharge before you call.
+        </div>
+      </div>
+
+      <div class="funnel-step">
+        <div class="step-icon">🖱️</div>
+        <div class="step-label">Stage 3</div>
+        <div class="step-title">Engaged Traffic</div>
+        <div class="step-metric">
+          <div class="metric-value">889</div>
+          <div class="metric-label">total clicks</div>
+        </div>
+        <div class="step-metric" style="margin-top:10px">
+          <div class="metric-value" style="font-size:22px">338</div>
+          <div class="metric-label">bottom-funnel site visits</div>
+        </div>
+        <div class="step-detail">
+          Bottom-funnel retargeting converted warmed audiences into website visitors at <strong>$2.84 CPC</strong> — well below LinkedIn benchmark of $5–8.
+        </div>
+      </div>
+
+      <div class="funnel-step highlight">
+        <div class="step-icon">🎯</div>
+        <div class="step-label">Stage 4</div>
+        <div class="step-title">Conversions</div>
+        <div class="step-metric">
+          <div class="metric-value">35</div>
+          <div class="metric-label">total conversions (Zapier)</div>
+        </div>
+        <div class="step-metric" style="margin-top:10px">
+          <div class="metric-value" style="font-size:22px">+17%</div>
+          <div class="metric-label">vs. last month (30)</div>
+        </div>
+        <div class="step-detail">
+          More leads, <strong>24% less spend</strong>. Each conversion was pre-warmed by awareness and retargeting — these are not cold leads.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <!-- SLIDE 2: Frequency = Trust Signal                            -->
+  <!-- ============================================================ -->
+  <section class="slide" id="slide-2">
+    <div class="slide-header">
+      <span class="slide-tag">Sales Enablement — Why Frequency Matters</span>
+      <span class="slide-number">02 / 03</span>
+    </div>
+
+    <h1>Frequency Builds <span>Trust</span></h1>
+    <p class="subtitle">Audience penetration above 100% means decision-makers have seen Flexecharge multiple times. Your SDRs aren't cold-calling — they're following up.</p>
+
+    <div class="two-col">
+
+      <div class="col-left">
+
+        <div class="stat-card primary">
+          <div class="stat-val">1.87×</div>
+          <div class="stat-body">
+            <div class="stat-title">Controlled frequency</div>
+            <div class="stat-desc">Each professional in our target audience has seen Flexecharge ads an average of 1.87 times — enough to build recognition, not enough to cause fatigue (sweet spot: 1.5–2.5×).</div>
+          </div>
+        </div>
+
+        <div class="penetration-bar-wrap">
+          <h3>Audience Penetration — Month-over-Month</h3>
+
+          <div class="bar-row">
+            <div class="bar-label">
+              <span class="bar-name">Top Funnel (BESS / HPC)</span>
+              <span class="bar-pct">124%</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-prev" style="width: 47.5%"></div><!-- 73% of 65% scale -->
+              <div class="bar-fill" style="width: 80.6%"></div><!-- 124% of 65% scale -->
+            </div>
+            <div style="font-size:11px; color: var(--text-muted); margin-top:5px">▲ from 73% last month (+70% growth in brand coverage)</div>
+          </div>
+
+          <div class="bar-row">
+            <div class="bar-label">
+              <span class="bar-name">Bottom Funnel (High-intent)</span>
+              <span class="bar-pct">153%</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width: 99%"></div>
+            </div>
+            <div style="font-size:11px; color: var(--text-muted); margin-top:5px">Decision-makers in the buying window have been exposed 1.5× their total segment size</div>
+          </div>
+
+          <div style="font-size:12px; color: var(--text-muted); margin-top:16px; line-height:1.6; padding-top:14px; border-top: 1px solid var(--border);">
+            <strong style="color: var(--gray);">What does >100% mean?</strong> When penetration exceeds 100%, users in the segment have seen the ad more than once on average. For high-intent bottom-funnel audiences, this controlled repetition reinforces intent and primes purchase decisions.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-right">
+
+        <div class="sales-box">
+          <h3>What this means for Sales</h3>
+          <ul>
+            <li>When an SDR reaches out, the prospect has <strong>already seen Flexecharge</strong> — the brand is not new to them.</li>
+            <li>Bottom-funnel visitors (338 site visits) have been <strong>retargeted from awareness campaigns</strong> — they have context on the product before your call.</li>
+            <li>Higher familiarity shortens the <strong>trust-building phase</strong> of the sales cycle — spend less time on "who are you?" and more on "here's the business case."</li>
+            <li>The 0.32% CTR (+19%) shows the message is <strong>resonating</strong> — prospects are clicking on their own terms, not just landing cold.</li>
+          </ul>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-val" style="font-size:34px">0.32%</div>
+          <div class="stat-body">
+            <div class="stat-title">CTR maintained despite reach pivot</div>
+            <div class="stat-desc">Engagement quality held strong (+19%) even as we optimised for reach over clicks — confirming message-market fit with the target audience.</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-val" style="font-size:34px">$2.84</div>
+          <div class="stat-body">
+            <div class="stat-title">CPC — bottom funnel</div>
+            <div class="stat-desc">Pre-warmed audiences convert to traffic at below-benchmark cost. Warm = cheaper to convert.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <!-- SLIDE 3: Pipeline This Month                                 -->
+  <!-- ============================================================ -->
+  <section class="slide" id="slide-3">
+    <div class="slide-header">
+      <span class="slide-tag">Sales Enablement — Campaign Contribution</span>
+      <span class="slide-number">03 / 03</span>
+    </div>
+
+    <h1>The <span>Pipeline</span> This Month</h1>
+    <p class="subtitle">Every campaign played a role in warming your leads. Here's how each one contributed to the funnel — and what it means for the handoff to sales.</p>
+
+    <div class="pipeline-grid">
+
+      <div class="campaign-table-wrap">
+        <h3>LinkedIn Campaign Breakdown</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width:28%">Campaign</th>
+              <th>Role</th>
+              <th>Reach</th>
+              <th>CTR</th>
+              <th>CPC</th>
+              <th>Key Signal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                TOP FUNNEL<br>BESS
+                <br><span class="role-tag role-awareness">Awareness</span>
+              </td>
+              <td style="color: var(--text-muted); font-size:12px">Broadest reach driver. Entry point for the funnel.</td>
+              <td class="metric-good">66,679</td>
+              <td>0.20%</td>
+              <td>$3.68</td>
+              <td>
+                <span style="color: var(--turquoise); font-size:12px; font-weight:600">$9 CPM</span>
+                <br><span class="metric-note">Cost-efficient scale</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                TOP FUNNEL<br>HPC
+                <br><span class="role-tag role-engage">Niche Engage</span>
+              </td>
+              <td style="color: var(--text-muted); font-size:12px">Smaller, high-value segment. Stronger engagement.</td>
+              <td>3,214</td>
+              <td class="metric-good">0.55%</td>
+              <td>$9.75</td>
+              <td>
+                <span style="color: #64B4FF; font-size:12px; font-weight:600">$54 CPM</span>
+                <br><span class="metric-note">Premium niche audience</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                TF – TL
+                <br><span class="role-tag role-traffic">Thought Lead.</span>
+              </td>
+              <td style="color: var(--text-muted); font-size:12px">Highest engagement efficiency. Decision-maker content.</td>
+              <td>3,978</td>
+              <td class="metric-good">0.96%</td>
+              <td>$3.68</td>
+              <td>
+                <span style="color: #FFC864; font-size:12px; font-weight:600">Best CTR</span>
+                <br><span class="metric-note">Most engaged segment</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Bottom<br>Funnel
+                <br><span class="role-tag role-convert">Conversion</span>
+              </td>
+              <td style="color: var(--text-muted); font-size:12px">Retargeted warm audiences. Direct pipeline driver.</td>
+              <td class="metric-good">97,091</td>
+              <td>0.35%</td>
+              <td class="metric-good">$2.84</td>
+              <td>
+                <span style="color: var(--rose); font-size:12px; font-weight:600">153% penetration</span>
+                <br><span class="metric-note">338 site visits</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="right-col">
+
+        <div class="result-card highlight" style="flex:1.2">
+          <div class="rc-label">Total Conversions This Month</div>
+          <div class="rc-value">35</div>
+          <div class="rc-sub">
+            Up from <strong>30 last month</strong> — a 17% increase while cutting total LinkedIn spend by <strong>24%</strong>.
+            <br><br>
+            These leads arrived with brand familiarity built over multiple impressions. Not cold. Pre-warmed.
+          </div>
+          <div class="delta-badge">▲ +17% vs. last month</div>
+        </div>
+
+        <div class="result-card">
+          <div class="rc-label">Google Ads</div>
+          <div class="rc-value" style="font-size:28px">4.31% CTR</div>
+          <div class="rc-sub">
+            +39% vs. last month with CPC dropping from ~DKK 4 to <strong>DKK 2.09</strong> (-48%). High-intent search traffic is converting at increasing efficiency — capturing demand that LinkedIn awareness created.
+          </div>
+        </div>
+
+        <div class="result-card">
+          <div class="rc-label">Total Spend Efficiency</div>
+          <div class="rc-value" style="font-size:28px">↑ ROI</div>
+          <div class="rc-sub">
+            <strong>Less spend, more conversions.</strong> The shift to reach + retargeting is delivering compound returns: awareness campaigns reduced friction for every downstream conversion.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div><!-- /deck -->
+
+
+<!-- Navigation -->
+<nav class="nav">
+  <button class="nav-btn" id="prev" onclick="navigate(-1)" disabled>←</button>
+  <div class="nav-dots">
+    <button class="nav-dot active" onclick="goTo(0)"></button>
+    <button class="nav-dot" onclick="goTo(1)"></button>
+    <button class="nav-dot" onclick="goTo(2)"></button>
+  </div>
+  <button class="nav-btn" id="next" onclick="navigate(1)">→</button>
+  <span class="logo-mark">Flexe<span>charge</span></span>
+</nav>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots   = document.querySelectorAll('.nav-dot');
+  const prev   = document.getElementById('prev');
+  const next   = document.getElementById('next');
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    prev.disabled = current === 0;
+    next.disabled = current === slides.length - 1;
+  }
+
+  function navigate(dir) {
+    const target = current + dir;
+    if (target >= 0 && target < slides.length) goTo(target);
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') navigate(1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   navigate(-1);
+  });
+</script>
+
+</body>
+</html>
