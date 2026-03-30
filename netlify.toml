@@ -1,0 +1,10 @@
+[build]
+  base      = "deploy-nectar"
+  publish   = "."
+  functions = "netlify/functions"
+
+[[headers]]
+  for = "/admin.html"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    Cache-Control = "no-store"
