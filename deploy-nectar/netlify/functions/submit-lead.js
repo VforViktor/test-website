@@ -91,7 +91,7 @@ exports.handler = async (event) => {
     headers: { Authorization: `Bearer ${RESEND_KEY}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
       from: `Nectar Lead System <${FROM_EMAIL}>`,
-      to: ['t.borg@nectaram.com', 'hello@vforviktor.com'],
+      to: ['t.borg@nectaram.com', 'hello@vforviktor.com', 'kontakt@nectarprojekter.dk'],
       subject: `Nyt lead: ${name} — ${amount || 'ikke oplyst'}`,
       html: internalEmail({ name, email, phone, company, amount, fundtype, message }, SITE_URL),
     }),

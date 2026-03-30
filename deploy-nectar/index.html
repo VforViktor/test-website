@@ -7,7 +7,7 @@
   <meta name="description" content="Invester i en fuldt udlejet klassisk Valby-ejendom. 8,31% IRR over 9 år. Minimumsinvestering DKK 2.500.000. Kun professionelle investorer." />
   <meta name="robots" content="noindex, nofollow" />
 
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel — initialiseres kun efter cookie-samtykke -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -17,13 +17,17 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '898274282176177');
-  fbq('track', 'PageView');
+
+  function initMetaPixel() {
+    fbq('init', '898274282176177');
+    fbq('track', 'PageView');
+  }
+
+  // Hvis samtykke allerede er givet tidligere — aktiver pixel med det samme
+  if (document.cookie.split(';').some(c => c.trim() === 'nectar_consent=accepted')) {
+    initMetaPixel();
+  }
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=898274282176177&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1001,6 +1005,51 @@
     </div>
   </footer>
 
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       COOKIE CONSENT BANNER
+  ═══════════════════════════════════════════════════════════════ -->
+  <div id="cookie-banner" style="display:none;" class="fixed bottom-0 left-0 right-0 z-50 bg-stone-900 border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <p class="text-sm text-white/70 leading-relaxed max-w-2xl">
+        Vi bruger cookies til at måle trafikken på siden via Meta Pixel, så vi kan optimere vores markedsføring. Du kan læse mere i vores <a href="/privacy.html" class="text-honey-400 hover:text-honey-500 underline">privatlivspolitik</a>.
+      </p>
+      <div class="flex gap-3 flex-shrink-0">
+        <button id="cookie-decline" class="px-4 py-2 text-sm text-white/50 hover:text-white/80 border border-white/20 rounded-lg transition-colors">
+          Afvis
+        </button>
+        <button id="cookie-accept" class="px-5 py-2 text-sm font-semibold bg-honey-500 hover:bg-honey-400 text-stone-900 rounded-lg transition-colors">
+          Acceptér
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var consent = document.cookie.split(';').find(c => c.trim().startsWith('nectar_consent='));
+      if (consent) return; // allerede taget stilling
+
+      var banner = document.getElementById('cookie-banner');
+      banner.style.display = 'block';
+
+      function setCookie(val) {
+        var exp = new Date();
+        exp.setFullYear(exp.getFullYear() + 1);
+        document.cookie = 'nectar_consent=' + val + '; expires=' + exp.toUTCString() + '; path=/; SameSite=Lax';
+        banner.style.display = 'none';
+      }
+
+      document.getElementById('cookie-accept').addEventListener('click', function() {
+        setCookie('accepted');
+        if (typeof initMetaPixel === 'function') initMetaPixel();
+      });
+
+      document.getElementById('cookie-decline').addEventListener('click', function() {
+        setCookie('declined');
+      });
+    })();
+  </script>
 
   <!-- ═══════════════════════════════════════════════════════════════
        SCRIPTS
