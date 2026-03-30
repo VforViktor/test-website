@@ -1,4 +1,6 @@
 [build]
+  base      = "deploy-nectar"
+  publish   = "."
   functions = "netlify/functions"
 
 [[headers]]
