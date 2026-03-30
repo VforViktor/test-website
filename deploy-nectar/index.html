@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nectar Valby Boligfond — Investeringspræsentation</title>
+  <meta name="description" content="Invester i en fuldt udlejet klassisk Valby-ejendom. 8,31% IRR over 9 år. Minimumsinvestering DKK 2.500.000. Kun professionelle investorer." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '898274282176177');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=898274282176177&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              50:  '#f0f5f2',
+              100: '#d5e5dc',
+              200: '#abc9b8',
+              300: '#7da890',
+              400: '#528970',
+              500: '#2B5940',
+              600: '#1C3829',
+              700: '#163020',
+              800: '#0e1e16',
+              900: '#070f0b',
+            },
+            honey: {
+              50:  '#fdf7ed',
+              100: '#f8e9cc',
+              200: '#EDD8A8',
+              300: '#e5b96a',
+              400: '#C9A059',
+              500: '#b8893a',
+              600: '#9A6928',
+              700: '#7b5520',
+              800: '#5a3e17',
+              900: '#3a270e',
+            },
+            stone: {
+              50:  '#FAFAF8',
+              100: '#F4F1ED',
+              200: '#E8E3DC',
+              300: '#D4CEC5',
+              400: '#B8B0A6',
+              500: '#9B9188',
+              600: '#6B6762',
+              700: '#4A4643',
+              800: '#2E2B28',
+              900: '#1A1A18',
+            },
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans:  ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+    html { scroll-behavior: smooth; }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(28, 56, 41, 0.15);
+      border-color: #1C3829 !important;
+    }
+
+    .hero-glow {
+      background:
+        radial-gradient(ellipse at 15% 60%, rgba(201,160,89,0.07) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 20%, rgba(255,255,255,0.03) 0%, transparent 45%);
+    }
+
+    .stat-divider:not(:last-child) { border-right: 1px solid #E8E3DC; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up { animation: fadeUp 0.4s ease-out forwards; }
+
+    select { -webkit-appearance: none; appearance: none; }
+
+    .card-hover { transition: box-shadow 200ms, transform 200ms; }
+    .card-hover:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.10); transform: translateY(-2px); }
+  </style>
+</head>
+
+<body class="bg-stone-50 text-stone-900 antialiased">
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════════════════════ -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#" class="flex items-center">
+        <img src="brand_assets/nectar-logo.png" alt="Nectar" class="h-10 w-auto" />
+      </a>
+
+      <!-- Desktop nav links -->
+      <div class="hidden md:flex items-center gap-7 text-sm text-stone-700">
+        <a href="#case"        class="hover:text-forest-600 transition-colors">Investeringen</a>
+        <a href="#filosofi"    class="hover:text-forest-600 transition-colors">Filosofi</a>
+        <a href="#track-record" class="hover:text-forest-600 transition-colors">Resultater</a>
+        <a href="#om-nectar"   class="hover:text-forest-600 transition-colors">Om Nectar</a>
+        <a href="#kontakt"     class="hover:text-forest-600 transition-colors">Kontakt</a>
+      </div>
+
+      <!-- CTA -->
+      <a href="#download"
+         class="hidden md:inline-flex items-center gap-2 bg-forest-600 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-forest-700 transition-colors">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Hent præsentation
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="bg-forest-600 hero-glow pt-32 pb-24 md:pb-32">
+    <div class="max-w-6xl mx-auto px-6">
+
+
+      <div class="max-w-3xl">
+        <!-- Headline -->
+        <h1 class="font-serif text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.1] mb-6">
+          En klassisk Valby-ejendom med dokumenteret afkastpotentiale
+        </h1>
+
+        <!-- Sub -->
+        <p class="text-white/65 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl">
+          Nectar Valby Boligfond giver professionelle investorer adgang til en fuldt udlejet
+          boligudlejningsejendom fra 1914 i hjertet af Valby — med ca. 20% lejereserve og
+          attraktiv realkreditfinansiering.
+        </p>
+
+        <!-- Hero stats -->
+        <div class="flex flex-wrap gap-8 mb-10">
+          <div>
+            <div class="font-serif text-3xl font-bold text-honey-400">8,31%</div>
+            <div class="text-white/55 text-xs mt-1">Forventet IRR (9 år)</div>
+          </div>
+          <div class="hidden sm:block w-px bg-white/15 self-stretch"></div>
+          <div>
+            <div class="font-serif text-3xl font-bold text-honey-400">10,58%</div>
+            <div class="text-white/55 text-xs mt-1">Egenkapitalforrentning p.a.</div>
+          </div>
+          <div class="hidden sm:block w-px bg-white/15 self-stretch"></div>
+          <div>
+            <div class="font-serif text-3xl font-bold text-honey-400">DKK 2,5M</div>
+            <div class="text-white/55 text-xs mt-1">Minimumsinvestering</div>
+          </div>
+          <div class="hidden sm:block w-px bg-white/15 self-stretch"></div>
+          <div>
+            <div class="font-serif text-3xl font-bold text-honey-400">2028</div>
+            <div class="text-white/55 text-xs mt-1">Første udlodning</div>
+          </div>
+        </div>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4">
+          <a href="#download"
+             class="inline-flex items-center gap-2 bg-honey-400 text-stone-900 font-semibold px-7 py-3.5 rounded-lg hover:bg-honey-500 transition-colors text-sm">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Hent investeringspræsentation
+          </a>
+          <a href="#kontakt"
+             class="inline-flex items-center gap-2 bg-white/10 text-white border border-white/25 font-medium px-7 py-3.5 rounded-lg hover:bg-white/15 transition-colors text-sm">
+            Kontakt os direkte
+          </a>
+        </div>
+      </div>
+
+      <!-- Property meta strip -->
+      <div class="mt-16 pt-8 border-t border-white/15 flex flex-wrap gap-6 text-sm text-white/50">
+        <span class="flex items-center gap-2">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          Horsekildevej 2–6 / Valby Langgade 88, 2500 Valby
+        </span>
+        <span class="flex items-center gap-2">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/>
+          </svg>
+          5.574 m² · 61 boliglejemål · Fuldt udlejet
+        </span>
+        <span class="flex items-center gap-2">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+          Opført 1914 · AIF-reguleret struktur (FAIF nr. 23.144)
+        </span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       TRUST BAR
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="bg-white border-b border-stone-200">
+    <div class="max-w-6xl mx-auto px-6 py-6">
+      <div class="grid grid-cols-2 md:grid-cols-4">
+        <div class="text-center py-4 stat-divider">
+          <div class="font-serif text-2xl font-bold text-forest-600">+50</div>
+          <div class="text-xs text-stone-500 mt-1">Aktive fonde</div>
+        </div>
+        <div class="text-center py-4 stat-divider">
+          <div class="font-serif text-2xl font-bold text-forest-600">DKK 6+ mia.</div>
+          <div class="text-xs text-stone-500 mt-1">Aktiver under forvaltning</div>
+        </div>
+        <div class="text-center py-4 stat-divider">
+          <div class="font-serif text-2xl font-bold text-forest-600">3.200+</div>
+          <div class="text-xs text-stone-500 mt-1">Boligenheder</div>
+        </div>
+        <div class="text-center py-4">
+          <div class="font-serif text-2xl font-bold text-forest-600">420</div>
+          <div class="text-xs text-stone-500 mt-1">Investorer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       CASE SUMMARY
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="case" class="py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+        <!-- Left: Text -->
+        <div>
+          <div class="inline-block bg-forest-100 text-forest-600 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6">
+            Investeringen
+          </div>
+          <h2 class="font-serif text-3xl md:text-4xl font-bold text-stone-900 leading-tight mb-6">
+            Horsekildevej 2–6 — en velbeliggende og driftstærk Valby-ejendom
+          </h2>
+          <div class="space-y-5 text-stone-700 leading-relaxed">
+            <p>
+              Ejendommen fra 1914 består af 61 boliglejemål og 11 erhvervslejemål fordelt på 5.574 m².
+              Den er fuldt udlejet ved overtagelse og beliggende centralt i Valby — tæt på
+              Valby Langgade, Søndermarken og 5 minutters gang til Valby Station.
+            </p>
+            <p>
+              Den gennemsnitlige boligleje er DKK 1.707 pr. m²/år, imens det lejedes værdi
+              estimeres til DKK 1.950 pr. m²/år. Den fri markedsleje i området overstiger DKK 2.300 pr. m²/år.
+              Det kortsigtede lejepotentiale er skønnet til ca. 20% højere end det aktuelle niveau.
+            </p>
+            <p>
+              44 ud af 61 lejemål er løftet ud af reglerne om omkostningsbestemt husleje og kan
+              ved fremtidige opsigelser genudlejes til lejedes værdi (§ 19.2). Ejendommen er
+              gennemgribende renoveret for ca. DKK 39 mio. de seneste 10 år.
+            </p>
+            <p>
+              <strong class="text-stone-900 font-semibold">Nectar investerer selv 10% af egenkapitalen.</strong>
+              Det er vores klareste signal om, at vi tror på casen — og at vores interesser er
+              fuldstændigt ensrettede med jeres.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Property cards -->
+        <div class="space-y-4">
+          <!-- Property overview card -->
+          <div class="bg-white border border-stone-200 rounded-xl p-6 shadow-sm">
+            <div class="flex items-start justify-between mb-5">
+              <div>
+                <h3 class="font-semibold text-stone-900">Horsekildevej 2–6</h3>
+                <p class="text-sm text-stone-500 mt-0.5">2500 Valby, København</p>
+              </div>
+              <span class="bg-forest-100 text-forest-600 text-xs font-semibold px-3 py-1 rounded-full shrink-0">
+                Fuldt udlejet
+              </span>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-stone-50 rounded-lg p-3.5">
+                <div class="text-xs text-stone-500 mb-1">Samlet areal</div>
+                <div class="font-semibold text-stone-900 text-sm">5.574 m²</div>
+              </div>
+              <div class="bg-stone-50 rounded-lg p-3.5">
+                <div class="text-xs text-stone-500 mb-1">Boliglejemål</div>
+                <div class="font-semibold text-stone-900 text-sm">61 enheder</div>
+              </div>
+              <div class="bg-stone-50 rounded-lg p-3.5">
+                <div class="text-xs text-stone-500 mb-1">Gns. enhedsstørrelse</div>
+                <div class="font-semibold text-stone-900 text-sm">ca. 79 m²</div>
+              </div>
+              <div class="bg-stone-50 rounded-lg p-3.5">
+                <div class="text-xs text-stone-500 mb-1">Opførelsesår</div>
+                <div class="font-semibold text-stone-900 text-sm">1914</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Financial card -->
+          <div class="bg-white border border-stone-200 rounded-xl p-6 shadow-sm">
+            <h4 class="text-xs text-stone-500 font-semibold uppercase tracking-widest mb-5">Finansielle nøgletal</h4>
+            <div class="space-y-0">
+              <div class="flex justify-between items-center py-2.5 border-b border-stone-100">
+                <span class="text-sm text-stone-600">Samlet projektsum (inkl. omk.)</span>
+                <span class="font-semibold text-stone-900 text-sm">DKK 199.300.000</span>
+              </div>
+              <div class="flex justify-between items-center py-2.5 border-b border-stone-100">
+                <span class="text-sm text-stone-600">Egenkapitalindskud</span>
+                <span class="font-semibold text-stone-900 text-sm">DKK 67.000.000</span>
+              </div>
+              <div class="flex justify-between items-center py-2.5 border-b border-stone-100">
+                <span class="text-sm text-stone-600">Minimumsinvestering</span>
+                <span class="font-semibold text-stone-900 text-sm">DKK 2.500.000</span>
+              </div>
+              <div class="flex justify-between items-center py-2.5 border-b border-stone-100">
+                <span class="text-sm text-stone-600">Forventet IRR (9 år)</span>
+                <span class="font-bold text-forest-600 text-sm">8,31%</span>
+              </div>
+              <div class="flex justify-between items-center py-2.5 border-b border-stone-100">
+                <span class="text-sm text-stone-600">Egenkapitalforrentning p.a.</span>
+                <span class="font-bold text-forest-600 text-sm">10,58%</span>
+              </div>
+              <div class="flex justify-between items-center py-2.5 border-b border-stone-100">
+                <span class="text-sm text-stone-600">Første udlodning</span>
+                <span class="font-semibold text-stone-900 text-sm">2028 (3% p.a. af indskud)</span>
+              </div>
+              <div class="flex justify-between items-center py-2.5 border-b border-stone-100">
+                <span class="text-sm text-stone-600">Budgetteret salg</span>
+                <span class="font-semibold text-stone-900 text-sm">2034 — DKK 241.300.000</span>
+              </div>
+              <div class="flex justify-between items-center py-2.5">
+                <span class="text-sm text-stone-600">Middeltype</span>
+                <span class="font-semibold text-stone-900 text-sm">Frie / pension / selskab</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       INVESTMENT PHILOSOPHY
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="filosofi" class="bg-stone-100 py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <div class="inline-block bg-forest-600/10 text-forest-600 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
+          Investeringsfilosofien
+        </div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-stone-900 leading-tight max-w-2xl mx-auto">
+          Lejeloven skaber muligheder — for dem, der forstår at agere
+        </h2>
+        <p class="text-stone-500 mt-4 max-w-xl mx-auto leading-relaxed">
+          Vi investerer i et undervurderet segment, hvor lavere konkurrence giver bedre priser
+          og en betydelig margin of safety.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Card 1 -->
+        <div class="bg-white rounded-xl p-8 border border-stone-200 shadow-sm card-hover">
+          <div class="w-10 h-10 bg-forest-100 rounded-lg flex items-center justify-center mb-5">
+            <svg width="18" height="18" fill="none" stroke="#1C3829" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-stone-900 mb-3">Konkurrencen er historisk lav</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            Blackstone-indgrebet og en skærpet lejelov har skræmt mange investorer væk fra den
+            ældre boligmasse. Det giver Nectar mulighed for at købe ejendommen til DKK 35.000/m² —
+            imens en tilsvarende ejerbolig sælges for DKK 60–70.000/m².
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-xl p-8 border border-stone-200 shadow-sm card-hover">
+          <div class="w-10 h-10 bg-honey-100 rounded-lg flex items-center justify-center mb-5">
+            <svg width="18" height="18" fill="none" stroke="#9A6928" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-stone-900 mb-3">En reel lejereserve på ca. 20%</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            Aktuel leje: DKK 1.707/m²/år. Lejedes værdi (§ 19.2): DKK 1.950/m²/år. Fri markedsleje:
+            DKK 2.300+/m²/år. 44 ud af 61 lejemål er klar til genudlejning til det lejedes værdi
+            ved næste opsigelse.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-xl p-8 border border-stone-200 shadow-sm card-hover">
+          <div class="w-10 h-10 bg-forest-100 rounded-lg flex items-center justify-center mb-5">
+            <svg width="18" height="18" fill="none" stroke="#1C3829" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-stone-900 mb-3">Murstenen ældes med ynde</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            Klassiske københavnske ejendomme er opført af materialer, der har bevist holdbarhed i over
+            100 år. Ejendommen er gennemrenoveret for DKK 39 mio. — tag, facade og lejligheder.
+            Den tekniske levetid overstiger enhver investeringsbudgetperiode.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       TRACK RECORD
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="track-record" class="py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <div class="inline-block bg-forest-600/10 text-forest-600 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
+          Resultater
+        </div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-stone-900 leading-tight">
+          Vi leverer. Tre eksempler.
+        </h2>
+        <p class="text-stone-500 mt-4 max-w-xl mx-auto">
+          Siden 2012 har Nectar rådgivet på mere end 75 ejendomstransaktioner.
+          Her er tre konkrete resultater fra den ældre boligmasse i København.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Case 1 -->
+        <div class="bg-white border border-stone-200 rounded-xl overflow-hidden shadow-sm card-hover">
+          <div class="bg-gradient-to-br from-forest-600 to-forest-500 p-6">
+            <div class="text-honey-300 text-xs font-bold uppercase tracking-widest mb-2">Case 1</div>
+            <h3 class="text-white font-serif text-lg font-bold leading-snug">
+              Østerbrogade 44
+              <span class="block text-white/60 font-normal text-sm mt-0.5">2100 København Ø</span>
+            </h3>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3 text-sm mb-5">
+              <li class="flex items-start gap-2">
+                <svg class="mt-0.5 shrink-0" width="13" height="13" fill="none" stroke="#2B5940" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span class="text-stone-600">Herskabsejendom med lejligheder på 200–250 m²</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="mt-0.5 shrink-0" width="13" height="13" fill="none" stroke="#2B5940" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span class="text-stone-600">Gennemgribende modernisering → leje steg ca. 70% via § 19.2</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="mt-0.5 shrink-0" width="13" height="13" fill="none" stroke="#2B5940" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span class="text-stone-600">Sammenlægning til effektive enheder på ca. 120 m²</span>
+              </li>
+            </ul>
+            <div class="pt-4 border-t border-stone-100">
+              <div class="text-xs text-stone-400 uppercase tracking-wider mb-1">Resultat</div>
+              <div class="font-bold text-forest-600 text-xl font-serif">+25% lejeindtægt</div>
+              <div class="text-xs text-stone-400 mt-0.5">over 4 år</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="bg-white border border-stone-200 rounded-xl overflow-hidden shadow-sm card-hover">
+          <div class="bg-gradient-to-br from-forest-600 to-forest-500 p-6">
+            <div class="text-honey-300 text-xs font-bold uppercase tracking-widest mb-2">Case 2</div>
+            <h3 class="text-white font-serif text-lg font-bold leading-snug">
+              Thorsgade 99–103
+              <span class="block text-white/60 font-normal text-sm mt-0.5">2200 København N</span>
+            </h3>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3 text-sm mb-5">
+              <li class="flex items-start gap-2">
+                <svg class="mt-0.5 shrink-0" width="13" height="13" fill="none" stroke="#2B5940" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span class="text-stone-600">Hjørneejendom på Nørrebro fra 1901, 38 boliger</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="mt-0.5 shrink-0" width="13" height="13" fill="none" stroke="#2B5940" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span class="text-stone-600">7 moderniserede lejemål → +50% leje via § 19.2</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="mt-0.5 shrink-0" width="13" height="13" fill="none" stroke="#2B5940" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span class="text-stone-600">Tagetage renoveret med mikroboliger</span>
+              </li>
+            </ul>
+            <div class="pt-4 border-t border-stone-100">
+              <div class="text-xs text-stone-400 uppercase tracking-wider mb-1">Resultat</div>
+              <div class="font-bold text-forest-600 text-xl font-serif">+18% lejeindtægt</div>
+              <div class="text-xs text-stone-400 mt-0.5">over 1,5 år</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="bg-white border border-stone-200 rounded-xl overflow-hidden shadow-sm card-hover">
+          <div class="bg-gradient-to-br from-forest-600 to-forest-500 p-6">
+            <div class="text-honey-300 text-xs font-bold uppercase tracking-widest mb-2">Case 3</div>
+            <h3 class="text-white font-serif text-lg font-bold leading-snug">
+              Boligportefølje
+              <span class="block text-white/60 font-normal text-sm mt-0.5">København Ø, V og N</span>
+            </h3>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3 text-sm mb-5">
+              <li class="flex items-start gap-2">
+                <svg class="mt-0.5 shrink-0" width="13" height="13" fill="none" stroke="#2B5940" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span class="text-stone-600">5 ejendomme, 61 boliger + 4 erhvervslejemål</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="mt-0.5 shrink-0" width="13" height="13" fill="none" stroke="#2B5940" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span class="text-stone-600">Genudlejning med op til 30% huslejestigning — ingen renoveringsomk.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="mt-0.5 shrink-0" width="13" height="13" fill="none" stroke="#2B5940" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span class="text-stone-600">Altanprojekter igangsat — win-win for lejere og investorer</span>
+              </li>
+            </ul>
+            <div class="pt-4 border-t border-stone-100">
+              <div class="text-xs text-stone-400 uppercase tracking-wider mb-1">Resultat</div>
+              <div class="font-bold text-forest-600 text-xl font-serif">+11% lejeindtægt</div>
+              <div class="text-xs text-stone-400 mt-0.5">på under 1,5 år</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       ABOUT NECTAR
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="om-nectar" class="bg-forest-600 py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        <!-- Left -->
+        <div>
+          <div class="inline-block bg-white/10 text-white/75 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6">
+            Om Nectar
+          </div>
+          <h2 class="font-serif text-3xl md:text-4xl font-bold text-white leading-tight mb-6">
+            Stiftet i 2012. Investerer selv. Styret af ordentlighed.
+          </h2>
+          <p class="text-white/65 leading-relaxed mb-5">
+            Nectar er en professionel ejendomsforvalter med tilladelse fra Finanstilsynet til at
+            forvalte alternative investeringsfonde (FAIF nr. 23.144). Vi har siden 2012 rådgivet
+            på mere end 75 ejendomstransaktioner og forvalter i dag ca. DKK 6,5 mia. fordelt på
+            ca. 3.200 lejemål.
+          </p>
+          <p class="text-white/65 leading-relaxed mb-8">
+            Vores forretningsmodel er simpel: Vi finder gode ejendomme på attraktive beliggenheder,
+            strukturerer fonden korrekt efter gældende regler, investerer vores egne penge og
+            forvalter aktivt med fokus på god balance mellem lejer og investor. Investorernes
+            afkast er vores mål.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <div class="flex items-center gap-2 bg-white/10 border border-white/15 rounded-lg px-4 py-2.5">
+              <svg width="14" height="14" fill="none" stroke="#C9A059" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span class="text-white/80 text-sm">AIF-reguleret (FAIF nr. 23.144)</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/10 border border-white/15 rounded-lg px-4 py-2.5">
+              <svg width="14" height="14" fill="none" stroke="#C9A059" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span class="text-white/80 text-sm">Investerer selv 10% i fonden</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/10 border border-white/15 rounded-lg px-4 py-2.5">
+              <svg width="14" height="14" fill="none" stroke="#C9A059" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span class="text-white/80 text-sm">Stiftet 2012, 20 medarbejdere</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Team cards -->
+        <div class="space-y-4">
+          <div class="bg-white/10 border border-white/15 rounded-xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-full bg-honey-400 flex items-center justify-center text-stone-900 font-bold text-base shrink-0">
+                BK
+              </div>
+              <div>
+                <h3 class="font-semibold text-white">Bjørk Krogshave</h3>
+                <p class="text-white/55 text-sm mb-3">Direktør, Nectar Invest A/S</p>
+                <div class="flex flex-col gap-1.5 text-sm">
+                  <a href="mailto:bk@nectaram.com" class="text-honey-400 hover:text-honey-300 transition-colors flex items-center gap-2">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    bk@nectaram.com
+                  </a>
+                  <a href="tel:+4520788540" class="text-honey-400 hover:text-honey-300 transition-colors flex items-center gap-2">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01-.07 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.17 7.5a16 16 0 006.29 6.29l1.14-1.14a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
+                    </svg>
+                    +45 2078 8540
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white/10 border border-white/15 rounded-xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-full bg-honey-400 flex items-center justify-center text-stone-900 font-bold text-base shrink-0">
+                TB
+              </div>
+              <div>
+                <h3 class="font-semibold text-white">Thomas Borg</h3>
+                <p class="text-white/55 text-sm mb-3">Direktør, Nectar Management A/S</p>
+                <div class="flex flex-col gap-1.5 text-sm">
+                  <a href="mailto:t.borg@nectaram.com" class="text-honey-400 hover:text-honey-300 transition-colors flex items-center gap-2">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    t.borg@nectaram.com
+                  </a>
+                  <a href="tel:+4526801610" class="text-honey-400 hover:text-honey-300 transition-colors flex items-center gap-2">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01-.07 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.17 7.5a16 16 0 006.29 6.29l1.14-1.14a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
+                    </svg>
+                    +45 2680 1610
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quote card -->
+          <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+            <p class="text-white/70 text-sm leading-relaxed italic">
+              "Vi er erfarne ejendomsfolk, som er drevet af den gode investeringscase.
+              Vi forhandler benhårdt og tør gå imod trenden — og vi investerer vores egne penge
+              i fondene."
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       DOWNLOAD
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="download" class="py-20 md:py-28 bg-stone-100">
+    <div class="max-w-xl mx-auto px-6 text-center">
+      <div class="inline-block bg-forest-600/10 text-forest-600 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6">
+        Investeringsmateriale
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl font-bold text-stone-900 mb-4">
+        Hent den fulde investeringspræsentation
+      </h2>
+      <p class="text-stone-500 mb-10 leading-relaxed">
+        Det komplette materiale inkluderer budgetforudsætninger, risikoanalyse,
+        investeringsstruktur og finansielle modeller for Nectar Valby Boligfond ApS.
+      </p>
+
+      <div class="bg-white border border-stone-200 rounded-xl p-8 shadow-sm text-left">
+
+        <!-- Form -->
+        <form id="download-form" class="space-y-4" onsubmit="handleDownload(event)">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-stone-900 mb-1.5">
+                Navn <span class="text-red-500">*</span>
+              </label>
+              <input type="text" name="dl_name" required placeholder="Dit fulde navn"
+                class="w-full border border-stone-200 rounded-lg px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 bg-stone-50 transition-colors" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-stone-900 mb-1.5">
+                E-mail <span class="text-red-500">*</span>
+              </label>
+              <input type="email" name="dl_email" required placeholder="din@email.dk"
+                class="w-full border border-stone-200 rounded-lg px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 bg-stone-50 transition-colors" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-stone-900 mb-1.5">
+              Virksomhed / Holding <span class="text-stone-400 font-normal">(valgfrit)</span>
+            </label>
+            <input type="text" name="dl_company" placeholder="Dit selskabs navn"
+              class="w-full border border-stone-200 rounded-lg px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 bg-stone-50 transition-colors" />
+          </div>
+          <button type="submit"
+            class="w-full bg-forest-600 text-white font-semibold py-3.5 rounded-lg hover:bg-forest-700 transition-colors flex items-center justify-center gap-2 text-sm">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download præsentation (PDF)
+          </button>
+          <p class="text-xs text-stone-400 text-center">
+            Dine oplysninger behandles fortroligt. Ved at indsende accepterer du vores <a href="/privacy.html" class="underline hover:text-stone-600 transition-colors">privatlivspolitik</a>.
+          </p>
+        </form>
+
+        <!-- Success state -->
+        <div id="download-success" class="hidden text-center py-6 animate-fade-up">
+          <div class="w-12 h-12 bg-forest-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg width="22" height="22" fill="none" stroke="#1C3829" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-stone-900 mb-2">Din download starter om et øjeblik</h3>
+          <p class="text-sm text-stone-500 mb-4">Vi har noteret din interesse og kontakter dig inden for 24 timer.</p>
+          <a href="Nectar Valby Boligfond ApS_investeringspræsentation.pdf" download
+            class="inline-flex items-center gap-2 text-forest-600 font-medium text-sm hover:underline">
+            Klik her hvis download ikke starter automatisk
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       CONTACT FORM
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="kontakt" class="py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-20">
+
+        <!-- Left: Context -->
+        <div>
+          <div class="inline-block bg-forest-600/10 text-forest-600 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6">
+            Kontakt
+          </div>
+          <h2 class="font-serif text-3xl md:text-4xl font-bold text-stone-900 leading-tight mb-6">
+            Lad os tage en snak om investeringen
+          </h2>
+          <p class="text-stone-600 leading-relaxed mb-8">
+            Vi afholder gerne et uforpligtende møde, hvor vi gennemgår investeringscasen,
+            budgetforudsætninger og svarer på spørgsmål.
+          </p>
+
+          <div class="space-y-4 mb-10">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-forest-100 flex items-center justify-center shrink-0">
+                <svg width="15" height="15" fill="none" stroke="#1C3829" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div>
+                <div class="text-sm font-medium text-stone-900">E-mail</div>
+                <a href="mailto:bk@nectaram.com" class="text-sm text-forest-600 hover:underline">bk@nectaram.com</a>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-forest-100 flex items-center justify-center shrink-0">
+                <svg width="15" height="15" fill="none" stroke="#1C3829" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <div class="text-sm font-medium text-stone-900">Adresse</div>
+                <span class="text-sm text-stone-600">Bornholmsgade 3, 1266 København K</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Disclaimer -->
+          <div class="bg-stone-100 rounded-xl p-5">
+            <p class="text-xs text-stone-500 font-semibold mb-1.5">Vigtig information</p>
+            <p class="text-xs text-stone-500 leading-relaxed">
+              Investering i Nectar Valby Boligfond ApS henvender sig udelukkende til professionelle
+              investorer. Der kan mistes hele indskuddet. Alle tal er baseret på budgetforudsætninger
+              og er ikke en garanti for fremtidigt afkast. Tegning skal ske på baggrund af det
+              endelige investeringsmateriale, ikke denne side alene.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="bg-white border border-stone-200 rounded-xl p-8 shadow-sm">
+
+          <form id="contact-form" class="space-y-5" onsubmit="handleContact(event)">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-stone-900 mb-1.5">
+                  Navn <span class="text-red-500">*</span>
+                </label>
+                <input type="text" name="name" required placeholder="Dit fulde navn"
+                  class="w-full border border-stone-200 rounded-lg px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 bg-stone-50 transition-colors" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-stone-900 mb-1.5">Telefon</label>
+                <input type="tel" name="phone" placeholder="+45 00 00 00 00"
+                  class="w-full border border-stone-200 rounded-lg px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 bg-stone-50 transition-colors" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-stone-900 mb-1.5">
+                E-mail <span class="text-red-500">*</span>
+              </label>
+              <input type="email" name="email" required placeholder="din@email.dk"
+                class="w-full border border-stone-200 rounded-lg px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 bg-stone-50 transition-colors" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-stone-900 mb-1.5">
+                Virksomhed / Holding <span class="text-stone-400 font-normal">(valgfrit)</span>
+              </label>
+              <input type="text" name="company" placeholder="Eksempel Holding ApS"
+                class="w-full border border-stone-200 rounded-lg px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 bg-stone-50 transition-colors" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-stone-900 mb-1.5">
+                Forventet investeringsbeløb <span class="text-red-500">*</span>
+              </label>
+              <div class="relative">
+                <select name="amount" required
+                  class="w-full border border-stone-200 rounded-lg px-4 py-2.5 text-sm text-stone-900 bg-stone-50 cursor-pointer transition-colors pr-10">
+                  <option value="" disabled selected>Vælg beløbsinterval</option>
+                  <option value="2.5-5M">DKK 2.500.000 – 5.000.000</option>
+                  <option value="5-10M">DKK 5.000.000 – 10.000.000</option>
+                  <option value="+10MM">DKK 10.000.000+</option>
+                </select>
+                <div class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
+                  <svg width="14" height="14" fill="none" stroke="#6B6762" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-stone-900 mb-1.5">
+                Type af midler <span class="text-stone-400 font-normal">(valgfrit)</span>
+              </label>
+              <div class="relative">
+                <select name="fundtype"
+                  class="w-full border border-stone-200 rounded-lg px-4 py-2.5 text-sm text-stone-900 bg-stone-50 cursor-pointer transition-colors pr-10">
+                  <option value="">Ikke oplyst</option>
+                  <option value="frie">Frie midler</option>
+                  <option value="pension">Pensionsmidler</option>
+                  <option value="selskab">Selskabsmidler</option>
+                  <option value="blandet">Blanding</option>
+                </select>
+                <div class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
+                  <svg width="14" height="14" fill="none" stroke="#6B6762" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-stone-900 mb-1.5">
+                Besked <span class="text-stone-400 font-normal">(valgfrit)</span>
+              </label>
+              <textarea name="message" rows="3"
+                placeholder="Spørgsmål til casen eller ønske om specifikt mødetidspunkt..."
+                class="w-full border border-stone-200 rounded-lg px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 bg-stone-50 transition-colors resize-none"></textarea>
+            </div>
+
+            <button type="submit"
+              class="w-full bg-forest-600 text-white font-semibold py-3.5 rounded-lg hover:bg-forest-700 transition-colors text-sm">
+              Send forespørgsel
+            </button>
+            <p class="text-xs text-stone-400 text-center mt-3">
+              Dine oplysninger behandles fortroligt. Ved at indsende accepterer du vores <a href="/privacy.html" class="underline hover:text-stone-600 transition-colors">privatlivspolitik</a>.
+            </p>
+          </form>
+
+          <!-- Success -->
+          <div id="contact-success" class="hidden text-center py-10 animate-fade-up">
+            <div class="w-14 h-14 bg-forest-100 rounded-full flex items-center justify-center mx-auto mb-5">
+              <svg width="24" height="24" fill="none" stroke="#1C3829" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-stone-900 text-lg mb-2">Tak for din henvendelse</h3>
+            <p class="text-stone-500 text-sm leading-relaxed max-w-xs mx-auto">
+              Vi vender tilbage inden for 24 timer med mere information og et forslag til et møde.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════════ -->
+  <footer class="bg-stone-900 text-white/50 py-14">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-10 mb-10">
+
+        <!-- Brand -->
+        <div>
+          <div class="mb-5">
+            <img src="brand_assets/nectar-logo.png" alt="Nectar" class="h-9 w-auto brightness-0 invert" />
+          </div>
+          <p class="text-xs leading-relaxed">
+            Professionel ejendomsinvestering i den klassiske, københavnske boligmasse — siden 2012.
+          </p>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white/80 text-sm font-semibold mb-4">Kontakt</h4>
+          <div class="space-y-2 text-sm">
+            <p>Bornholmsgade 3</p>
+            <p>1266 København K</p>
+            <a href="mailto:bk@nectaram.com" class="text-honey-400/80 hover:text-honey-400 block mt-3 transition-colors">bk@nectaram.com</a>
+            <a href="https://www.nectarinvest.dk" target="_blank" rel="noopener noreferrer"
+               class="text-honey-400/80 hover:text-honey-400 block transition-colors">www.nectarinvest.dk</a>
+          </div>
+        </div>
+
+        <!-- Regulatory -->
+        <div>
+          <h4 class="text-white/80 text-sm font-semibold mb-4">Regulatorisk</h4>
+          <div class="space-y-2 text-xs leading-relaxed">
+            <p>Nectar FAIF A/S er godkendt af Finanstilsynet til at forvalte alternative investeringsfonde (FAIF nr. 23.144).</p>
+            <p>Nectar Valby Boligfond ApS er etableret som en Alternativ Investeringsfond (AIF) med dobbelt holdingstruktur.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legal -->
+      <div class="border-t border-white/10 pt-8 text-xs leading-relaxed">
+        <p class="mb-3">
+          <strong class="text-white/65">Ansvarsfraskrivelse:</strong> Denne hjemmeside er udelukkende rettet mod professionelle
+          investorer som defineret i den finansielle lovgivning. Investering i Nectar Valby Boligfond ApS
+          indebærer risiko for tab af hele det investerede beløb. Alle angivne afkasttal er baseret på
+          budgetforudsætninger og udgør ikke en garanti for fremtidigt afkast. Eventuel tegning i fonden
+          skal ske på baggrund af det fulde, endelige investeringsmateriale udleveret af Nectar —
+          ikke på baggrund af denne side alene. Der tages forbehold for fejl og mangler.
+        </p>
+        <p class="text-white/25">© 2026 Nectar FAIF A/S · Alle rettigheder forbeholdes · <a href="/privacy.html" class="hover:text-white/50 transition-colors">Privatlivspolitik</a></p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SCRIPTS
+  ═══════════════════════════════════════════════════════════════ -->
+  <script>
+    async function handleDownload(e) {
+      e.preventDefault();
+      const form = document.getElementById('download-form');
+      const btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Sender…';
+      btn.disabled = true;
+
+      const data = {
+        name: form.dl_name.value,
+        email: form.dl_email.value,
+        company: form.dl_company.value,
+        source: 'hent-investeringsplan',
+      };
+
+      try {
+        await fetch('/.netlify/functions/submit-lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+      } catch {}
+
+      if (typeof fbq === 'function') fbq('track', 'Lead');
+
+      form.classList.add('hidden');
+      document.getElementById('download-success').classList.remove('hidden');
+
+      setTimeout(() => {
+        const a = document.createElement('a');
+        a.href = 'Nectar Valby Boligfond ApS_investeringspræsentation.pdf';
+        a.download = 'Nectar_Valby_Boligfond_Investeringspræsentation.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }, 600);
+    }
+
+    async function handleContact(e) {
+      e.preventDefault();
+      const form = document.getElementById('contact-form');
+      const btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Sender…';
+      btn.disabled = true;
+
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        company: form.company.value,
+        amount: form.amount.value,
+        fundtype: form.fundtype.value,
+        message: form.message.value,
+      };
+
+      try {
+        const res = await fetch('/.netlify/functions/submit-lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (!res.ok) throw new Error('Server error');
+        if (typeof fbq === 'function') fbq('track', 'Lead');
+        form.classList.add('hidden');
+        document.getElementById('contact-success').classList.remove('hidden');
+      } catch {
+        btn.textContent = 'Send forespørgsel';
+        btn.disabled = false;
+        alert('Der opstod en fejl. Prøv venligst igen.');
+      }
+    }
+  </script>
+
+</body>
+</html>
