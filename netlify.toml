@@ -3,6 +3,9 @@
   publish   = "."
   functions = "netlify/functions"
 
+[functions."follow-up-email"]
+  schedule = "0 9 * * *"
+
 [[headers]]
   for = "/admin.html"
   [headers.values]

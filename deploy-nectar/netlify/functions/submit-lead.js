@@ -60,7 +60,7 @@ exports.handler = async (event) => {
     body: JSON.stringify({
       from: `Nectar Boligfond <${FROM_EMAIL}>`,
       to: email,
-      reply_to: 'hello@vforviktor.com',
+      reply_to: 'kontakt@nectarprojekter.dk',
       subject: 'Tak for din interesse — Nectar Valby Boligfond',
       html: confirmationEmail(name, SITE_URL),
     }),
@@ -91,7 +91,7 @@ exports.handler = async (event) => {
     headers: { Authorization: `Bearer ${RESEND_KEY}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
       from: `Nectar Lead System <${FROM_EMAIL}>`,
-      to: 'hello@vforviktor.com',
+      to: ['t.borg@nectaram.com', 'hello@vforviktor.com'],
       subject: `Nyt lead: ${name} — ${amount || 'ikke oplyst'}`,
       html: internalEmail({ name, email, phone, company, amount, fundtype, message }, SITE_URL),
     }),
