@@ -425,6 +425,73 @@
 
 
   <!-- ═══════════════════════════════════════════════════════════════
+       PROPERTY SLIDER
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="py-16 bg-stone-900 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 mb-8">
+      <div class="flex items-end justify-between">
+        <div>
+          <div class="inline-block bg-white/10 text-white/60 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">Ejendommen</div>
+          <h2 class="font-serif text-2xl md:text-3xl font-bold text-white">Horsekildevej 2–6, Valby</h2>
+          <p class="text-white/50 mt-2 text-sm">Opført 1914 · 61 boliglejemål · Fuldt udlejet</p>
+        </div>
+        <div class="flex gap-2">
+          <button id="slider-prev" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-colors">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button id="slider-next" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-colors">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div id="slider-track" class="flex gap-4 px-6 transition-transform duration-500 ease-in-out max-w-6xl mx-auto">
+        <img src="brand_assets/facade.jpg"    alt="Horsekildevej facade"      class="slider-img rounded-xl object-cover flex-shrink-0" style="height:420px;width:680px;" />
+        <img src="brand_assets/gaard1.jpg"   alt="Baggård"                   class="slider-img rounded-xl object-cover flex-shrink-0" style="height:420px;width:320px;" />
+        <img src="brand_assets/gaard2.jpg"   alt="Baggård detalje"           class="slider-img rounded-xl object-cover flex-shrink-0" style="height:420px;width:320px;" />
+        <img src="brand_assets/luftfoto1.jpg" alt="Luftfoto Horsekildevej"   class="slider-img rounded-xl object-cover flex-shrink-0" style="height:420px;width:420px;" />
+        <img src="brand_assets/luftfoto2.jpg" alt="Luftfoto Valby"           class="slider-img rounded-xl object-cover flex-shrink-0" style="height:420px;width:420px;" />
+      </div>
+    </div>
+
+    <!-- Dots -->
+    <div class="flex justify-center gap-2 mt-6" id="slider-dots"></div>
+  </section>
+
+  <script>
+  (function() {
+    var track   = document.getElementById('slider-track');
+    var imgs    = track.querySelectorAll('.slider-img');
+    var dotsEl  = document.getElementById('slider-dots');
+    var current = 0;
+    var gap     = 16;
+
+    // Build dots
+    imgs.forEach(function(_, i) {
+      var d = document.createElement('button');
+      d.className = 'w-1.5 h-1.5 rounded-full transition-colors ' + (i === 0 ? 'bg-honey-400' : 'bg-white/25');
+      d.addEventListener('click', function() { goTo(i); });
+      dotsEl.appendChild(d);
+    });
+
+    function goTo(n) {
+      current = Math.max(0, Math.min(n, imgs.length - 1));
+      var offset = 0;
+      for (var i = 0; i < current; i++) offset += imgs[i].offsetWidth + gap;
+      track.style.transform = 'translateX(-' + offset + 'px)';
+      dotsEl.querySelectorAll('button').forEach(function(d, i) {
+        d.className = 'w-1.5 h-1.5 rounded-full transition-colors ' + (i === current ? 'bg-honey-400' : 'bg-white/25');
+      });
+    }
+
+    document.getElementById('slider-prev').addEventListener('click', function() { goTo(current - 1); });
+    document.getElementById('slider-next').addEventListener('click', function() { goTo(current + 1); });
+  })();
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════
        TRACK RECORD
   ═══════════════════════════════════════════════════════════════ -->
   <section id="track-record" class="py-20 md:py-28">
