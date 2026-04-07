@@ -1008,7 +1008,7 @@
       const data = {
         name: form.dl_name.value,
         email: form.dl_email.value,
-        company: form.dl_company.value,
+        phone: form.dl_phone ? form.dl_phone.value : '',
         source: 'hent-investeringsplan',
       };
 
@@ -1046,10 +1046,9 @@
         name: form.name.value,
         email: form.email.value,
         phone: form.phone.value,
-        company: form.company.value,
         amount: form.amount.value,
-        fundtype: form.fundtype.value,
         message: form.message.value,
+        source: 'kontakt',
       };
 
       try {
