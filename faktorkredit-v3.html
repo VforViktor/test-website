@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faktor — Lån med din bolig som sikkerhed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --off-white: #F6F8F6;
+      --green-900: #1A3828;
+      --green-800: #2A5C45;
+      --green-700: #3D7A60;
+      --green-600: #4E9476;
+      --green-400: #72C197;
+      --green-100: #E5F2EA;
+      --green-50: #F0F8F2;
+      --text-primary: #1A2B24;
+      --text-secondary: #4A5E55;
+      --text-muted: #7A8C84;
+      --border: #DCE8E2;
+      --border-light: #EEF4F0;
+      --shadow-sm: 0 1px 3px rgba(26,43,36,0.06);
+      --shadow-md: 0 4px 16px rgba(26,43,36,0.08);
+      --shadow-lg: 0 12px 40px rgba(26,43,36,0.12);
+      --font-d: 'Bricolage Grotesque', sans-serif;
+      --font-b: 'Nunito Sans', sans-serif;
+      --r: 12px;
+      --rl: 20px;
+      --rxl: 28px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); background: var(--white); color: var(--text-primary); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 72px;
+      background: rgba(255,255,255,0.94); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      transition: box-shadow 0.3s;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--font-d); font-size: 1.15rem; font-weight: 700;
+      color: var(--green-800); text-decoration: none; letter-spacing: -0.02em;
+    }
+    .nav-mark {
+      width: 32px; height: 32px; border-radius: 8px; background: var(--green-800);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-mark svg { width: 14px; height: 14px; fill: white; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--green-800); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .btn-ghost {
+      padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+      color: var(--green-800); border: 1.5px solid var(--green-800);
+      background: transparent; text-decoration: none; transition: all 0.2s; cursor: pointer;
+      font-family: var(--font-b);
+    }
+    .btn-ghost:hover { background: var(--green-50); }
+    .btn-cta {
+      padding: 9px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 700;
+      color: white; background: var(--green-800); border: none;
+      text-decoration: none; transition: all 0.2s; cursor: pointer;
+      font-family: var(--font-d); display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-cta:hover { background: var(--green-900); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(26,56,40,0.22); }
+    .nav-burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-burger span { width: 22px; height: 2px; background: var(--green-800); border-radius: 2px; display: block; }
+    .mob-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: white; z-index: 99; padding: 28px 24px; flex-direction: column; gap: 4px; }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { font-size: 1.05rem; font-weight: 500; color: var(--text-primary); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--border-light); }
+    .mob-menu .btn-cta { margin-top: 20px; justify-content: center; padding: 14px; }
+
+    /* ── HERO ── */
+    .hero-wrap { padding: 130px 48px 80px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: center; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green-100); color: var(--green-800);
+      padding: 5px 13px; border-radius: 100px; font-size: 0.775rem; font-weight: 700;
+      letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 22px;
+    }
+    .hero-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green-600); }
+    .hero-left h1 {
+      font-family: var(--font-d); font-size: clamp(2.1rem, 4vw, 3.3rem);
+      font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px;
+    }
+    .hero-left h1 em { font-style: normal; color: var(--green-800); }
+    .hero-sub { font-size: 1.05rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: 28px; max-width: 460px; }
+    .hero-trust { display: flex; flex-wrap: wrap; gap: 18px; }
+    .trust-pill { display: flex; align-items: center; gap: 7px; font-size: 0.82rem; color: var(--text-muted); font-weight: 500; }
+    .trust-pill svg { width: 15px; height: 15px; color: var(--green-600); flex-shrink: 0; }
+
+    /* form card */
+    .form-card { background: white; border: 1px solid var(--border); border-radius: var(--rxl); padding: 36px; box-shadow: var(--shadow-lg); }
+    .form-card h3 { font-family: var(--font-d); font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 5px; letter-spacing: -0.02em; }
+    .form-card > p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 22px; }
+    .fg { margin-bottom: 13px; }
+    .fg label { display: block; font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 5px; letter-spacing: 0.01em; }
+    .fg input, .fg select {
+      width: 100%; padding: 11px 13px; border: 1.5px solid var(--border); border-radius: 9px;
+      font-size: 0.875rem; color: var(--text-primary); font-family: var(--font-b);
+      background: var(--off-white); transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+      -webkit-appearance: none; appearance: none;
+    }
+    .fg input:focus, .fg select:focus { border-color: var(--green-600); box-shadow: 0 0 0 3px rgba(78,148,118,0.11); background: white; }
+    .sel-wrap { position: relative; }
+    .sel-wrap::after { content: ''; position: absolute; right: 13px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 5px solid var(--text-muted); pointer-events: none; }
+    .btn-submit { width: 100%; padding: 13px; background: var(--green-800); color: white; border: none; border-radius: 9px; font-size: 1rem; font-weight: 700; font-family: var(--font-d); cursor: pointer; transition: all 0.2s; margin-top: 4px; letter-spacing: -0.01em; }
+    .btn-submit:hover { background: var(--green-900); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,56,40,0.24); }
+    .form-note { font-size: 0.73rem; color: var(--text-muted); text-align: center; margin-top: 10px; }
+    .form-ok { display: none; text-align: center; padding: 20px 0; }
+    .form-ok .ok-icon { width: 52px; height: 52px; background: var(--green-100); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+    .form-ok h4 { font-family: var(--font-d); font-size: 1.15rem; font-weight: 700; margin-bottom: 7px; }
+    .form-ok p { font-size: 0.875rem; color: var(--text-muted); }
+
+    /* ── STATS ── */
+    .stats-bar { background: var(--green-800); padding: 40px 48px; }
+    .stats-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+    .stat { text-align: center; }
+    .stat-n { font-family: var(--font-d); font-size: 2.2rem; font-weight: 700; color: white; letter-spacing: -0.03em; line-height: 1; }
+    .stat-l { font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-top: 6px; }
+
+    /* ── SECTION BASE ── */
+    .sec { padding: 96px 48px; }
+    .sec-in { max-width: 1200px; margin: 0 auto; }
+    .sec-label { display: inline-flex; align-items: center; gap: 8px; color: var(--green-700); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
+    .sec-label::before { content: ''; width: 18px; height: 2px; background: var(--green-600); border-radius: 2px; }
+    .sec-title { font-family: var(--font-d); font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 14px; }
+    .sec-sub { font-size: 1rem; color: var(--text-secondary); line-height: 1.75; max-width: 540px; }
+    .sec-head { margin-bottom: 52px; }
+    .sec-head.c { text-align: center; }
+    .sec-head.c .sec-label { justify-content: center; }
+    .sec-head.c .sec-sub { margin: 0 auto; }
+
+    /* ── PRODUCTS ── */
+    .prod-bg { background: var(--off-white); }
+    .prod-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .prod-card { background: white; border: 1px solid var(--border); border-radius: var(--rl); padding: 40px 36px; transition: all 0.25s; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+    .prod-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--green-800); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
+    .prod-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: transparent; }
+    .prod-card:hover::before { transform: scaleX(1); }
+    .prod-icon { width: 60px; height: 60px; background: var(--green-100); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
+    .prod-icon svg { width: 26px; height: 26px; color: var(--green-800); }
+    .prod-card h3 { font-family: var(--font-d); font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .prod-card > p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 22px; flex: 1; }
+    .prod-details { list-style: none; margin-bottom: 28px; display: flex; flex-direction: column; gap: 9px; }
+    .prod-details li { display: flex; align-items: center; gap: 9px; font-size: 0.85rem; color: var(--text-secondary); }
+    .prod-details li::before { content: ''; width: 18px; height: 18px; border-radius: 50%; background: var(--green-100); display: flex; align-items: center; justify-content: center; flex-shrink: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%233D7A60' stroke-width='2'%3E%3Cpolyline points='2 6 5 9 10 3'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; background-size: 10px; }
+    .prod-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 26px; }
+    .prod-tag { background: var(--green-50); color: var(--green-700); padding: 5px 11px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; }
+    .prod-btn { display: flex; align-items: center; justify-content: center; gap: 7px; width: 100%; padding: 13px 20px; background: var(--green-800); color: white; border-radius: 10px; font-family: var(--font-d); font-size: 0.95rem; font-weight: 700; text-decoration: none; transition: all 0.2s; letter-spacing: -0.01em; }
+    .prod-btn:hover { background: var(--green-900); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(26,56,40,0.22); }
+    .prod-btn svg { width: 15px; height: 15px; }
+
+    /* ── STEPS ── */
+    .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; }
+    .steps-grid::before { content: ''; position: absolute; top: 27px; left: 12%; right: 12%; height: 1px; background: var(--border); }
+    .step { text-align: center; padding: 0 12px; }
+    .step-n { width: 54px; height: 54px; border-radius: 50%; background: var(--green-800); color: white; font-family: var(--font-d); font-size: 1.1rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; position: relative; z-index: 1; }
+    .step h4 { font-family: var(--font-d); font-size: 0.975rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .step p { font-size: 0.825rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── USE CASES ── */
+    .uc-bg { background: var(--off-white); }
+    .uc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .uc-card { background: white; border: 1px solid var(--border); border-radius: var(--r); padding: 26px; transition: all 0.2s; cursor: default; }
+    .uc-card:hover { border-color: var(--green-400); box-shadow: var(--shadow-md); }
+    .uc-icon { font-size: 1.7rem; margin-bottom: 12px; display: block; }
+    .uc-card h4 { font-family: var(--font-d); font-size: 0.975rem; font-weight: 700; margin-bottom: 7px; }
+    .uc-card p { font-size: 0.825rem; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ── WHY ── */
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .why-feats { display: flex; flex-direction: column; gap: 26px; margin-top: 32px; }
+    .why-feat { display: flex; gap: 14px; align-items: flex-start; }
+    .why-feat-icon { width: 42px; height: 42px; background: var(--green-100); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .why-feat-icon svg { width: 18px; height: 18px; color: var(--green-700); }
+    .why-feat h4 { font-family: var(--font-d); font-size: 0.975rem; font-weight: 700; margin-bottom: 4px; }
+    .why-feat p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+    .why-card { background: var(--green-800); border-radius: var(--rxl); padding: 40px; position: relative; overflow: hidden; }
+    .why-card::before { content: ''; position: absolute; top: -50px; right: -50px; width: 220px; height: 220px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+    .why-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+    .why-stars span { color: #F9C74F; font-size: 1rem; }
+    .why-q { font-family: var(--font-d); font-size: 1.25rem; font-weight: 600; line-height: 1.45; letter-spacing: -0.02em; color: white; margin-bottom: 24px; }
+    .why-q em { font-style: italic; color: var(--green-400); font-weight: 400; }
+    .why-who { display: flex; align-items: center; gap: 12px; }
+    .why-av { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-family: var(--font-d); font-size: 0.875rem; font-weight: 700; color: white; }
+    .why-who-info h5 { font-size: 0.85rem; font-weight: 700; color: white; }
+    .why-who-info p { font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+
+    /* ── COMPARISON ── */
+    .cmp-bg { background: var(--green-900); }
+    .cmp-bg .sec-label { color: var(--green-400); }
+    .cmp-bg .sec-label::before { background: var(--green-400); }
+    .cmp-bg .sec-title { color: white; }
+    .cmp-bg .sec-sub { color: rgba(255,255,255,0.6); }
+    .cmp-table { width: 100%; border-collapse: collapse; margin-top: 44px; }
+    .cmp-table th { padding: 14px 22px; text-align: left; font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.45); letter-spacing: 0.05em; text-transform: uppercase; }
+    .cmp-table td { padding: 16px 22px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.875rem; color: rgba(255,255,255,0.75); vertical-align: middle; }
+    .cmp-table td:first-child { color: white; font-weight: 500; }
+    .cmp-table td:nth-child(2) { color: var(--green-400); font-weight: 600; }
+    .cmp-hd { font-family: var(--font-d); font-size: 0.95rem; font-weight: 700; color: white !important; }
+    .cmp-hd-g { color: var(--green-400) !important; }
+    tr.alt td { background: rgba(255,255,255,0.03); }
+    .ck { color: var(--green-400); }
+    .cx { color: rgba(255,255,255,0.22); }
+
+    /* ── TESTIMONIALS ── */
+    .test-bg { background: var(--off-white); }
+    .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .test-card { background: white; border: 1px solid var(--border); border-radius: var(--rl); padding: 32px; }
+    .test-card-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+    .test-card-stars span { color: #F9C74F; font-size: 0.95rem; }
+    .test-card-q { font-family: var(--font-d); font-size: 1rem; font-weight: 600; line-height: 1.55; letter-spacing: -0.01em; color: var(--text-primary); margin-bottom: 22px; }
+    .test-card-q::before { content: '\201C'; }
+    .test-card-q::after { content: '\201D'; }
+    .test-card-by { display: flex; align-items: center; gap: 10px; padding-top: 18px; border-top: 1px solid var(--border-light); }
+    .test-card-av { width: 40px; height: 40px; border-radius: 50%; background: var(--green-100); display: flex; align-items: center; justify-content: center; font-family: var(--font-d); font-weight: 700; color: var(--green-800); font-size: 0.8rem; flex-shrink: 0; }
+    .test-card-info h5 { font-weight: 700; font-size: 0.85rem; margin-bottom: 2px; }
+    .test-card-info p { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 700px; margin: 0 auto; }
+    .faq-it { border-bottom: 1px solid var(--border); }
+    .faq-btn { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 0; background: none; border: none; cursor: pointer; font-family: var(--font-d); font-size: 1rem; font-weight: 600; color: var(--text-primary); text-align: left; gap: 14px; transition: color 0.2s; }
+    .faq-btn:hover { color: var(--green-800); }
+    .faq-ic { width: 26px; height: 26px; border-radius: 50%; background: var(--off-white); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, transform 0.3s; }
+    .faq-ic svg { width: 13px; height: 13px; color: var(--text-muted); transition: color 0.2s; }
+    .faq-it.open .faq-ic { background: var(--green-100); transform: rotate(180deg); }
+    .faq-it.open .faq-ic svg { color: var(--green-800); }
+    .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-body-in { padding: 0 0 18px; font-size: 0.875rem; color: var(--text-secondary); line-height: 1.75; }
+
+    /* ── CTA BOTTOM ── */
+    .cta-sec { background: var(--green-800); padding: 96px 48px; }
+    .cta-in { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: center; }
+    .cta-sec .sec-label { color: var(--green-400); }
+    .cta-sec .sec-label::before { background: var(--green-400); }
+    .cta-sec .sec-title { color: white; }
+    .cta-sec .sec-sub { color: rgba(255,255,255,0.68); }
+    .cta-pts { display: flex; flex-direction: column; gap: 13px; margin-top: 28px; }
+    .cta-pt { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; color: rgba(255,255,255,0.85); font-weight: 500; }
+    .cta-pt::before { content: '✓'; width: 22px; height: 22px; background: rgba(255,255,255,0.14); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: white; flex-shrink: 0; }
+    .cta-card { background: white; border-radius: var(--rxl); padding: 34px; }
+    .cta-card h3 { font-family: var(--font-d); font-size: 1.2rem; font-weight: 700; margin-bottom: 5px; }
+    .cta-card > p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 22px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--green-900); padding: 68px 48px 36px; }
+    .foot-in { max-width: 1200px; margin: 0 auto; }
+    .foot-top { display: grid; grid-template-columns: 240px 1fr 1fr 1fr; gap: 48px; margin-bottom: 52px; }
+    .foot-logo { font-family: var(--font-d); font-size: 1.1rem; font-weight: 700; color: white; text-decoration: none; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .foot-mark { width: 28px; height: 28px; background: var(--green-600); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+    .foot-mark svg { width: 12px; height: 12px; fill: white; }
+    .foot-tag { font-size: 0.825rem; color: rgba(255,255,255,0.45); line-height: 1.6; margin-bottom: 18px; }
+    .foot-ct { font-size: 0.85rem; color: rgba(255,255,255,0.65); }
+    .foot-ct a { color: rgba(255,255,255,0.65); text-decoration: none; }
+    .foot-ct a:hover { color: white; }
+    .foot-col h5 { font-family: var(--font-d); font-size: 0.76rem; font-weight: 700; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
+    .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .foot-col ul a { font-size: 0.85rem; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    .foot-col ul a:hover { color: white; }
+    .foot-btm { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; }
+    .foot-legal { font-size: 0.76rem; color: rgba(255,255,255,0.3); line-height: 1.6; }
+    .foot-legal a { color: rgba(255,255,255,0.38); text-decoration: none; }
+
+    /* ── ANIMATIONS ── */
+    .fu { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fu.vis { opacity: 1; transform: translateY(0); }
+    .fu:nth-child(2) { transition-delay: 0.08s; }
+    .fu:nth-child(3) { transition-delay: 0.16s; }
+    .fu:nth-child(4) { transition-delay: 0.24s; }
+    .fu:nth-child(5) { transition-delay: 0.12s; }
+    .fu:nth-child(6) { transition-delay: 0.2s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      .nav-links, .nav-actions { display: none; }
+      .nav-burger { display: flex; }
+      .hero-wrap { grid-template-columns: 1fr; padding: 100px 24px 56px; gap: 36px; }
+      .stats-bar { padding: 36px 24px; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .sec { padding: 64px 24px; }
+      .prod-grid { grid-template-columns: 1fr; gap: 14px; }
+      .steps-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .steps-grid::before { display: none; }
+      .uc-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr; gap: 36px; }
+      .test-grid { grid-template-columns: 1fr; gap: 14px; }
+      .cta-in { grid-template-columns: 1fr; gap: 36px; }
+      .foot-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .uc-grid, .steps-grid { grid-template-columns: 1fr; }
+      .foot-top { grid-template-columns: 1fr; }
+      .foot-btm { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nav-logo">
+    <span class="nav-mark"><svg viewBox="0 0 16 16"><path d="M8 1.5L14.5 8L8 14.5L1.5 8Z"/></svg></span>
+    Faktor
+  </a>
+  <ul class="nav-links">
+    <li><a href="#produkter">Produkter</a></li>
+    <li><a href="#hvordan">Sådan virker det</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#om">Om os</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="tel:53606375" class="btn-ghost">53 60 63 75</a>
+    <a href="#kontakt" class="btn-cta">Bliv ringet op</a>
+  </div>
+  <button class="nav-burger" onclick="toggleMob()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="#produkter" onclick="toggleMob()">Produkter</a>
+  <a href="#hvordan" onclick="toggleMob()">Sådan virker det</a>
+  <a href="#faq" onclick="toggleMob()">FAQ</a>
+  <a href="#om" onclick="toggleMob()">Om os</a>
+  <a href="tel:53606375" onclick="toggleMob()">Ring til os: 53 60 63 75</a>
+  <a href="#kontakt" class="btn-cta" onclick="toggleMob()">Bliv ringet op</a>
+</div>
+
+<!-- HERO -->
+<section>
+  <div class="hero-wrap">
+    <div class="hero-left fu">
+      <div class="hero-eyebrow">Godkendt lånemægler</div>
+      <h1>Lån med din bolig<br>som <em>sikkerhed</em></h1>
+      <p class="hero-sub">Vi hjælper boligejere og erhvervsdrivende med fleksible lån — hurtig sagsbehandling, personlig rådgivning og svar inden 24 timer.</p>
+      <div class="hero-trust">
+        <div class="trust-pill">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
+          Gratis og uforpligtende
+        </div>
+        <div class="trust-pill">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
+          Svar inden 24 timer
+        </div>
+        <div class="trust-pill">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
+          Ingen skjulte gebyrer
+        </div>
+      </div>
+    </div>
+    <div class="form-card fu" id="hero-form-area">
+      <h3>Bliv ringet op</h3>
+      <p>Vi kontakter dig inden for 2 timer på hverdage</p>
+      <div id="hfw">
+        <form onsubmit="submitForm(event,'hfw','hfok')">
+          <div class="fg"><label>Dit navn</label><input type="text" placeholder="Fornavn Efternavn" required></div>
+          <div class="fg"><label>Telefonnummer</label><input type="tel" placeholder="12 34 56 78" required></div>
+          <div class="fg"><label>Hvad ønsker du?</label>
+            <div class="sel-wrap">
+              <select required>
+                <option value="" disabled selected>Vælg låneformål</option>
+                <option>Lån i friværdi</option>
+                <option>Boligkøb</option>
+                <option>Erhvervslån</option>
+                <option>Andet</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn-submit">Ring mig op →</button>
+          <p class="form-note">Dine oplysninger behandles fortroligt og deles ikke med tredjepart.</p>
+        </form>
+      </div>
+      <div class="form-ok" id="hfok">
+        <div class="ok-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5C45" stroke-width="2.5" width="26" height="26"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4>Vi ringer dig op!</h4>
+        <p>Forvent opkald inden for 2 timer på hverdage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat fu"><div class="stat-n">24t</div><div class="stat-l">Svartid på hverdage</div></div>
+    <div class="stat fu"><div class="stat-n">1–2 uger</div><div class="stat-l">Fra ansøgning til udbetaling</div></div>
+    <div class="stat fu"><div class="stat-n">100%</div><div class="stat-l">Gratis rådgivning</div></div>
+    <div class="stat fu"><div class="stat-n">3 typer</div><div class="stat-l">Friværdi, boligkøb & erhverv</div></div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="sec prod-bg" id="produkter">
+  <div class="sec-in">
+    <div class="sec-head">
+      <div class="sec-label">Vores løsninger</div>
+      <h2 class="sec-title">Find det rette lån til dig</h2>
+      <p class="sec-sub">Vi tilbyder tre typer finansiering — alt efter din situation og dine behov.</p>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card fu">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3>Lån i friværdi</h3>
+        <p>Frigør den opsparing, der sidder gemt i din bolig. Brug pengene til det du ønsker — renovering, investering, gældsafvikling eller noget helt fjerde.</p>
+        <ul class="prod-details">
+          <li>Lån op til 75% af boligens værdi</li>
+          <li>Ingen krav om fast indkomst</li>
+          <li>Svar inden 24 timer</li>
+          <li>Gælder alle ejendomstyper</li>
+        </ul>
+        <div class="prod-tags">
+          <span class="prod-tag">Renovering</span>
+          <span class="prod-tag">Investering</span>
+          <span class="prod-tag">Gældsafvikling</span>
+        </div>
+        <a href="https://uniify.dk/faktor/frivaerdi" class="prod-btn" target="_blank" rel="noopener">
+          Send låneansøgning <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+        </a>
+      </div>
+      <div class="prod-card fu">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/><path d="M14 4h4v5"/></svg></div>
+        <h3>Boligkøb</h3>
+        <p>Skal du købe ny bolig, fritidshus eller investeringsejendom? Vi hjælper med finansieringen — også når banken siger nej.</p>
+        <ul class="prod-details">
+          <li>Privat bolig, fritidshus og investering</li>
+          <li>Individuel vurdering af din situation</li>
+          <li>Mellemfinansiering mulig</li>
+          <li>Hele Danmark</li>
+        </ul>
+        <div class="prod-tags">
+          <span class="prod-tag">Primær bolig</span>
+          <span class="prod-tag">Fritidshus</span>
+          <span class="prod-tag">Mellemfinansiering</span>
+        </div>
+        <a href="https://uniify.dk/faktor/boligkob" class="prod-btn" target="_blank" rel="noopener">
+          Send låneansøgning <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+        </a>
+      </div>
+      <div class="prod-card fu">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+        <h3>Erhvervslån</h3>
+        <p>Finansiering til erhvervsejendomme og forretningsdrift med fast ejendom som sikkerhed. Hurtigt og fleksibelt.</p>
+        <ul class="prod-details">
+          <li>Erhvervsejendomme og kontorer</li>
+          <li>Driftslån og vækstkapital</li>
+          <li>Fleksibel afdragsprofil</li>
+          <li>Personlig erhvervsrådgiver</li>
+        </ul>
+        <div class="prod-tags">
+          <span class="prod-tag">Erhvervsejendom</span>
+          <span class="prod-tag">Driftslån</span>
+          <span class="prod-tag">Vækst</span>
+        </div>
+        <a href="https://uniify.dk/faktor/erhverv" class="prod-btn" target="_blank" rel="noopener">
+          Send låneansøgning <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec" id="hvordan">
+  <div class="sec-in">
+    <div class="sec-head c">
+      <div class="sec-label">Processen</div>
+      <h2 class="sec-title">Sådan forløber det</h2>
+      <p class="sec-sub">Fra første kontakt til udbetaling — vi holder dig informeret hele vejen.</p>
+    </div>
+    <!-- Step 1: two entry paths -->
+    <div style="max-width:780px;margin:0 auto 40px;background:var(--off-white);border:1px solid var(--border);border-radius:var(--rl);padding:28px 32px;">
+      <p style="font-size:0.78rem;font-weight:700;color:var(--green-700);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:16px;">Trin 1 — Vælg din indgang</p>
+      <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;">
+        <div style="background:white;border:1.5px solid var(--green-800);border-radius:var(--r);padding:20px 24px;text-align:center;">
+          <div style="font-family:var(--font-d);font-size:1rem;font-weight:700;margin-bottom:6px;">📞 Bliv ringet op</div>
+          <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.5;">Udfyld formularen — vi ringer dig op og tager det derfra.</p>
+        </div>
+        <div style="font-family:var(--font-d);font-weight:700;color:var(--text-muted);font-size:0.875rem;text-align:center;">ELLER</div>
+        <div style="background:white;border:1.5px solid var(--border);border-radius:var(--r);padding:20px 24px;text-align:center;">
+          <div style="font-family:var(--font-d);font-size:1rem;font-weight:700;margin-bottom:6px;">📋 Send låneansøgning</div>
+          <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.5;">Udfyld ansøgningen direkte via vores formular i Uniify.</p>
+        </div>
+      </div>
+    </div>
+    <div class="steps-grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="step fu"><div class="step-n">2</div><h4>Vi vurderer din sag</h4><p>Vi gennemgår din ansøgning, vurderer ejendommen og kontakter dig med afklaring inden 24 timer.</p></div>
+      <div class="step fu"><div class="step-n">3</div><h4>Konkret tilbud</h4><p>Du modtager et tilbud med alle vilkår i klart sprog. Ingen skjulte gebyrer, ingen overraskelser.</p></div>
+      <div class="step fu"><div class="step-n">4</div><h4>Underskrift & udbetaling</h4><p>Tinglysning og udbetaling — typisk inden for 1–2 uger fra godkendelse.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="sec uc-bg">
+  <div class="sec-in">
+    <div class="sec-head">
+      <div class="sec-label">Hvem hjælper vi?</div>
+      <h2 class="sec-title">Mange grunde til at låne</h2>
+      <p class="sec-sub">Uanset din situation har vi sandsynligvis hjulpet nogen i den samme.</p>
+    </div>
+    <div class="uc-grid">
+      <div class="uc-card fu"><span class="uc-icon">🔨</span><h4>Renovering & forbedring</h4><p>Frigør friværdi til at modernisere dit hjem, bygge til eller opdatere energiforhold.</p></div>
+      <div class="uc-card fu"><span class="uc-icon">💳</span><h4>Gældskonsolidering</h4><p>Saml dyr kortgæld i ét samlet lån med lavere rente og bedre månedligt overblik.</p></div>
+      <div class="uc-card fu"><span class="uc-icon">🏠</span><h4>Mellemfinansiering</h4><p>Køb ny bolig inden du sælger din nuværende. Vi løser finansieringsgabet hurtigt.</p></div>
+      <div class="uc-card fu"><span class="uc-icon">📈</span><h4>Ejendomsinvestering</h4><p>Brug friværdi som startkapital til køb af udlejningsejendom eller andel.</p></div>
+      <div class="uc-card fu"><span class="uc-icon">👨‍👩‍👧</span><h4>Hjælp til børn</h4><p>Hjælp dine børn ind på boligmarkedet ved at frigøre din opsparing i ejendommen.</p></div>
+      <div class="uc-card fu"><span class="uc-icon">🏢</span><h4>Erhvervsfinansiering</h4><p>Brug boligen som sikkerhed for driftslån, vækstkapital eller erhvervskøb.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY FAKTOR -->
+<section class="sec" id="om">
+  <div class="sec-in">
+    <div class="why-grid">
+      <div>
+        <div class="sec-label">Hvorfor Faktor?</div>
+        <h2 class="sec-title">Vi er ikke din bank</h2>
+        <p class="sec-sub">Bankerne siger nej til mange, der burde have et ja. Vi kigger på din bolig — ikke kun dine indkomstpapirer.</p>
+        <div class="why-feats">
+          <div class="why-feat fu">
+            <div class="why-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+            <div><h4>Personlig rådgivning</h4><p>Du får én fast rådgiver fra start til slut. Vi kender din sag og din situation.</p></div>
+          </div>
+          <div class="why-feat fu">
+            <div class="why-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div><h4>Hurtig afklaring</h4><p>Svar inden 24 timer. Ingen lange ventetider eller bureaukrati.</p></div>
+          </div>
+          <div class="why-feat fu">
+            <div class="why-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div><h4>Fuld transparens</h4><p>Vi forklarer alle vilkår i klart sprog. Ingen overraskelser, ingen skjulte gebyrer.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="why-card fu">
+        <div class="why-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="why-q">Vi var afvist i to banker. Faktor forstod vores situation og fik finansieringen på plads på <em>under en uge.</em></div>
+        <div class="why-who">
+          <div class="why-av">MK</div>
+          <div class="why-who-info"><h5>Mette & Kasper</h5><p>Boligkøb · Aarhus</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="sec cmp-bg">
+  <div class="sec-in">
+    <div class="sec-head c">
+      <div class="sec-label">Sammenligning</div>
+      <h2 class="sec-title">Faktor vs. alternativerne</h2>
+      <p class="sec-sub">Se forskellen på os, banken og kviklånsudbyderne.</p>
+    </div>
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="cmp-hd cmp-hd-g">Faktor</th>
+          <th class="cmp-hd">Din bank</th>
+          <th class="cmp-hd">Kviklån</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="alt"><td>Vurdering af bolig</td><td><span class="ck">✓</span> Primær fokus</td><td>Delvist</td><td><span class="cx">✗</span></td></tr>
+        <tr><td>Svar inden 24 timer</td><td><span class="ck">✓</span> Garanteret</td><td>Ofte 1–2 uger</td><td>Hurtig, men dyr</td></tr>
+        <tr class="alt"><td>Personlig rådgiver</td><td><span class="ck">✓</span> Fast kontakt</td><td>Skifter ofte</td><td><span class="cx">✗</span></td></tr>
+        <tr><td>Rimelig rente</td><td><span class="ck">✓</span> Markedspris</td><td><span class="ck">✓</span></td><td>Høj ÅOP</td></tr>
+        <tr class="alt"><td>Ingen skjulte gebyrer</td><td><span class="ck">✓</span> Fuld transparens</td><td>Varierer</td><td><span class="cx">✗</span></td></tr>
+        <tr><td>Fleksibel ansøgning</td><td><span class="ck">✓</span> Individuel vurdering</td><td>Rigid kreditscoring</td><td><span class="ck">✓</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec test-bg">
+  <div class="sec-in">
+    <div class="sec-head c">
+      <div class="sec-label">Hvad siger vores kunder?</div>
+      <h2 class="sec-title">De valgte Faktor</h2>
+      <p class="sec-sub">Vi er stolte af at hjælpe folk med at finde den rette finansiering — også når banken sagde nej.</p>
+    </div>
+    <div class="test-grid">
+      <div class="test-card fu">
+        <div class="test-card-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="test-card-q">Jeg troede aldrig vi kunne frigøre friværdien, da banken vendte os. Faktor var professionelle, hurtige og forklarede alt i et sprog vi forstod.</div>
+        <div class="test-card-by">
+          <div class="test-card-av">LH</div>
+          <div class="test-card-info"><h5>Lars Henriksen</h5><p>Lån i friværdi · Odense</p></div>
+        </div>
+      </div>
+      <div class="test-card fu">
+        <div class="test-card-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="test-card-q">Vi var afvist i to banker. Faktor forstod vores situation og fik finansieringen til boligkøbet på plads på under en uge. Utrolig service.</div>
+        <div class="test-card-by">
+          <div class="test-card-av">MK</div>
+          <div class="test-card-info"><h5>Mette & Kasper</h5><p>Boligkøb · Aarhus</p></div>
+        </div>
+      </div>
+      <div class="test-card fu">
+        <div class="test-card-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="test-card-q">Brugte friværdien til at renovere huset. Processen var nem, rådgiveren svarede hurtigt og vilkårene var klare og forståelige fra start.</div>
+        <div class="test-card-by">
+          <div class="test-card-av">SB</div>
+          <div class="test-card-info"><h5>Søren & Birgit</h5><p>Lån i friværdi · Horsens</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="sec-in">
+    <div class="sec-head c">
+      <div class="sec-label">Svar på det vigtigste</div>
+      <h2 class="sec-title">Ofte stillede spørgsmål</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-it">
+        <button class="faq-btn" onclick="toggleFaq(this)">Hvad er et lån i friværdi?<span class="faq-ic"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg></span></button>
+        <div class="faq-body"><div class="faq-body-in">Et lån i friværdi betyder, at du låner mod sikkerheden i din bolig. Friværdi er forskellen mellem din boligs aktuelle markedsværdi og din restgæld. Disse penge kan frigøres som kontanter til fx renovering, investering eller gældsafvikling.</div></div>
+      </div>
+      <div class="faq-it">
+        <button class="faq-btn" onclick="toggleFaq(this)">Hvem kan ansøge hos Faktor?<span class="faq-ic"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg></span></button>
+        <div class="faq-body"><div class="faq-body-in">Alle boligejere med friværdi kan ansøge. Vi hjælper privatpersoner, selvstændige og virksomheder. Vi vurderer din sag individuelt — også selvom banken har sagt nej.</div></div>
+      </div>
+      <div class="faq-it">
+        <button class="faq-btn" onclick="toggleFaq(this)">Hvad koster det at blive ringet op?<span class="faq-ic"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg></span></button>
+        <div class="faq-body"><div class="faq-body-in">Ingenting. Rådgivningen er gratis og uforpligtende. Du betaler kun, hvis du takker ja til et tilbud og lånet bliver etableret.</div></div>
+      </div>
+      <div class="faq-it">
+        <button class="faq-btn" onclick="toggleFaq(this)">Hvor hurtigt kan jeg få svar?<span class="faq-ic"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg></span></button>
+        <div class="faq-body"><div class="faq-body-in">Vi ringer typisk tilbage inden for 2 timer på hverdage. Du vil få et foreløbigt svar inden 24 timer. Den fulde sagsbehandling tager 3–7 hverdage afhængigt af sagens kompleksitet.</div></div>
+      </div>
+      <div class="faq-it">
+        <button class="faq-btn" onclick="toggleFaq(this)">Hvilke ejendomstyper accepterer I?<span class="faq-ic"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg></span></button>
+        <div class="faq-body"><div class="faq-body-in">Vi arbejder med parcelhuse, rækkehuse, ejerlejligheder, sommerhuse og erhvervsejendomme i hele Danmark. Kontakt os, hvis du er i tvivl om din ejendomstype.</div></div>
+      </div>
+      <div class="faq-it">
+        <button class="faq-btn" onclick="toggleFaq(this)">Hvad sker der, hvis jeg ikke kan betale?<span class="faq-ic"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg></span></button>
+        <div class="faq-body"><div class="faq-body-in">Vi tager betalingsproblemer alvorligt og prøver altid at finde en løsning i dialog. Lån med pant i fast ejendom indebærer en reel risiko for tab af boligen ved manglende betaling. Vi opfordrer altid til at vurdere din økonomi grundigt inden optagelse af lån.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BOTTOM -->
+<section class="cta-sec" id="kontakt">
+  <div class="cta-in">
+    <div>
+      <div class="sec-label" style="color:var(--green-400)"><span style="display:inline-flex;align-items:center;gap:8px"><span style="width:18px;height:2px;background:var(--green-400);border-radius:2px;display:inline-block"></span>Kom i gang</span></div>
+      <h2 class="sec-title" style="color:white">Klar til at høre dine muligheder?</h2>
+      <p class="sec-sub" style="color:rgba(255,255,255,0.68)">Uforpligtende samtale. Gratis rådgivning. Vi ringer dig op inden for 2 timer.</p>
+      <div class="cta-pts">
+        <div class="cta-pt">Ingen kreditvurdering ved første kontakt</div>
+        <div class="cta-pt">Svar inden for 24 timer på hverdage</div>
+        <div class="cta-pt">Fast personlig rådgiver hele forløbet</div>
+        <div class="cta-pt">Ingen skjulte gebyrer</div>
+      </div>
+    </div>
+    <div class="cta-card">
+      <h3>Bliv ringet op</h3>
+      <p>Vi kontakter dig hurtigt og diskret</p>
+      <div id="cfw">
+        <form onsubmit="submitForm(event,'cfw','cfok')">
+          <div class="fg"><label>Dit navn</label><input type="text" placeholder="Fornavn Efternavn" required></div>
+          <div class="fg"><label>Telefonnummer</label><input type="tel" placeholder="12 34 56 78" required></div>
+          <div class="fg"><label>Hvad ønsker du?</label>
+            <div class="sel-wrap">
+              <select required>
+                <option value="" disabled selected>Vælg låneformål</option>
+                <option>Lån i friværdi</option>
+                <option>Boligkøb</option>
+                <option>Erhvervslån</option>
+                <option>Andet</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn-submit">Ring mig op →</button>
+          <p class="form-note">Dine oplysninger behandles fortroligt.</p>
+        </form>
+      </div>
+      <div class="form-ok" id="cfok">
+        <div class="ok-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5C45" stroke-width="2.5" width="26" height="26"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4>Tak! Vi ringer dig op.</h4>
+        <p>Forvent opkald inden for 2 timer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-in">
+    <div class="foot-top">
+      <div>
+        <a href="/" class="foot-logo">
+          <span class="foot-mark"><svg viewBox="0 0 16 16"><path d="M8 1.5L14.5 8L8 14.5L1.5 8Z"/></svg></span>
+          Faktor
+        </a>
+        <p class="foot-tag">Fleksible lån med din bolig som sikkerhed. Godkendt lånemægler for Ditboliglaan.DK Ejendomskreditselskab ApS.</p>
+        <div class="foot-ct">
+          <div><a href="tel:53606375">53 60 63 75</a></div>
+          <div><a href="mailto:info@faktorkredit.dk">info@faktorkredit.dk</a></div>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Produkter</h5>
+        <ul>
+          <li><a href="https://uniify.dk/faktorkredit/frivaerdi" target="_blank">Lån i friværdi</a></li>
+          <li><a href="https://uniify.dk/faktorkredit/boligkob" target="_blank">Boligkøb</a></li>
+          <li><a href="https://uniify.dk/faktorkredit/erhverv" target="_blank">Erhvervslån</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Om os</h5>
+        <ul>
+          <li><a href="#om">Hvem er vi?</a></li>
+          <li><a href="#faq">Spørgsmål & svar</a></li>
+          <li><a href="#hvordan">Sådan virker det</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Kontakt</h5>
+        <ul>
+          <li><a href="#kontakt">Bliv ringet op</a></li>
+          <li><a href="tel:53606375">Ring til os</a></li>
+          <li><a href="mailto:info@faktorkredit.dk">Send email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-btm">
+      <div class="foot-legal">© 2025 Faktor · Lånemægler for Ditboliglaan.DK Ejendomskreditselskab ApS (CVR 34464324) · <a href="#">Privatlivspolitik</a> · <a href="#">Cookies</a></div>
+      <div class="foot-legal">Lån altid med omtanke. Boliglån indebærer risiko for tab af bolig ved manglende betaling.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav shadow on scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').style.boxShadow = window.scrollY > 8 ? '0 2px 20px rgba(0,0,0,0.07)' : 'none';
+  });
+
+  // Mobile menu
+  function toggleMob() {
+    document.getElementById('mobMenu').classList.toggle('open');
+  }
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-it');
+    const body = item.querySelector('.faq-body');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-it.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-body').style.maxHeight = null;
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+  }
+
+  // Form submit (wire up to your real endpoint/webhook)
+  function submitForm(e, wrapId, okId) {
+    e.preventDefault();
+    document.getElementById(wrapId).querySelector('form').style.display = 'none';
+    document.getElementById(okId).style.display = 'block';
+  }
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fu').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
