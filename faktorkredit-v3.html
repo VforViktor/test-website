@@ -46,15 +46,11 @@
       transition: box-shadow 0.3s;
     }
     .nav-logo {
-      display: flex; align-items: center; gap: 10px;
-      font-family: var(--font-d); font-size: 1.15rem; font-weight: 700;
-      color: var(--green-800); text-decoration: none; letter-spacing: -0.02em;
+      display: flex; align-items: center;
+      text-decoration: none;
     }
-    .nav-mark {
-      width: 32px; height: 32px; border-radius: 8px; background: var(--green-800);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .nav-mark svg { width: 14px; height: 14px; fill: white; }
+    .nav-logo img { height: 28px; width: auto; filter: brightness(0) saturate(100%) invert(28%) sepia(22%) saturate(900%) hue-rotate(103deg) brightness(85%) contrast(95%); }
+    .nav-mark { display: none; }
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
     .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--green-800); }
@@ -258,9 +254,9 @@
     footer { background: var(--green-900); padding: 68px 48px 36px; }
     .foot-in { max-width: 1200px; margin: 0 auto; }
     .foot-top { display: grid; grid-template-columns: 240px 1fr 1fr 1fr; gap: 48px; margin-bottom: 52px; }
-    .foot-logo { font-family: var(--font-d); font-size: 1.1rem; font-weight: 700; color: white; text-decoration: none; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
-    .foot-mark { width: 28px; height: 28px; background: var(--green-600); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
-    .foot-mark svg { width: 12px; height: 12px; fill: white; }
+    .foot-logo { text-decoration: none; display: inline-block; margin-bottom: 12px; }
+    .foot-logo img { height: 26px; width: auto; opacity: 0.9; }
+    .foot-mark { display: none; }
     .foot-tag { font-size: 0.825rem; color: rgba(255,255,255,0.45); line-height: 1.6; margin-bottom: 18px; }
     .foot-ct { font-size: 0.85rem; color: rgba(255,255,255,0.65); }
     .foot-ct a { color: rgba(255,255,255,0.65); text-decoration: none; }
@@ -312,8 +308,7 @@
 <!-- NAV -->
 <nav id="nav">
   <a href="/" class="nav-logo">
-    <span class="nav-mark"><svg viewBox="0 0 16 16"><path d="M8 1.5L14.5 8L8 14.5L1.5 8Z"/></svg></span>
-    Faktor
+    <img src="brand_assets/faktor-logo.svg" alt="Faktor">
   </a>
   <ul class="nav-links">
     <li><a href="#produkter">Produkter</a></li>
@@ -709,8 +704,7 @@
     <div class="foot-top">
       <div>
         <a href="/" class="foot-logo">
-          <span class="foot-mark"><svg viewBox="0 0 16 16"><path d="M8 1.5L14.5 8L8 14.5L1.5 8Z"/></svg></span>
-          Faktor
+          <img src="brand_assets/faktor-logo.svg" alt="Faktor">
         </a>
         <p class="foot-tag">Fleksible lån med din bolig som sikkerhed. Godkendt lånemægler for Ditboliglaan.DK Ejendomskreditselskab ApS.</p>
         <div class="foot-ct">
