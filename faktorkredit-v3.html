@@ -239,8 +239,8 @@
     /* ── CTA BOTTOM ── */
     .cta-sec { background: var(--green-800); padding: 96px 48px; }
     .cta-in { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: center; }
-    .cta-sec .sec-label { color: var(--green-400); }
-    .cta-sec .sec-label::before { background: var(--green-400); }
+    .cta-sec .sec-label { color: var(--green-400) !important; }
+    .cta-sec .sec-label::before { background: var(--green-400) !important; }
     .cta-sec .sec-title { color: white; }
     .cta-sec .sec-sub { color: rgba(255,255,255,0.68); }
     .cta-pts { display: flex; flex-direction: column; gap: 13px; margin-top: 28px; }
@@ -285,21 +285,44 @@
       .nav-burger { display: flex; }
       .hero-wrap { grid-template-columns: 1fr; padding: 100px 24px 56px; gap: 36px; }
       .stats-bar { padding: 36px 24px; }
-      .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .stats-inner { grid-template-columns: repeat(2,1fr); gap: 20px; }
       .sec { padding: 64px 24px; }
       .prod-grid { grid-template-columns: 1fr; gap: 14px; }
       .steps-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
       .steps-grid::before { display: none; }
       .uc-grid { grid-template-columns: 1fr 1fr; }
       .why-grid { grid-template-columns: 1fr; gap: 36px; }
+      .why-card { margin-top: 0; }
       .test-grid { grid-template-columns: 1fr; gap: 14px; }
+      .cta-sec { padding: 64px 24px; }
       .cta-in { grid-template-columns: 1fr; gap: 36px; }
       .foot-top { grid-template-columns: 1fr 1fr; }
+      footer { padding: 52px 24px 28px; }
+      .cmp-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     }
     @media (max-width: 600px) {
-      .uc-grid, .steps-grid { grid-template-columns: 1fr; }
-      .foot-top { grid-template-columns: 1fr; }
-      .foot-btm { flex-direction: column; }
+      nav { padding: 0 16px; height: 64px; }
+      .mob-menu { top: 64px; padding: 20px 16px; }
+      .hero-wrap { padding: 88px 16px 48px; gap: 28px; }
+      .hero-left h1 { font-size: 2rem; }
+      .form-card { padding: 24px 20px; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); gap: 16px; }
+      .stat-n { font-size: 1.7rem; }
+      .sec { padding: 52px 16px; }
+      .sec-title { font-size: 1.6rem; }
+      .prod-grid, .uc-grid, .steps-grid, .test-grid { grid-template-columns: 1fr; }
+      .prod-card { padding: 28px 22px; }
+      .why-feats { gap: 18px; }
+      .why-card { padding: 28px 22px; }
+      .why-q { font-size: 1.05rem; }
+      .cta-in { gap: 28px; }
+      .cta-card { padding: 24px 20px; }
+      .faq-btn { font-size: 0.9rem; }
+      .foot-top { grid-template-columns: 1fr; gap: 28px; }
+      .foot-btm { flex-direction: column; gap: 8px; }
+      .test-card { padding: 24px 18px; }
+      /* Process entry cards */
+      .proc-entry { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -478,7 +501,7 @@
     <!-- Step 1: two entry paths -->
     <div style="max-width:780px;margin:0 auto 40px;background:var(--off-white);border:1px solid var(--border);border-radius:var(--rl);padding:28px 32px;">
       <p style="font-size:0.78rem;font-weight:700;color:var(--green-700);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:16px;">Trin 1: Vælg din indgang</p>
-      <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;">
+      <div class="proc-entry" style="display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;">
         <div style="background:white;border:1.5px solid var(--green-800);border-radius:var(--r);padding:20px 24px;text-align:center;">
           <div style="font-family:var(--font-d);font-size:1rem;font-weight:700;margin-bottom:6px;">📞 Bliv ringet op</div>
           <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.5;">Udfyld formularen. Vi ringer dig op og tager det derfra.</p>
@@ -570,8 +593,7 @@
       </thead>
       <tbody>
         <tr class="alt"><td>Vurdering af bolig</td><td><span class="ck">✓</span> Primær fokus</td><td>Delvist</td></tr>
-        <tr><td>Hurtig sagsbehandling</td><td><span class="ck">✓</span> Svar inden 24 timer</td><td>Ofte 1-2 uger</td></tr>
-        <tr class="alt"><td>Personlig rådgiver</td><td><span class="ck">✓</span> Fast kontakt hele forløbet</td><td>Skifter ofte</td></tr>
+<tr class="alt"><td>Personlig rådgiver</td><td><span class="ck">✓</span> Fast kontakt hele forløbet</td><td>Skifter ofte</td></tr>
         <tr><td>Rimelig rente</td><td><span class="ck">✓</span> Markedspris</td><td><span class="ck">✓</span></td></tr>
         <tr class="alt"><td>Ingen skjulte gebyrer</td><td><span class="ck">✓</span> Fuld transparens</td><td>Varierer</td></tr>
         <tr><td>Fleksibel ansøgning</td><td><span class="ck">✓</span> Individuel vurdering</td><td>Rigid kreditscoring</td></tr>
@@ -657,7 +679,7 @@
 <section class="cta-sec" id="kontakt">
   <div class="cta-in">
     <div>
-      <div class="sec-label" style="color:var(--green-400)"><span style="display:inline-flex;align-items:center;gap:8px"><span style="width:18px;height:2px;background:var(--green-400);border-radius:2px;display:inline-block"></span>Kom i gang</span></div>
+      <div class="sec-label" style="color:var(--green-400);--sec-label-color:var(--green-400)">Kom i gang</div>
       <h2 class="sec-title" style="color:white">Klar til at høre dine muligheder?</h2>
       <p class="sec-sub" style="color:rgba(255,255,255,0.68)">Uforpligtende samtale. Gratis rådgivning. Vi ringer dig op inden for 2 timer.</p>
       <div class="cta-pts">
