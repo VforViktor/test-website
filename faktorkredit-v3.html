@@ -169,7 +169,10 @@
     .step p { font-size: 0.825rem; color: var(--text-muted); line-height: 1.6; }
 
     /* ── USE CASES ── */
-    .uc-bg { background: var(--off-white); }
+    .uc-bg { position: relative; overflow: hidden; }
+    .uc-bg::before { content: ''; position: absolute; inset: 0; background-image: url('brand_assets/faktor-street.png'); background-size: cover; background-position: center; z-index: 0; }
+    .uc-bg::after { content: ''; position: absolute; inset: 0; background: rgba(246,248,246,0.92); z-index: 1; }
+    .uc-bg .sec-in { position: relative; z-index: 2; }
     .uc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
     .uc-card { background: white; border: 1px solid var(--border); border-radius: var(--r); padding: 26px; transition: all 0.2s; cursor: default; }
     .uc-card:hover { border-color: var(--green-400); box-shadow: var(--shadow-md); }
@@ -214,7 +217,10 @@
     .cx { color: rgba(255,255,255,0.22); }
 
     /* ── TESTIMONIALS ── */
-    .test-bg { background: var(--off-white); }
+    .test-bg { position: relative; overflow: hidden; }
+    .test-bg::before { content: ''; position: absolute; inset: 0; background-image: url('brand_assets/faktor-city.png'); background-size: cover; background-position: center 60%; z-index: 0; }
+    .test-bg::after { content: ''; position: absolute; inset: 0; background: rgba(246,248,246,0.90); z-index: 1; }
+    .test-bg .sec-in { position: relative; z-index: 2; }
     .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
     .test-card { background: white; border: 1px solid var(--border); border-radius: var(--rl); padding: 32px; }
     .test-card-stars { display: flex; gap: 3px; margin-bottom: 16px; }
