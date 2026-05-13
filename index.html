@@ -832,11 +832,36 @@
     const originalText = btn.textContent;
     btn.disabled = true;
     btn.textContent = 'Sender…';
+
+    const name = form.querySelector('input[name="name"]').value;
+    const telefon = form.querySelector('input[name="telefon"]').value;
+    const laneformaal = form.querySelector('select[name="låneformål"]').value;
     const data = new FormData(form);
+
+    const zdBody = JSON.stringify({
+      request: {
+        subject: 'Ny henvendelse – ' + laneformaal,
+        requester: {
+          name: name,
+          email: telefon.replace(/\s/g, '') + '@lead.faktorkredit.dk'
+        },
+        comment: {
+          body: 'Navn: ' + name + '\nTelefon: ' + telefon + '\nLåneformål: ' + laneformaal
+        }
+      }
+    });
+
     try {
-      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
-      const json = await res.json();
-      if (json.success) {
+      const [w3f] = await Promise.allSettled([
+        fetch('https://api.web3forms.com/submit', { method: 'POST', body: data }),
+        fetch('https://faktorkreditdk.zendesk.com/api/v2/requests.json', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: zdBody
+        })
+      ]);
+      const json = w3f.status === 'fulfilled' ? await w3f.value.json() : null;
+      if (json && json.success) {
         form.style.display = 'none';
         document.getElementById(okId).style.display = 'block';
       } else {
