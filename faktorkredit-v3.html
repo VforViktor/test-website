@@ -278,6 +278,9 @@
     .foot-legal { font-size: 0.76rem; color: rgba(255,255,255,0.3); line-height: 1.6; }
     .foot-legal a { color: rgba(255,255,255,0.38); text-decoration: none; }
 
+    /* steps 3-col override */
+    .steps-3col { grid-template-columns: repeat(3,1fr); }
+
     /* ── ANIMATIONS ── */
     .fu { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fu.vis { opacity: 1; transform: translateY(0); }
@@ -308,6 +311,22 @@
       .foot-top { grid-template-columns: 1fr 1fr; }
       footer { padding: 52px 24px 28px; }
       .cmp-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    }
+    @media (max-width: 700px) {
+      .steps-3col { grid-template-columns: 1fr; gap: 24px; }
+      .steps-3col::before { display: none; }
+      .step { text-align: left; display: flex; gap: 16px; align-items: flex-start; padding: 0; }
+      .step-n { flex-shrink: 0; margin: 0; width: 44px; height: 44px; font-size: 1rem; }
+      .step h4 { margin-bottom: 4px; }
+      /* Comparison table → stacked cards on mobile */
+      .cmp-table thead { display: none; }
+      .cmp-table, .cmp-table tbody, .cmp-table tr, .cmp-table td { display: block; width: 100%; box-sizing: border-box; }
+      .cmp-table tr { margin-bottom: 12px; padding: 16px; background: rgba(255,255,255,0.05); border-radius: 12px; border-top: none; }
+      .cmp-table tr.alt { background: rgba(255,255,255,0.07); }
+      .cmp-table td { padding: 4px 0; border: none; white-space: normal; font-size: 0.875rem; }
+      .cmp-table td:first-child { font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+      .cmp-table td:nth-child(2)::before { content: 'Faktor: '; font-size: 0.72rem; color: rgba(255,255,255,0.4); font-weight: 400; }
+      .cmp-table td:nth-child(3)::before { content: 'Din bank: '; font-size: 0.72rem; color: rgba(255,255,255,0.4); font-weight: 400; }
     }
     @media (max-width: 600px) {
       nav { padding: 0 16px; height: 64px; }
@@ -409,7 +428,7 @@
               </select>
             </div>
           </div>
-          <button type="submit" class="btn-submit">Ring mig op →</button>
+          <button type="submit" class="btn-submit">Start ansøgning →</button>
           <p class="form-note">Dine oplysninger behandles fortroligt og deles ikke med tredjepart.</p>
         </form>
       </div>
@@ -525,7 +544,7 @@
         </div>
       </div>
     </div>
-    <div class="steps-grid" style="grid-template-columns:repeat(3,1fr);">
+    <div class="steps-grid steps-3col">
       <div class="step fu"><div class="step-n">1</div><h4>Vi vurderer din sag</h4><p>Vi gennemgår din ansøgning, vurderer din sag og kontakter dig med afklaring.</p></div>
       <div class="step fu"><div class="step-n">2</div><h4>Konkret tilbud</h4><p>Du modtager et tilbud med alle vilkår i klart sprog. Ingen skjulte gebyrer, ingen overraskelser.</p></div>
       <div class="step fu"><div class="step-n">3</div><h4>Underskrift & udbetaling</h4><p>Tinglysning og udbetaling. Typisk inden for 1-2 uger fra godkendelse.</p></div>
@@ -810,6 +829,7 @@
     e.preventDefault();
     const form = document.getElementById(wrapId).querySelector('form');
     const btn = form.querySelector('.btn-submit');
+    const originalText = btn.textContent;
     btn.disabled = true;
     btn.textContent = 'Sender…';
     const data = new FormData(form);
@@ -821,12 +841,12 @@
         document.getElementById(okId).style.display = 'block';
       } else {
         btn.disabled = false;
-        btn.textContent = 'Ring mig op →';
+        btn.textContent = originalText;
         alert('Noget gik galt. Prøv igen eller ring til os direkte.');
       }
     } catch {
       btn.disabled = false;
-      btn.textContent = 'Ring mig op →';
+      btn.textContent = originalText;
       alert('Noget gik galt. Prøv igen eller ring til os direkte.');
     }
   }
