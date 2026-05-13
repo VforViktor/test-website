@@ -313,11 +313,11 @@
       .cmp-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     }
     @media (max-width: 700px) {
-      .steps-3col { grid-template-columns: 1fr; gap: 24px; }
+      .steps-3col { grid-template-columns: 1fr; gap: 32px; }
       .steps-3col::before { display: none; }
-      .step { text-align: left; display: flex; gap: 16px; align-items: flex-start; padding: 0; }
-      .step-n { flex-shrink: 0; margin: 0; width: 44px; height: 44px; font-size: 1rem; }
-      .step h4 { margin-bottom: 4px; }
+      .step { text-align: center; display: block; padding: 0; }
+      .step-n { margin: 0 auto 14px; }
+      .step h4 { margin-bottom: 6px; }
       /* Comparison table → stacked cards on mobile */
       .cmp-table thead { display: none; }
       .cmp-table, .cmp-table tbody, .cmp-table tr, .cmp-table td { display: block; width: 100%; box-sizing: border-box; }
