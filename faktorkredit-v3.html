@@ -49,7 +49,7 @@
       display: flex; align-items: center;
       text-decoration: none;
     }
-    .nav-logo img { height: 28px; width: auto; filter: brightness(0) saturate(100%) invert(28%) sepia(22%) saturate(900%) hue-rotate(103deg) brightness(85%) contrast(95%); }
+    .nav-logo img { height: 28px; width: auto; filter: brightness(0) saturate(100%) invert(28%) sepia(22%) saturate(900%) hue-rotate(103deg) brightness(85%) contrast(95%); transform: translateZ(0); -webkit-transform: translateZ(0); image-rendering: -webkit-optimize-contrast; }
     .nav-mark { display: none; }
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
     .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
@@ -359,7 +359,7 @@
 <!-- NAV -->
 <nav id="nav">
   <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="nav-logo">
-    <img src="brand_assets/faktor-logo.svg" alt="Faktor">
+    <img src="brand_assets/faktor-logo.png" alt="Faktor">
   </a>
   <ul class="nav-links">
     <li><a href="#produkter">Produkter</a></li>
@@ -759,7 +759,7 @@
     <div class="foot-top">
       <div>
         <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="foot-logo">
-          <img src="brand_assets/faktor-logo.svg" alt="Faktor">
+          <img src="brand_assets/faktor-logo.png" alt="Faktor">
         </a>
         <p class="foot-tag">Fleksible lån med din bolig som sikkerhed. Godkendt lånemægler for Ditboliglaan.DK Ejendomskreditselskab ApS.</p>
         <div class="foot-ct">
