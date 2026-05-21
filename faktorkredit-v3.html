@@ -385,7 +385,7 @@
     <li><a href="#om">Om os</a></li>
   </ul>
   <div class="nav-actions">
-    <a href="https://ansog.faktorkredit.dk/estimator" class="btn-ghost" target="_blank" rel="noopener">Start ansøgning</a>
+    <a href="https://ansog.faktorkredit.dk/estimator" class="btn-ghost" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout')">Start ansøgning</a>
     <a href="#kontakt" class="btn-cta">Bliv ringet op</a>
   </div>
   <button class="nav-burger" onclick="toggleMob()" aria-label="Menu">
@@ -428,7 +428,7 @@
     <div class="form-card fu" id="hero-form-area">
       <h3>Klar til at høre dine muligheder?</h3>
       <p>Gratis og uforpligtende. Svar inden 24 timer på hverdage.</p>
-      <a href="https://ansog.faktorkredit.dk/estimator" class="btn-submit" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;margin-top:16px;">
+      <a href="https://ansog.faktorkredit.dk/estimator" class="btn-submit" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout')" style="display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;margin-top:16px;">
         Start ansøgning
         <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
       </a>
@@ -471,7 +471,7 @@
           <span class="prod-tag">Investering</span>
           <span class="prod-tag">Gældsoptimering</span>
         </div>
-        <a href="https://ansog.faktorkredit.dk/estimator" class="prod-btn" target="_blank" rel="noopener">
+        <a href="https://ansog.faktorkredit.dk/estimator" class="prod-btn" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout')">
           Send låneansøgning <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
         </a>
       </div>
@@ -490,7 +490,7 @@
           <span class="prod-tag">Fritidshus</span>
           <span class="prod-tag">Mellemfinansiering</span>
         </div>
-        <a href="https://ansog.faktorkredit.dk/estimator" class="prod-btn" target="_blank" rel="noopener">
+        <a href="https://ansog.faktorkredit.dk/estimator" class="prod-btn" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout')">
           Send låneansøgning <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
         </a>
       </div>
@@ -509,7 +509,7 @@
           <span class="prod-tag">Driftslån</span>
           <span class="prod-tag">Vækst</span>
         </div>
-        <a href="https://ansog.faktorkredit.dk/estimator" class="prod-btn" target="_blank" rel="noopener">
+        <a href="https://ansog.faktorkredit.dk/estimator" class="prod-btn" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout')">
           Send låneansøgning <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
         </a>
       </div>
@@ -858,6 +858,7 @@
       ]);
       const json = w3f.status === 'fulfilled' ? await w3f.value.json() : null;
       if (json && json.success) {
+        fbq('track', 'Lead');
         form.style.display = 'none';
         document.getElementById(okId).style.display = 'block';
       } else {
