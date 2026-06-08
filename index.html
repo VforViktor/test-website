@@ -276,6 +276,12 @@
     .cta-card h3 { font-family: var(--font-d); font-size: 1.2rem; font-weight: 700; margin-bottom: 5px; }
     .cta-card > p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 22px; }
 
+    /* ── CREDIT DISCLOSURE BAR (top of page, required by Google Ads personal loans policy) ── */
+    .credit-disc-bar { background: #f0f4f1; border-bottom: 1px solid var(--border); padding: 10px 48px; }
+    .credit-disc-in { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 0.76rem; color: var(--text-secondary); line-height: 1.5; }
+    .credit-disc-label { font-weight: 700; color: var(--text-primary); }
+    .credit-disc-sep { color: var(--text-muted); }
+
     /* ── DISCLOSURE SECTION ── */
     .disc-sec { background: var(--off-white); border-top: 2px solid var(--border); padding: 40px 48px; }
     .disc-in { max-width: 1200px; margin: 0 auto; }
@@ -336,6 +342,7 @@
       .cta-sec { padding: 64px 24px; }
       .cta-in { grid-template-columns: 1fr; gap: 36px; }
       .foot-top { grid-template-columns: 1fr 1fr; }
+      .credit-disc-bar { padding: 10px 20px; }
       .disc-sec { padding: 28px 24px; }
       footer { padding: 52px 24px 28px; }
       .cmp-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -447,6 +454,18 @@
     </div>
   </div>
 </section>
+
+<!-- CREDIT DISCLOSURE -->
+<div class="credit-disc-bar">
+  <div class="credit-disc-in">
+    <span class="credit-disc-label">Kreditoplysninger</span>
+    <span>Løbetid: 12–300 mdr. (1–25 år)</span>
+    <span class="credit-disc-sep">·</span>
+    <span>Maks. ÅOP: 12,90%</span>
+    <span class="credit-disc-sep">·</span>
+    <span>Repr. eksempel: 3.000.000 kr. over 24 mdr., 8,25% nom. rente, ydelse 21.904 kr./mdr., kreditomk. 806.810 kr., samlet 3.807.270 kr., ÅOP 12,90%</span>
+  </div>
+</div>
 
 <!-- STATS -->
 <div class="stats-bar">
