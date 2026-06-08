@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privatlivspolitik — Faktor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --off-white: #F6F8F6;
+      --green-900: #1A3828;
+      --green-800: #2A5C45;
+      --green-700: #3D7A60;
+      --green-600: #4E9476;
+      --green-400: #72C197;
+      --green-100: #E5F2EA;
+      --green-50: #F0F8F2;
+      --text-primary: #1A2B24;
+      --text-secondary: #4A5E55;
+      --text-muted: #7A8C84;
+      --border: #DCE8E2;
+      --border-light: #EEF4F0;
+      --shadow-sm: 0 1px 3px rgba(26,43,36,0.06);
+      --shadow-md: 0 4px 16px rgba(26,43,36,0.08);
+      --font-d: 'Bricolage Grotesque', sans-serif;
+      --font-b: 'Nunito Sans', sans-serif;
+      --r: 12px;
+      --rl: 20px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); background: var(--white); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 72px;
+      background: rgba(255,255,255,0.94); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 28px; width: auto; filter: brightness(0) saturate(100%) invert(28%) sepia(22%) saturate(900%) hue-rotate(103deg) brightness(85%) contrast(95%); transform: translateZ(0); }
+    .btn-cta {
+      padding: 9px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 700;
+      color: white; background: var(--green-800); border: none;
+      text-decoration: none; transition: all 0.2s; cursor: pointer;
+      font-family: var(--font-d); display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-cta:hover { background: var(--green-900); }
+
+    /* CONTENT */
+    .pp-wrap {
+      max-width: 780px; margin: 0 auto;
+      padding: 120px 48px 100px;
+    }
+    .pp-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green-100); color: var(--green-800);
+      padding: 5px 13px; border-radius: 100px; font-size: 0.775rem; font-weight: 700;
+      letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 18px;
+    }
+    .pp-wrap h1 {
+      font-family: var(--font-d); font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 10px;
+    }
+    .pp-date { font-size: 0.83rem; color: var(--text-muted); margin-bottom: 52px; }
+
+    .pp-section { margin-bottom: 48px; }
+    .pp-section h2 {
+      font-family: var(--font-d); font-size: 1.2rem; font-weight: 700;
+      letter-spacing: -0.02em; color: var(--text-primary);
+      margin-bottom: 14px; padding-bottom: 10px;
+      border-bottom: 1.5px solid var(--border-light);
+    }
+    .pp-section p { font-size: 0.93rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
+    .pp-section p:last-child { margin-bottom: 0; }
+    .pp-section ul { margin: 10px 0 12px 20px; display: flex; flex-direction: column; gap: 7px; }
+    .pp-section ul li { font-size: 0.93rem; color: var(--text-secondary); line-height: 1.7; }
+
+    .pp-box {
+      background: var(--green-50); border: 1px solid var(--green-100);
+      border-radius: var(--rl); padding: 24px 28px; margin-bottom: 12px;
+    }
+    .pp-box p { margin: 0; }
+
+    /* FOOTER */
+    footer { background: var(--green-900); padding: 52px 48px 36px; }
+    .foot-inner { max-width: 1200px; margin: 0 auto; }
+    .foot-disclosure { border-top: 1px solid rgba(255,255,255,0.08); padding: 20px 0; margin-bottom: 6px; }
+    .foot-disclosure p { font-size: 0.72rem; color: rgba(255,255,255,0.3); line-height: 1.65; margin: 0 0 6px; }
+    .foot-disclosure p:last-child { margin-bottom: 0; }
+    .foot-btm { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; }
+    .foot-legal { font-size: 0.76rem; color: rgba(255,255,255,0.3); line-height: 1.6; }
+    .foot-legal a { color: rgba(255,255,255,0.38); text-decoration: none; }
+    .foot-legal a:hover { color: rgba(255,255,255,0.65); }
+
+    @media (max-width: 700px) {
+      nav { padding: 0 20px; }
+      .pp-wrap { padding: 100px 24px 64px; }
+      footer { padding: 40px 24px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/" class="nav-logo">
+    <img src="brand_assets/faktor-logo.png" alt="Faktor">
+  </a>
+  <a href="https://ansog.faktorkredit.dk/estimator" class="btn-cta" target="_blank" rel="noopener">
+    Start ansøgning
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </a>
+</nav>
+
+<main class="pp-wrap">
+
+  <div class="pp-eyebrow">Juridisk</div>
+  <h1>Privatlivspolitik</h1>
+  <p class="pp-date">Sidst opdateret: Juni 2026</p>
+
+  <div class="pp-section">
+    <h2>1. Dataansvarlig</h2>
+    <div class="pp-box">
+      <p><strong>Ditboliglaan.DK Ejendomskreditselskab ApS</strong><br>
+      CVR-nr.: 34464324<br>
+      E-mail: <a href="mailto:kontakt@faktorkredit.dk">kontakt@faktorkredit.dk</a><br>
+      Telefon: +45 53 60 63 75</p>
+    </div>
+    <p>Vi driver hjemmesiden faktorkredit.dk og formidler boliglån som lånemægler. Denne privatlivspolitik beskriver, hvordan vi indsamler, bruger og beskytter dine personoplysninger i overensstemmelse med EU's databeskyttelsesforordning (GDPR).</p>
+  </div>
+
+  <div class="pp-section">
+    <h2>2. Hvilke oplysninger indsamler vi?</h2>
+    <p>Når du udfylder vores kontaktformular eller ansøgningsskema, indsamler vi følgende oplysninger:</p>
+    <ul>
+      <li>Navn</li>
+      <li>Telefonnummer</li>
+      <li>Låneformål (f.eks. friværdilån, boligkøb, renovering)</li>
+    </ul>
+    <p>Derudover indsamles tekniske data automatisk via cookies og trackingteknologier (se afsnit 6 om cookies).</p>
+  </div>
+
+  <div class="pp-section">
+    <h2>3. Formål og retsgrundlag</h2>
+    <p>Vi behandler dine oplysninger til følgende formål:</p>
+    <ul>
+      <li><strong>Kontakt og rådgivning:</strong> Vi kontakter dig pr. telefon for at drøfte dine lånemuligheder. Retsgrundlag: dit samtykke (GDPR art. 6, stk. 1, litra a) afgivet ved indsendelse af formularen.</li>
+      <li><strong>Sagsbehandling:</strong> Vi opretter en supporthenvendelse i vores CRM-system med henblik på opfølgning. Retsgrundlag: berettiget interesse (GDPR art. 6, stk. 1, litra f).</li>
+      <li><strong>Markedsføring:</strong> Vi anvender aggregerede, anonymiserede data til at optimere vores digitale annoncering. Retsgrundlag: berettiget interesse.</li>
+    </ul>
+  </div>
+
+  <div class="pp-section">
+    <h2>4. Videregivelse til tredjeparter</h2>
+    <p>Vi videregiver dine oplysninger til følgende databehandlere, som alene behandler data på vores vegne og efter vores instruks:</p>
+    <ul>
+      <li><strong>Web3Forms</strong> — formidler indsendelse af kontaktformularen og sender bekræftelses-e-mail til os. Web3Forms er en cloud-tjeneste underlagt databehandleraftale.</li>
+      <li><strong>Zendesk, Inc.</strong> — vi opretter en supporthenvendelse i vores Zendesk-konto, som hostes i EU. Oplysningerne omfatter navn, et genereret lead-e-mailalias og låneformål.</li>
+    </ul>
+    <p>Vi sælger ikke dine personoplysninger til tredjepart og videregiver dem ikke til andre uden dit udtrykkelige samtykke, medmindre vi er retligt forpligtet hertil.</p>
+  </div>
+
+  <div class="pp-section">
+    <h2>5. Opbevaringsperiode</h2>
+    <p>Dine oplysninger opbevares, så længe det er nødvendigt for at behandle din henvendelse og i op til 3 år herefter af hensyn til eventuelle klager eller retlige krav. Herefter slettes oplysningerne.</p>
+  </div>
+
+  <div class="pp-section">
+    <h2>6. Cookies og Meta Pixel</h2>
+    <p>Vores hjemmeside anvender følgende teknologier:</p>
+    <ul>
+      <li><strong>Meta Pixel (ID: 898274282176177):</strong> Et sporingspixel fra Meta Platforms, Inc. (Facebook/Instagram), som registrerer besøg på siden samt handlinger (f.eks. klik på "Start ansøgning"). Disse data bruges til at måle effekten af vores annoncer og til at vise relevante annoncer til brugere på Meta-platforme. Meta kan anvende disse oplysninger i overensstemmelse med deres egen datapolitik. Du kan fravælge Meta-sporing via <a href="https://www.facebook.com/settings?tab=ads" target="_blank" rel="noopener">Facebooks annonceindstillinger</a>.</li>
+    </ul>
+    <p>Du kan til enhver tid administrere eller afvise cookies via din browsers indstillinger. Bemærk, at deaktivering af cookies kan påvirke sidens funktionalitet.</p>
+  </div>
+
+  <div class="pp-section">
+    <h2>7. Dine rettigheder</h2>
+    <p>Du har i henhold til GDPR følgende rettigheder:</p>
+    <ul>
+      <li><strong>Indsigt:</strong> Du kan anmode om indsigt i, hvilke oplysninger vi behandler om dig.</li>
+      <li><strong>Berigtigelse:</strong> Du kan anmode om at få berigtiget oplysninger, der er urigtige.</li>
+      <li><strong>Sletning:</strong> Du kan i visse tilfælde anmode om at få dine oplysninger slettet ("retten til at blive glemt").</li>
+      <li><strong>Begrænsning:</strong> Du kan anmode om, at behandlingen af dine oplysninger begrænses.</li>
+      <li><strong>Dataportabilitet:</strong> Du kan modtage dine oplysninger i et struktureret, maskinlæsbart format.</li>
+      <li><strong>Indsigelse:</strong> Du kan gøre indsigelse mod behandling baseret på berettiget interesse.</li>
+      <li><strong>Tilbagetrækning af samtykke:</strong> Hvis behandlingen er baseret på samtykke, kan du til enhver tid trække dit samtykke tilbage uden at det berører lovligheden af tidligere behandling.</li>
+    </ul>
+    <p>For at udøve dine rettigheder bedes du kontakte os på <a href="mailto:kontakt@faktorkredit.dk">kontakt@faktorkredit.dk</a>. Vi besvarer din henvendelse inden for 30 dage.</p>
+  </div>
+
+  <div class="pp-section">
+    <h2>8. Klageadgang</h2>
+    <p>Hvis du mener, at vi behandler dine oplysninger i strid med GDPR, har du ret til at indgive en klage til:</p>
+    <div class="pp-box">
+      <p><strong>Datatilsynet</strong><br>
+      Carl Jacobsens Vej 35<br>
+      2500 Valby<br>
+      Telefon: +45 33 19 32 00<br>
+      E-mail: dt@datatilsynet.dk<br>
+      Hjemmeside: <a href="https://www.datatilsynet.dk" target="_blank" rel="noopener">datatilsynet.dk</a></p>
+    </div>
+  </div>
+
+  <div class="pp-section">
+    <h2>9. Ændringer til denne politik</h2>
+    <p>Vi forbeholder os retten til at opdatere denne privatlivspolitik. Væsentlige ændringer vil blive kommunikeret tydeligt på hjemmesiden. Datoen øverst på siden angiver, hvornår politikken sidst blev opdateret.</p>
+  </div>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-disclosure">
+      <p><strong>Kreditoplysninger</strong> — Løbetid: 12–300 måneder (1–25 år) · Maks. ÅOP: 12,90%</p>
+      <p><strong>Repræsentativt eksempel:</strong> Lånebeløb: 3.000.000 kr. · Løbetid: 24 måneder · Nominel rente: 8,25% (fast) · Månedlig ydelse: 21.904 kr. · Etableringsgebyr: 10.000 kr. · Stempelomkostninger: 46.250 kr. · Tinglysningsafgift: 1.850 kr. · Samlede kreditomkostninger: 806.810 kr. · Samlet tilbagebetaling: 3.807.270 kr. · ÅOP: 12,90%</p>
+    </div>
+    <div class="foot-btm">
+      <div class="foot-legal">© 2026 Faktor · Lånemægler for Ditboliglaan.DK Ejendomskreditselskab ApS (CVR 34464324) · <a href="/privatlivspolitik.html">Privatlivspolitik</a> · <a href="#">Cookies</a></div>
+      <div class="foot-legal">Lån altid med omtanke. Boliglån indebærer risiko for tab af bolig ved manglende betaling.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
