@@ -15,7 +15,6 @@
       --green-800: #2A5C45;
       --green-700: #3D7A60;
       --green-600: #4E9476;
-      --green-400: #72C197;
       --green-100: #E5F2EA;
       --green-50: #F0F8F2;
       --text-primary: #1A2B24;
@@ -23,8 +22,6 @@
       --text-muted: #7A8C84;
       --border: #DCE8E2;
       --border-light: #EEF4F0;
-      --shadow-sm: 0 1px 3px rgba(26,43,36,0.06);
-      --shadow-md: 0 4px 16px rgba(26,43,36,0.08);
       --font-d: 'Bricolage Grotesque', sans-serif;
       --font-b: 'Nunito Sans', sans-serif;
       --r: 12px;
@@ -47,16 +44,13 @@
     .btn-cta {
       padding: 9px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 700;
       color: white; background: var(--green-800); border: none;
-      text-decoration: none; transition: all 0.2s; cursor: pointer;
+      text-decoration: none; transition: all 0.2s;
       font-family: var(--font-d); display: inline-flex; align-items: center; gap: 6px;
     }
     .btn-cta:hover { background: var(--green-900); }
 
     /* CONTENT */
-    .pp-wrap {
-      max-width: 780px; margin: 0 auto;
-      padding: 120px 48px 100px;
-    }
+    .pp-wrap { max-width: 780px; margin: 0 auto; padding: 120px 48px 100px; }
     .pp-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--green-100); color: var(--green-800);
@@ -80,12 +74,17 @@
     .pp-section p:last-child { margin-bottom: 0; }
     .pp-section ul { margin: 10px 0 12px 20px; display: flex; flex-direction: column; gap: 7px; }
     .pp-section ul li { font-size: 0.93rem; color: var(--text-secondary); line-height: 1.7; }
+    .pp-section table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 14px 0; }
+    .pp-section table th { text-align: left; font-weight: 700; color: var(--text-primary); padding: 9px 12px; background: var(--off-white); border-bottom: 1.5px solid var(--border); }
+    .pp-section table td { padding: 9px 12px; border-bottom: 1px solid var(--border-light); color: var(--text-secondary); vertical-align: top; }
 
     .pp-box {
       background: var(--green-50); border: 1px solid var(--green-100);
       border-radius: var(--rl); padding: 24px 28px; margin-bottom: 12px;
     }
-    .pp-box p { margin: 0; }
+    .pp-box p { margin: 0 0 4px; }
+
+    .divider { border: none; border-top: 2px solid var(--border-light); margin: 56px 0; }
 
     /* FOOTER */
     footer { background: var(--green-900); padding: 52px 48px 36px; }
@@ -93,7 +92,7 @@
     .foot-disclosure { border-top: 1px solid rgba(255,255,255,0.08); padding: 20px 0; margin-bottom: 6px; }
     .foot-disclosure p { font-size: 0.72rem; color: rgba(255,255,255,0.3); line-height: 1.65; margin: 0 0 6px; }
     .foot-disclosure p:last-child { margin-bottom: 0; }
-    .foot-btm { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; }
+    .foot-btm { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
     .foot-legal { font-size: 0.76rem; color: rgba(255,255,255,0.3); line-height: 1.6; }
     .foot-legal a { color: rgba(255,255,255,0.38); text-decoration: none; }
     .foot-legal a:hover { color: rgba(255,255,255,0.65); }
@@ -102,6 +101,7 @@
       nav { padding: 0 20px; }
       .pp-wrap { padding: 100px 24px 64px; }
       footer { padding: 40px 24px 28px; }
+      .pp-section table { font-size: 0.8rem; }
     }
   </style>
 </head>
@@ -123,93 +123,179 @@
   <h1>Privatlivspolitik</h1>
   <p class="pp-date">Sidst opdateret: Juni 2026</p>
 
+  <!-- SECTION 1 -->
   <div class="pp-section">
     <h2>1. Dataansvarlig</h2>
     <div class="pp-box">
-      <p><strong>Ditboliglaan.DK Ejendomskreditselskab ApS</strong><br>
-      CVR-nr.: 34464324<br>
-      E-mail: <a href="mailto:kontakt@faktorkredit.dk">kontakt@faktorkredit.dk</a><br>
-      Telefon: +45 53 60 63 75</p>
+      <p><strong>Ditboliglaan.DK Ejendomskreditselskab ApS</strong></p>
+      <p>CVR-nr.: 34464324</p>
+      <p>E-mail: <a href="mailto:kontakt@faktorkredit.dk">kontakt@faktorkredit.dk</a></p>
+      <p>Telefon: +45 53 60 63 75</p>
     </div>
-    <p>Vi driver hjemmesiden faktorkredit.dk og formidler boliglån som lånemægler. Denne privatlivspolitik beskriver, hvordan vi indsamler, bruger og beskytter dine personoplysninger i overensstemmelse med EU's databeskyttelsesforordning (GDPR).</p>
+    <p>Vi driver hjemmesiden faktorkredit.dk og formidler boliglån som lånemægler. Denne privatlivspolitik beskriver, hvordan vi indsamler, bruger og beskytter dine personoplysninger i overensstemmelse med EU's databeskyttelsesforordning (GDPR). Vi har ikke udpeget en databeskyttelsesrådgiver (DPO).</p>
   </div>
 
+  <!-- SECTION 2 -->
   <div class="pp-section">
-    <h2>2. Hvilke oplysninger indsamler vi?</h2>
-    <p>Når du udfylder vores kontaktformular eller ansøgningsskema, indsamler vi følgende oplysninger:</p>
+    <h2>2. Hvilke personoplysninger behandler vi?</h2>
+    <p>Vi behandler følgende kategorier af personoplysninger:</p>
     <ul>
-      <li>Navn</li>
-      <li>Telefonnummer</li>
-      <li>Låneformål (f.eks. friværdilån, boligkøb, renovering)</li>
+      <li><strong>Kontaktoplysninger:</strong> Navn, telefonnummer og e-mailadresse.</li>
+      <li><strong>Finansielle oplysninger:</strong> Låneformål, ønsket lånebeløb samt ejendoms- og gældsoplysninger i forbindelse med ansøgningsfasen.</li>
+      <li><strong>Tekniske oplysninger:</strong> IP-adresse, browsertype, enhedstype og adfærdsdata fra besøg på hjemmesiden.</li>
+      <li><strong>Samtykkeregistreringer:</strong> Log over dine marketing- og cookiepræferencer.</li>
     </ul>
-    <p>Derudover indsamles tekniske data automatisk via cookies og trackingteknologier (se afsnit 6 om cookies).</p>
   </div>
 
+  <!-- SECTION 3 -->
   <div class="pp-section">
     <h2>3. Formål og retsgrundlag</h2>
-    <p>Vi behandler dine oplysninger til følgende formål:</p>
+    <table>
+      <thead>
+        <tr><th>Formål</th><th>Retsgrundlag</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Drift og forbedring af hjemmesiden</td><td>Legitim interesse (GDPR art. 6, stk. 1, litra f)</td></tr>
+        <tr><td>Besvarelse af henvendelser og rådgivning</td><td>Legitim interesse (GDPR art. 6, stk. 1, litra f)</td></tr>
+        <tr><td>Vurdering og formidling af låneansøgning</td><td>Opfyldelse af aftale (GDPR art. 6, stk. 1, litra b)</td></tr>
+        <tr><td>Overholdelse af hvidvask- og bogføringslovgivning</td><td>Retlig forpligtelse (GDPR art. 6, stk. 1, litra c)</td></tr>
+        <tr><td>Elektronisk markedsføring</td><td>Samtykke (GDPR art. 6, stk. 1, litra a)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="pp-section">
+    <h2>4. Markedsføring</h2>
+    <p>Vi sender kun elektronisk markedsføring, hvis du har givet udtrykkeligt samtykke hertil. Du kan til enhver tid trække dit samtykke tilbage ved at klikke på frameldingslinket i vores e-mails eller ved at kontakte os direkte på <a href="mailto:kontakt@faktorkredit.dk">kontakt@faktorkredit.dk</a>.</p>
+    <p>Tilbagetrækning af samtykke berører ikke lovligheden af behandling, der er sket forud herfor.</p>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="pp-section">
+    <h2>5. Opbevaring og sletning</h2>
+    <table>
+      <thead>
+        <tr><th>Datakategori</th><th>Opbevaringsperiode</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Marketingkontakter</td><td>Slettes senest 2 år efter sidste kontakt</td></tr>
+        <tr><td>Ansøgnings- og lånedata</td><td>Op til 5 år af hensyn til bogføring og lovgivning</td></tr>
+        <tr><td>Tekniske data / cookies</td><td>I henhold til den enkelte cookies levetid (se afsnit 9)</td></tr>
+      </tbody>
+    </table>
+    <p>Efter udløbet af de relevante opbevaringsperioder slettes eller anonymiseres oplysningerne.</p>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="pp-section">
+    <h2>6. Videregivelse og databehandlere</h2>
+    <p>Vi videregiver dine oplysninger til følgende databehandlere, som behandler data udelukkende på vores vegne og efter vores instruks. Der er indgået databehandleraftaler med alle parter:</p>
     <ul>
-      <li><strong>Kontakt og rådgivning:</strong> Vi kontakter dig pr. telefon for at drøfte dine lånemuligheder. Retsgrundlag: dit samtykke (GDPR art. 6, stk. 1, litra a) afgivet ved indsendelse af formularen.</li>
-      <li><strong>Sagsbehandling:</strong> Vi opretter en supporthenvendelse i vores CRM-system med henblik på opfølgning. Retsgrundlag: berettiget interesse (GDPR art. 6, stk. 1, litra f).</li>
-      <li><strong>Markedsføring:</strong> Vi anvender aggregerede, anonymiserede data til at optimere vores digitale annoncering. Retsgrundlag: berettiget interesse.</li>
+      <li><strong>Web3Forms</strong> — formidler indsendelse af kontaktformularen og videresender henvendelsen til os.</li>
+      <li><strong>Zendesk, Inc.</strong> — CRM-system til håndtering af henvendelser. Data hostes i EU-region.</li>
+      <li><strong>Meta Platforms, Inc.</strong> — Meta Pixel til måling af annonceringseffekt (se afsnit 8 om cookies).</li>
+    </ul>
+    <p>Vi sælger ikke dine personoplysninger til tredjepart. Vi kan videregive oplysninger til myndigheder, hvis vi er retligt forpligtet hertil.</p>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="pp-section">
+    <h2>7. Overførsel til tredjelande</h2>
+    <p>Visse af vores databehandlere (herunder Meta Platforms, Inc.) har hjemsted i USA og kan overføre data til lande uden for EU/EØS. Sådanne overførsler sker på grundlag af EU's standardkontraktbestemmelser (Standard Contractual Clauses) eller andre lovlige overførselsmekanismer i henhold til GDPR kapitel V.</p>
+    <p>Du kan anmode om kopi af de relevante overførselsgarantier ved at kontakte os på <a href="mailto:kontakt@faktorkredit.dk">kontakt@faktorkredit.dk</a>.</p>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="pp-section">
+    <h2>8. Datasikkerhed</h2>
+    <p>Vi har implementeret passende tekniske og organisatoriske sikkerhedsforanstaltninger for at beskytte dine personoplysninger mod uautoriseret adgang, ændring, videregivelse eller sletning. Dette omfatter:</p>
+    <ul>
+      <li>Adgangskontrol og rollebaserede rettigheder</li>
+      <li>Krypteret datatransmission (TLS/HTTPS)</li>
+      <li>Interne procedurer for behandling af personoplysninger</li>
+    </ul>
+    <p>I tilfælde af et sikkerhedsbrud, der udgør en høj risiko for dine rettigheder og friheder, vil vi underrette dig hurtigst muligt i overensstemmelse med GDPR art. 34.</p>
+  </div>
+
+  <!-- SECTION 9 -->
+  <hr class="divider">
+  <div class="pp-section">
+    <h2>9. Cookiepolitik</h2>
+
+    <p><strong>Hvad er cookies?</strong><br>
+    Cookies er små tekstfiler, der gemmes på din enhed, når du besøger en hjemmeside. Der findes sessionscookies (slettes, når browseren lukkes) og persistente cookies (gemmes i en defineret periode).</p>
+
+    <p><strong>Hvilke cookies anvender vi?</strong></p>
+    <table>
+      <thead>
+        <tr><th>Type</th><th>Formål</th><th>Udbyder</th><th>Retsgrundlag</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nødvendige</td>
+          <td>Sikrer grundlæggende funktionalitet og sikkerhed</td>
+          <td>Faktor (first-party)</td>
+          <td>Legitim interesse (GDPR art. 6, stk. 1, litra f)</td>
+        </tr>
+        <tr>
+          <td>Marketingcookies</td>
+          <td>Sporer besøg og handlinger til brug for annoncemåling og målretning på Meta-platforme (Facebook/Instagram)</td>
+          <td>Meta Pixel (ID: 898274282176177)</td>
+          <td>Samtykke (GDPR art. 6, stk. 1, litra a)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Tredjepartscookies</strong><br>
+    Meta Platforms, Inc. sætter cookies via Meta Pixel. Meta er underlagt egne datapolitikker. Overførsler til USA sker via EU's standardkontraktbestemmelser. Du kan administrere Metas annoncepræferencer via <a href="https://www.facebook.com/settings?tab=ads" target="_blank" rel="noopener">Facebooks annonceindstillinger</a>.</p>
+
+    <p><strong>Samtykke til cookies</strong><br>
+    Ikke-nødvendige cookies aktiveres kun efter dit samtykke. Du kan til enhver tid ændre eller tilbagekalde dit samtykke via din browsers indstillinger.</p>
+
+    <p><strong>Sådan sletter eller blokerer du cookies</strong><br>
+    Du kan administrere cookies via indstillingerne i din browser. Bemærk, at deaktivering af visse cookies kan påvirke hjemmesidens funktionalitet. Se vejledning til de mest anvendte browsere:</p>
+    <ul>
+      <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+      <li><a href="https://support.mozilla.org/da/kb/slet-cookies-fjern-oplysninger-websteder-gemte" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+      <li><a href="https://support.apple.com/da-dk/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Apple Safari</a></li>
+      <li><a href="https://support.microsoft.com/da-dk/windows/slette-og-administrere-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener">Microsoft Edge</a></li>
     </ul>
   </div>
 
+  <!-- SECTION 10 -->
+  <hr class="divider">
   <div class="pp-section">
-    <h2>4. Videregivelse til tredjeparter</h2>
-    <p>Vi videregiver dine oplysninger til følgende databehandlere, som alene behandler data på vores vegne og efter vores instruks:</p>
+    <h2>10. Dine rettigheder</h2>
+    <p>Du har i henhold til GDPR følgende rettigheder over for os:</p>
     <ul>
-      <li><strong>Web3Forms</strong> — formidler indsendelse af kontaktformularen og sender bekræftelses-e-mail til os. Web3Forms er en cloud-tjeneste underlagt databehandleraftale.</li>
-      <li><strong>Zendesk, Inc.</strong> — vi opretter en supporthenvendelse i vores Zendesk-konto, som hostes i EU. Oplysningerne omfatter navn, et genereret lead-e-mailalias og låneformål.</li>
+      <li><strong>Indsigt:</strong> Ret til at modtage bekræftelse på og kopi af de oplysninger, vi behandler om dig.</li>
+      <li><strong>Berigtigelse:</strong> Ret til at få urigtige oplysninger rettet uden unødigt ophold.</li>
+      <li><strong>Sletning:</strong> Ret til at få oplysninger slettet ("retten til at blive glemt"), medmindre vi har en retlig forpligtelse til at opbevare dem.</li>
+      <li><strong>Begrænsning:</strong> Ret til at kræve, at behandlingen begrænses i visse situationer.</li>
+      <li><strong>Dataportabilitet:</strong> Ret til at modtage dine oplysninger i et struktureret, maskinlæsbart format og til at anmode om overførsel til en anden dataansvarlig.</li>
+      <li><strong>Indsigelse:</strong> Ret til at gøre indsigelse mod behandling baseret på legitim interesse.</li>
+      <li><strong>Tilbagetrækning af samtykke:</strong> Ret til at trække samtykke tilbage til enhver tid, uden at det berører lovligheden af tidligere behandling.</li>
     </ul>
-    <p>Vi sælger ikke dine personoplysninger til tredjepart og videregiver dem ikke til andre uden dit udtrykkelige samtykke, medmindre vi er retligt forpligtet hertil.</p>
+    <p>For at udøve dine rettigheder bedes du kontakte os på <a href="mailto:kontakt@faktorkredit.dk">kontakt@faktorkredit.dk</a>. Vi besvarer din henvendelse inden for 30 dage. I komplekse tilfælde kan fristen forlænges med yderligere 60 dage, hvorom du vil blive informeret.</p>
   </div>
 
+  <!-- SECTION 11 -->
   <div class="pp-section">
-    <h2>5. Opbevaringsperiode</h2>
-    <p>Dine oplysninger opbevares, så længe det er nødvendigt for at behandle din henvendelse og i op til 3 år herefter af hensyn til eventuelle klager eller retlige krav. Herefter slettes oplysningerne.</p>
-  </div>
-
-  <div class="pp-section">
-    <h2>6. Cookies og Meta Pixel</h2>
-    <p>Vores hjemmeside anvender følgende teknologier:</p>
-    <ul>
-      <li><strong>Meta Pixel (ID: 898274282176177):</strong> Et sporingspixel fra Meta Platforms, Inc. (Facebook/Instagram), som registrerer besøg på siden samt handlinger (f.eks. klik på "Start ansøgning"). Disse data bruges til at måle effekten af vores annoncer og til at vise relevante annoncer til brugere på Meta-platforme. Meta kan anvende disse oplysninger i overensstemmelse med deres egen datapolitik. Du kan fravælge Meta-sporing via <a href="https://www.facebook.com/settings?tab=ads" target="_blank" rel="noopener">Facebooks annonceindstillinger</a>.</li>
-    </ul>
-    <p>Du kan til enhver tid administrere eller afvise cookies via din browsers indstillinger. Bemærk, at deaktivering af cookies kan påvirke sidens funktionalitet.</p>
-  </div>
-
-  <div class="pp-section">
-    <h2>7. Dine rettigheder</h2>
-    <p>Du har i henhold til GDPR følgende rettigheder:</p>
-    <ul>
-      <li><strong>Indsigt:</strong> Du kan anmode om indsigt i, hvilke oplysninger vi behandler om dig.</li>
-      <li><strong>Berigtigelse:</strong> Du kan anmode om at få berigtiget oplysninger, der er urigtige.</li>
-      <li><strong>Sletning:</strong> Du kan i visse tilfælde anmode om at få dine oplysninger slettet ("retten til at blive glemt").</li>
-      <li><strong>Begrænsning:</strong> Du kan anmode om, at behandlingen af dine oplysninger begrænses.</li>
-      <li><strong>Dataportabilitet:</strong> Du kan modtage dine oplysninger i et struktureret, maskinlæsbart format.</li>
-      <li><strong>Indsigelse:</strong> Du kan gøre indsigelse mod behandling baseret på berettiget interesse.</li>
-      <li><strong>Tilbagetrækning af samtykke:</strong> Hvis behandlingen er baseret på samtykke, kan du til enhver tid trække dit samtykke tilbage uden at det berører lovligheden af tidligere behandling.</li>
-    </ul>
-    <p>For at udøve dine rettigheder bedes du kontakte os på <a href="mailto:kontakt@faktorkredit.dk">kontakt@faktorkredit.dk</a>. Vi besvarer din henvendelse inden for 30 dage.</p>
-  </div>
-
-  <div class="pp-section">
-    <h2>8. Klageadgang</h2>
-    <p>Hvis du mener, at vi behandler dine oplysninger i strid med GDPR, har du ret til at indgive en klage til:</p>
+    <h2>11. Klageadgang</h2>
+    <p>Hvis du mener, at vi behandler dine personoplysninger i strid med GDPR, har du ret til at indgive en klage til Datatilsynet:</p>
     <div class="pp-box">
-      <p><strong>Datatilsynet</strong><br>
-      Carl Jacobsens Vej 35<br>
-      2500 Valby<br>
-      Telefon: +45 33 19 32 00<br>
-      E-mail: dt@datatilsynet.dk<br>
-      Hjemmeside: <a href="https://www.datatilsynet.dk" target="_blank" rel="noopener">datatilsynet.dk</a></p>
+      <p><strong>Datatilsynet</strong></p>
+      <p>Carl Jacobsens Vej 35, 2500 Valby</p>
+      <p>Telefon: +45 33 19 32 00 · E-mail: dt@datatilsynet.dk</p>
+      <p>Hjemmeside: <a href="https://www.datatilsynet.dk" target="_blank" rel="noopener">datatilsynet.dk</a></p>
     </div>
   </div>
 
+  <!-- SECTION 12 -->
   <div class="pp-section">
-    <h2>9. Ændringer til denne politik</h2>
-    <p>Vi forbeholder os retten til at opdatere denne privatlivspolitik. Væsentlige ændringer vil blive kommunikeret tydeligt på hjemmesiden. Datoen øverst på siden angiver, hvornår politikken sidst blev opdateret.</p>
+    <h2>12. Ændringer til denne politik</h2>
+    <p>Vi forbeholder os retten til at opdatere denne privatlivspolitik, f.eks. som følge af ændringer i lovgivningen eller vores behandlingsaktiviteter. Væsentlige ændringer kommunikeres tydeligt på hjemmesiden. Datoen øverst på siden angiver, hvornår politikken sidst blev opdateret.</p>
   </div>
 
 </main>
