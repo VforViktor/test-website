@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kan du bruge friværdi i din andelsbolig? Her er svaret — Faktor</title>
+  <meta name="description" content="Friværdi i en andelsbolig fungerer anderledes end i en ejerbolig, fordi du ikke ejer selve ejendommen. Her er, hvad…">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --off-white: #F6F8F6;
+      --green-900: #1A3828;
+      --green-800: #2A5C45;
+      --green-700: #3D7A60;
+      --green-600: #4E9476;
+      --green-100: #E5F2EA;
+      --green-50: #F0F8F2;
+      --text-primary: #1A2B24;
+      --text-secondary: #4A5E55;
+      --text-muted: #7A8C84;
+      --border: #DCE8E2;
+      --border-light: #EEF4F0;
+      --shadow-sm: 0 1px 3px rgba(26,43,36,0.06);
+      --shadow-md: 0 4px 16px rgba(26,43,36,0.08);
+      --shadow-lg: 0 12px 40px rgba(26,43,36,0.12);
+      --font-d: 'Bricolage Grotesque', sans-serif;
+      --font-b: 'Nunito Sans', sans-serif;
+      --r: 12px;
+      --rl: 20px;
+      --rxl: 28px;
+      --cat-nej: #B5502E; --cat-nej-bg: #FBEEE8;
+      --cat-kob: #2A5C7A; --cat-kob-bg: #E8F1F8;
+      --cat-for: #7A4E2A; --cat-for-bg: #F8F0E8;
+      --cat-fri: #2A5C45; --cat-fri-bg: #E5F2EA;
+      --cat-erh: #5A2A7A; --cat-erh-bg: #F1E8F8;
+      --cat-gui: #6B6B2A; --cat-gui-bg: #F5F5E8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); background: var(--white); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 72px;
+      background: rgba(255,255,255,0.94); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 28px; width: auto; filter: brightness(0) saturate(100%) invert(28%) sepia(22%) saturate(900%) hue-rotate(103deg) brightness(85%) contrast(95%); transform: translateZ(0); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--green-800); }
+    .btn-cta {
+      padding: 9px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 700;
+      color: white; background: var(--green-800); border: none;
+      text-decoration: none; transition: all 0.2s;
+      font-family: var(--font-d); display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-cta:hover { background: var(--green-900); }
+    @media (max-width: 800px) { .nav-links { display: none; } }
+
+    .cat-chip { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 100px; font-size: 0.73rem; font-weight: 700; text-decoration: none; }
+    .cat-nej { color: var(--cat-nej); background: var(--cat-nej-bg); }
+    .cat-kob { color: var(--cat-kob); background: var(--cat-kob-bg); }
+    .cat-for { color: var(--cat-for); background: var(--cat-for-bg); }
+    .cat-fri { color: var(--cat-fri); background: var(--cat-fri-bg); }
+    .cat-erh { color: var(--cat-erh); background: var(--cat-erh-bg); }
+    .cat-gui { color: var(--cat-gui); background: var(--cat-gui-bg); }
+
+    footer { background: var(--green-900); padding: 52px 48px 36px; }
+    .foot-inner { max-width: 1200px; margin: 0 auto; }
+    .foot-disclosure { border-top: 1px solid rgba(255,255,255,0.08); padding: 20px 0; margin-bottom: 6px; }
+    .foot-disclosure p { font-size: 0.72rem; color: rgba(255,255,255,0.3); line-height: 1.65; margin: 0 0 6px; }
+    .foot-disclosure p:last-child { margin-bottom: 0; }
+    .foot-btm { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .foot-legal { font-size: 0.76rem; color: rgba(255,255,255,0.3); line-height: 1.6; }
+    .foot-legal a { color: rgba(255,255,255,0.38); text-decoration: none; }
+    .foot-legal a:hover { color: rgba(255,255,255,0.65); }
+
+    .art-wrap { max-width: 760px; margin: 0 auto; padding: 128px 48px 40px; }
+    .art-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.83rem; color: var(--text-muted); text-decoration: none; margin-bottom: 24px; }
+    .art-back:hover { color: var(--green-800); }
+    .art-head { margin-bottom: 40px; }
+    .art-head .cat-chip { margin-bottom: 16px; }
+    .art-head h1 { font-family: var(--font-d); font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+    .art-intro { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.75; }
+    .art-body h2 { font-family: var(--font-d); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; margin: 40px 0 14px; }
+    .art-body p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 14px; }
+    .art-cta { background: var(--green-800); border-radius: var(--rxl); padding: 36px; margin-top: 48px; text-align: center; }
+    .art-cta h3 { font-family: var(--font-d); color: white; font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .art-cta p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 22px; }
+    .art-cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .art-cta .btn-cta { background: white; color: var(--green-800); }
+    .art-cta .btn-cta:hover { background: var(--green-50); }
+    .art-cta .btn-ghost-w { padding: 9px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 700; color: white; border: 1.5px solid rgba(255,255,255,0.4); text-decoration: none; font-family: var(--font-d); }
+    .art-cta .btn-ghost-w:hover { background: rgba(255,255,255,0.1); }
+    .art-related { max-width: 760px; margin: 56px auto 0; padding: 0 48px; }
+    .art-related h4 { font-family: var(--font-d); font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 18px; }
+    .art-related-list { display: flex; flex-direction: column; gap: 4px; }
+    .art-related-list a { display: block; padding: 14px 0; border-top: 1px solid var(--border-light); font-size: 0.92rem; font-weight: 600; color: var(--text-primary); text-decoration: none; }
+    .art-related-list a:hover { color: var(--green-800); }
+    @media (max-width: 700px) {
+      .art-wrap { padding: 100px 24px 32px; }
+      .art-related { padding: 0 24px; }
+    }
+
+    @media (max-width: 700px) {
+      nav { padding: 0 20px; }
+      footer { padding: 40px 24px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/" class="nav-logo">
+    <img src="../brand_assets/faktor-logo.png" alt="Faktor">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#produkter">Produkter</a></li>
+    <li><a href="../artikler.html">Artikler</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+    <li><a href="/#om">Om os</a></li>
+  </ul>
+  <a href="/#kontakt" class="btn-cta">Bliv ringet op</a>
+</nav>
+
+<main class="art-wrap">
+  <a href="../artikler.html" class="art-back">&larr; Alle artikler</a>
+  <div class="art-head">
+    <span class="cat-chip cat-fri">Friværdi</span>
+    <h1>Kan du bruge friværdi i din andelsbolig? Her er svaret</h1>
+    <p class="art-intro">Friværdi i en andelsbolig fungerer anderledes end i en ejerbolig, fordi du ikke ejer selve ejendommen. Her er, hvad der er muligt, og hvad der altid kræver en konkret vurdering af netop din forening.</p>
+  </div>
+  <div class="art-body">
+    <h2>Andelsbolig er ikke det samme som fast ejendom</h2>
+    <p>Når du bor i en andelsbolig, ejer du en andel i boligforeningen og en brugsret til lejligheden — ikke selve murstenene. Det ændrer, hvordan friværdi kan bruges som sikkerhed, sammenlignet med en ejerbolig eller et hus, hvor du ejer ejendommen direkte.</p>
+    <p>Det betyder også, at reglerne for belåning af andelsboliger er anderledes reguleret end for ejerboliger, og at foreningens egne vedtægter og økonomi spiller en langt større rolle.</p>
+    <h2>Hvad der typisk kan lade sig gøre</h2>
+    <p>Har din andel en værdi ud over den gæld, der allerede er belånt i den — foreningens fælles gæld og eventuelt dit eget andelslån — kan denne friværdi i nogle tilfælde bruges som en del af sikkerheden for et lån. Vurderingen er dog mere individuel end ved en ejerbolig og afhænger i høj grad af den konkrete forenings forhold.</p>
+    <p>Det handler blandt andet om, hvordan andelsværdien er fastsat, hvor sund foreningens økonomi er, og om foreningens vedtægter overhovedet tillader den type belåning.</p>
+    <h2>Det, vi ser på i vurderingen</h2>
+    <p>Vi kigger på foreningens økonomi og regnskab, andelsværdien, eventuel gæld i foreningen og dine egne forhold samlet. Fordi andelsboliger varierer meget fra forening til forening — nogle har solid økonomi og lav gæld, andre har det modsatte — kan vi ikke give et generelt svar. Det kræver et konkret kig på din sag og foreningens papirer.</p>
+    <p>Netop denne variation er grunden til, at et generelt ja eller nej på spørgsmålet om andelsboliger sjældent er ærligt — svaret afhænger helt af den enkelte forening.</p>
+    <h2>Sådan kommer du videre</h2>
+    <p>Har du en andelsbolig og overvejer at bruge friværdien, er det bedste første skridt at sende os foreningens seneste årsregnskab og dit andelsboligbevis, så vi kan give dig et retvisende svar på, hvad der er muligt i netop din sag, uden at vi lover mere, end situationen reelt tillader.</p>
+    <h2>Hvad hvis foreningen selv har lån?</h2>
+    <p>Andelsboligforeningens egen gæld påvirker andelsværdien og dermed, hvor meget reel friværdi der er at arbejde med. En forening med høj fælles gæld kan betyde lavere eller ingen reel friværdi, selvom din boligs brugsværdi føles høj i hverdagen.</p>
+    <p>Det er derfor foreningens årsregnskab, ikke kun din egen andel, der fortæller den fulde historie — og grunden til, at vi altid beder om det, før vi kan sige noget konkret om din sag.</p>
+    <h2>Hvorfor vi altid beder om et konkret regnskab først</h2>
+    <p>Uden foreningens tal kan ingen seriøs udbyder sige noget retvisende om din andelsboligs friværdi. Beder nogen om at give et bindende svar uden at se regnskabet, er det værd at være ekstra kritisk over for tilbuddet.</p>
+  </div>
+  <div class="art-cta">
+    <h3>Klar til at høre dine muligheder?</h3>
+    <p>Gratis og uforpligtende. Svar inden 24 timer på hverdage.</p>
+    <div class="art-cta-actions">
+      <a href="/#kontakt" class="btn-cta">Bliv ringet op →</a>
+      <a href="tel:53606375" class="btn-ghost-w">Ring: 53 60 63 75</a>
+    </div>
+  </div>
+</main>
+<div class="art-related">
+  <h4>Relateret</h4>
+  <div class="art-related-list">
+    <a href="laan-i-friveerdien-uden-banken.html">Sådan låner du i friværdien, uden at gå gennem banken</a>
+        <a href="friveerdi-til-renovering.html">Friværdi til renovering: hvornår giver det mening at belåne boligen?</a>
+        <a href="skattegaeld-og-friveerdi.html">Skattegæld og friværdi: kan du betale gælden væk med lån i boligen?</a>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-disclosure">
+      <p><strong>Kreditoplysninger</strong> — Løbetid: 12–300 måneder (1–25 år) · Maks. ÅOP: 12,90%</p>
+      <p><strong>Repræsentativt eksempel:</strong> Lånebeløb: 3.000.000 kr. · Løbetid: 24 måneder · Nominel rente: 8,25% (fast) · Månedlig ydelse: 21.904 kr. · Etableringsgebyr: 10.000 kr. · Stempelomkostninger: 46.250 kr. · Tinglysningsafgift: 1.850 kr. · Samlede kreditomkostninger: 806.810 kr. · Samlet tilbagebetaling: 3.807.270 kr. · ÅOP: 12,90%</p>
+    </div>
+    <div class="foot-btm">
+      <div class="foot-legal">© 2026 Faktor · Lånemægler for Ditboliglaan.DK Ejendomskreditselskab ApS (CVR 34464324) · <a href="/privatlivspolitik.html">Privatlivspolitik</a> · <a href="#">Cookies</a></div>
+      <div class="foot-legal">Lån altid med omtanke. Boliglån indebærer risiko for tab af bolig ved manglende betaling.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

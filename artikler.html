@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artikler og guides om boliglån — Faktor</title>
+  <meta name="description" content="Faglige guides om friværdi, boligkøb, forældrekøb og erhvervslån — skrevet af Faktor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --off-white: #F6F8F6;
+      --green-900: #1A3828;
+      --green-800: #2A5C45;
+      --green-700: #3D7A60;
+      --green-600: #4E9476;
+      --green-100: #E5F2EA;
+      --green-50: #F0F8F2;
+      --text-primary: #1A2B24;
+      --text-secondary: #4A5E55;
+      --text-muted: #7A8C84;
+      --border: #DCE8E2;
+      --border-light: #EEF4F0;
+      --shadow-sm: 0 1px 3px rgba(26,43,36,0.06);
+      --shadow-md: 0 4px 16px rgba(26,43,36,0.08);
+      --shadow-lg: 0 12px 40px rgba(26,43,36,0.12);
+      --font-d: 'Bricolage Grotesque', sans-serif;
+      --font-b: 'Nunito Sans', sans-serif;
+      --r: 12px;
+      --rl: 20px;
+      --rxl: 28px;
+      --cat-nej: #B5502E; --cat-nej-bg: #FBEEE8;
+      --cat-kob: #2A5C7A; --cat-kob-bg: #E8F1F8;
+      --cat-for: #7A4E2A; --cat-for-bg: #F8F0E8;
+      --cat-fri: #2A5C45; --cat-fri-bg: #E5F2EA;
+      --cat-erh: #5A2A7A; --cat-erh-bg: #F1E8F8;
+      --cat-gui: #6B6B2A; --cat-gui-bg: #F5F5E8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); background: var(--white); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 72px;
+      background: rgba(255,255,255,0.94); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 28px; width: auto; filter: brightness(0) saturate(100%) invert(28%) sepia(22%) saturate(900%) hue-rotate(103deg) brightness(85%) contrast(95%); transform: translateZ(0); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--green-800); }
+    .btn-cta {
+      padding: 9px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 700;
+      color: white; background: var(--green-800); border: none;
+      text-decoration: none; transition: all 0.2s;
+      font-family: var(--font-d); display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-cta:hover { background: var(--green-900); }
+    @media (max-width: 800px) { .nav-links { display: none; } }
+
+    .cat-chip { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 100px; font-size: 0.73rem; font-weight: 700; text-decoration: none; }
+    .cat-nej { color: var(--cat-nej); background: var(--cat-nej-bg); }
+    .cat-kob { color: var(--cat-kob); background: var(--cat-kob-bg); }
+    .cat-for { color: var(--cat-for); background: var(--cat-for-bg); }
+    .cat-fri { color: var(--cat-fri); background: var(--cat-fri-bg); }
+    .cat-erh { color: var(--cat-erh); background: var(--cat-erh-bg); }
+    .cat-gui { color: var(--cat-gui); background: var(--cat-gui-bg); }
+
+    footer { background: var(--green-900); padding: 52px 48px 36px; }
+    .foot-inner { max-width: 1200px; margin: 0 auto; }
+    .foot-disclosure { border-top: 1px solid rgba(255,255,255,0.08); padding: 20px 0; margin-bottom: 6px; }
+    .foot-disclosure p { font-size: 0.72rem; color: rgba(255,255,255,0.3); line-height: 1.65; margin: 0 0 6px; }
+    .foot-disclosure p:last-child { margin-bottom: 0; }
+    .foot-btm { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .foot-legal { font-size: 0.76rem; color: rgba(255,255,255,0.3); line-height: 1.6; }
+    .foot-legal a { color: rgba(255,255,255,0.38); text-decoration: none; }
+    .foot-legal a:hover { color: rgba(255,255,255,0.65); }
+
+    .art-hero { padding: 150px 48px 56px; text-align: center; }
+    .art-hero-in { max-width: 720px; margin: 0 auto; }
+    .art-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: var(--green-100); color: var(--green-800); padding: 5px 13px; border-radius: 100px; font-size: 0.775rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 18px; }
+    .art-hero h1 { font-family: var(--font-d); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 14px; }
+    .art-hero p { font-size: 1rem; color: var(--text-secondary); line-height: 1.7; }
+
+    .filter-bar { max-width: 1200px; margin: 0 auto; padding: 0 48px 40px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .filter-pill { padding: 7px 16px; border-radius: 100px; font-size: 0.83rem; font-weight: 600; color: var(--text-secondary); background: var(--off-white); border: 1px solid var(--border); cursor: pointer; transition: all 0.15s; font-family: var(--font-b); }
+    .filter-pill:hover { border-color: var(--green-600); }
+    .filter-pill.active { background: var(--green-800); color: white; border-color: var(--green-800); }
+
+    .art-grid-wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px 100px; }
+    .art-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .art-card { display: flex; flex-direction: column; background: white; border: 1px solid var(--border); border-radius: var(--rl); padding: 30px; text-decoration: none; transition: all 0.25s; }
+    .art-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
+    .art-card .cat-chip { align-self: flex-start; margin-bottom: 16px; }
+    .art-card h3 { font-family: var(--font-d); font-size: 1.1rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em; line-height: 1.3; margin-bottom: 10px; }
+    .art-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; flex: 1; margin-bottom: 16px; }
+    .art-card .art-more { font-size: 0.83rem; font-weight: 700; color: var(--green-800); }
+
+    @media (max-width: 960px) {
+      .art-hero { padding: 120px 24px 40px; }
+      .filter-bar { padding: 0 24px 32px; }
+      .art-grid-wrap { padding: 0 24px 64px; }
+      .art-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    }
+    @media (max-width: 600px) {
+      .art-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      nav { padding: 0 20px; }
+      footer { padding: 40px 24px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/" class="nav-logo">
+    <img src="brand_assets/faktor-logo.png" alt="Faktor">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#produkter">Produkter</a></li>
+    <li><a href="artikler.html" class="active">Artikler</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+    <li><a href="/#om">Om os</a></li>
+  </ul>
+  <a href="/#kontakt" class="btn-cta">Bliv ringet op</a>
+</nav>
+
+<section class="art-hero">
+  <div class="art-hero-in">
+    <div class="art-eyebrow">Viden & guides</div>
+    <h1>Artikler om boliglån og friværdi</h1>
+    <p>Vi samler det, vi ved om friværdi, boligkøb, forældrekøb og erhvervsfinansiering ét sted — skrevet i almindeligt dansk, uden bankjargon.</p>
+  </div>
+</section>
+
+<div class="filter-bar" id="filterBar">
+  <button class="filter-pill active" data-cat="alle">Alle</button>
+    <button class="filter-pill" data-cat="Banken sagde nej">Banken sagde nej</button>
+    <button class="filter-pill" data-cat="Boligkøb">Boligkøb</button>
+    <button class="filter-pill" data-cat="Forældrekøb">Forældrekøb</button>
+    <button class="filter-pill" data-cat="Friværdi">Friværdi</button>
+    <button class="filter-pill" data-cat="Erhverv">Erhverv</button>
+    <button class="filter-pill" data-cat="Guide">Guide</button>
+</div>
+
+<div class="art-grid-wrap">
+  <div class="art-grid" id="artGrid">
+    <a href="artikler/fra-afslag-til-finansiering.html" class="art-card" data-cat="Banken sagde nej">
+      <span class="cat-chip cat-nej">Banken sagde nej</span>
+      <h3>Fra afslag til finansiering: sådan læser vi din sag anderledes end banken</h3>
+      <p>Et nej i banken er ikke nødvendigvis et nej til dit boligprojekt. Det er ofte et nej til, hvordan din sag passede ind…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/hvad-kan-du-koebe-hus-for.html" class="art-card" data-cat="Boligkøb">
+      <span class="cat-chip cat-kob">Boligkøb</span>
+      <h3>Hvad kan du reelt købe hus for, når banken har sagt nej?</h3>
+      <p>Bankens rådighedsberegning er ikke det eneste svar på, hvad du kan købe hus for. Her er, hvad der reelt afgør…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/5-grunde-til-afslag-i-banken.html" class="art-card" data-cat="Banken sagde nej">
+      <span class="cat-chip cat-nej">Banken sagde nej</span>
+      <h3>5 grunde til at en sund økonomi alligevel bliver afvist i banken</h3>
+      <p>Du oplever selv, at økonomien hænger sammen — og får alligevel afslag. Det er en af de mest almindelige oplevelser…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/foraeldrekoeb-uden-om-banken.html" class="art-card" data-cat="Forældrekøb">
+      <span class="cat-chip cat-for">Forældrekøb</span>
+      <h3>Forældrekøb uden om banken: sådan bruger du din egen friværdi</h3>
+      <p>Vil du hjælpe dit barn ind på boligmarkedet, men banken sætter begrænsninger for forældrekøb? Friværdien i din egen…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/hjaelp-dit-barn-paa-boligmarkedet.html" class="art-card" data-cat="Forældrekøb">
+      <span class="cat-chip cat-for">Forældrekøb</span>
+      <h3>Skal du hjælpe dit barn ind på boligmarkedet? Her er dine muligheder</h3>
+      <p>Boligpriserne gør det svært for mange unge at komme ind på markedet alene. Her er de mest almindelige måder, forældre…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/laan-i-friveerdien-uden-banken.html" class="art-card" data-cat="Friværdi">
+      <span class="cat-chip cat-fri">Friværdi</span>
+      <h3>Sådan låner du i friværdien, uden at gå gennem banken</h3>
+      <p>Friværdien i din bolig er reel kapital — men mange oplever, at banken sætter unødvendigt strenge betingelser for at…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/friveerdi-til-renovering.html" class="art-card" data-cat="Friværdi">
+      <span class="cat-chip cat-fri">Friværdi</span>
+      <h3>Friværdi til renovering: hvornår giver det mening at belåne boligen?</h3>
+      <p>En renovering kan øge både boligværdi og livskvalitet — men det er ikke altid en selvfølge at finansiere den med et…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/skattegaeld-og-friveerdi.html" class="art-card" data-cat="Friværdi">
+      <span class="cat-chip cat-fri">Friværdi</span>
+      <h3>Skattegæld og friværdi: kan du betale gælden væk med lån i boligen?</h3>
+      <p>Skattegæld vokser hurtigt med renter og gebyrer. Har du friværdi i din bolig, kan den i mange tilfælde bruges til at…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/friveerdi-til-bil-eller-investering.html" class="art-card" data-cat="Friværdi">
+      <span class="cat-chip cat-fri">Friværdi</span>
+      <h3>Friværdi til ny bil eller investering — er det en god idé?</h3>
+      <p>Friværdi er fleksibel kapital, og den kan bruges til andet end boligen selv. Men lige fordi du kan, betyder det ikke…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/sommerhus-som-investering.html" class="art-card" data-cat="Boligkøb">
+      <span class="cat-chip cat-kob">Boligkøb</span>
+      <h3>Sommerhus som investering: sådan finansierer du fritidsboligen</h3>
+      <p>Fritidsboliger bliver ofte vurderet strengere i banken end helårsboliger. Her er, hvad der adskiller finansiering af…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/friveerdi-i-andelsbolig.html" class="art-card" data-cat="Friværdi">
+      <span class="cat-chip cat-fri">Friværdi</span>
+      <h3>Kan du bruge friværdi i din andelsbolig? Her er svaret</h3>
+      <p>Friværdi i en andelsbolig fungerer anderledes end i en ejerbolig, fordi du ikke ejer selve ejendommen. Her er, hvad…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/mellemfinansiering-bro-koeb-salg.html" class="art-card" data-cat="Boligkøb">
+      <span class="cat-chip cat-kob">Boligkøb</span>
+      <h3>Mellemfinansiering: sådan bygger du bro, når salg og køb ikke passer i tid</h3>
+      <p>Det er sjældent, at salget af din nuværende bolig og overtagelsen af den nye falder på samme dato. Sådan kan du…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/tvangsauktion-saadan-naar-du-at-handle.html" class="art-card" data-cat="Banken sagde nej">
+      <span class="cat-chip cat-nej">Banken sagde nej</span>
+      <h3>Tvangsauktion truer — sådan kan du nå at handle, før det er for sent</h3>
+      <p>Står du over for en tvangsauktion, er tiden den vigtigste faktor. Her er, hvad du bør vide om processen, og hvornår…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/erhvervslaan-med-sikkerhed-i-ejendom.html" class="art-card" data-cat="Erhverv">
+      <span class="cat-chip cat-erh">Erhverv</span>
+      <h3>Erhvervslån med sikkerhed i ejendom: sådan finansierer du virksomhedens næste skridt</h3>
+      <p>Skal virksomheden vokse, investere eller have luft i likviditeten? Et erhvervslån med sikkerhed i fast ejendom kan…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/koeb-af-erhvervslokaler.html" class="art-card" data-cat="Erhverv">
+      <span class="cat-chip cat-erh">Erhverv</span>
+      <h3>Køb af erhvervslokaler: hvorfor banken siger nej, og hvad du kan gøre i stedet</h3>
+      <p>Erhvervsejendomme bliver ofte mødt med skepsis i banken, selv når lejeindtægten eller forretningsplanen giver god…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/gennemskue-et-laanetilbud.html" class="art-card" data-cat="Guide">
+      <span class="cat-chip cat-gui">Guide</span>
+      <h3>Sådan gennemskuer du et lånetilbud, der ikke kommer fra banken</h3>
+      <p>Når du overvejer et lån uden for banksystemet, er det vigtigt at kunne læse tilbuddet korrekt. Her er de vigtigste…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/godkendt-laanemaegler-hvad-betyder-det.html" class="art-card" data-cat="Guide">
+      <span class="cat-chip cat-gui">Guide</span>
+      <h3>Godkendt lånemægler — hvad betyder det for dig som kunde?</h3>
+      <p>Ordet “godkendt” bliver brugt bredt i finansbranchen. Her er, hvad det konkret betyder, når en udbyder som Faktor…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+    <a href="artikler/naar-nej-fra-banken-ikke-er-endeligt.html" class="art-card" data-cat="Banken sagde nej">
+      <span class="cat-chip cat-nej">Banken sagde nej</span>
+      <h3>Hvornår er et “nej” fra banken ikke det endelige svar?</h3>
+      <p>Et afslag føles ofte som et endeligt svar. I mange tilfælde er det blot et udtryk for, at sagen ikke passede ind i én…</p>
+      <span class="art-more">Læs mere →</span>
+    </a>
+  </div>
+</div>
+
+<script>
+  document.getElementById('filterBar').addEventListener('click', function(e) {
+    const btn = e.target.closest('.filter-pill');
+    if (!btn) return;
+    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    document.querySelectorAll('#artGrid .art-card').forEach(card => {
+      card.style.display = (cat === 'alle' || card.dataset.cat === cat) ? '' : 'none';
+    });
+  });
+</script>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-disclosure">
+      <p><strong>Kreditoplysninger</strong> — Løbetid: 12–300 måneder (1–25 år) · Maks. ÅOP: 12,90%</p>
+      <p><strong>Repræsentativt eksempel:</strong> Lånebeløb: 3.000.000 kr. · Løbetid: 24 måneder · Nominel rente: 8,25% (fast) · Månedlig ydelse: 21.904 kr. · Etableringsgebyr: 10.000 kr. · Stempelomkostninger: 46.250 kr. · Tinglysningsafgift: 1.850 kr. · Samlede kreditomkostninger: 806.810 kr. · Samlet tilbagebetaling: 3.807.270 kr. · ÅOP: 12,90%</p>
+    </div>
+    <div class="foot-btm">
+      <div class="foot-legal">© 2026 Faktor · Lånemægler for Ditboliglaan.DK Ejendomskreditselskab ApS (CVR 34464324) · <a href="/privatlivspolitik.html">Privatlivspolitik</a> · <a href="#">Cookies</a></div>
+      <div class="foot-legal">Lån altid med omtanke. Boliglån indebærer risiko for tab af bolig ved manglende betaling.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
