@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skal du hjælpe dit barn ind på boligmarkedet? Her er dine muligheder — Faktor</title>
+  <meta name="description" content="Boligpriserne gør det svært for mange unge at komme ind på markedet alene. Her er de mest almindelige måder, forældre…">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --off-white: #F6F8F6;
+      --green-900: #1A3828;
+      --green-800: #2A5C45;
+      --green-700: #3D7A60;
+      --green-600: #4E9476;
+      --green-100: #E5F2EA;
+      --green-50: #F0F8F2;
+      --text-primary: #1A2B24;
+      --text-secondary: #4A5E55;
+      --text-muted: #7A8C84;
+      --border: #DCE8E2;
+      --border-light: #EEF4F0;
+      --shadow-sm: 0 1px 3px rgba(26,43,36,0.06);
+      --shadow-md: 0 4px 16px rgba(26,43,36,0.08);
+      --shadow-lg: 0 12px 40px rgba(26,43,36,0.12);
+      --font-d: 'Bricolage Grotesque', sans-serif;
+      --font-b: 'Nunito Sans', sans-serif;
+      --r: 12px;
+      --rl: 20px;
+      --rxl: 28px;
+      --cat-nej: #B5502E; --cat-nej-bg: #FBEEE8;
+      --cat-kob: #2A5C7A; --cat-kob-bg: #E8F1F8;
+      --cat-for: #7A4E2A; --cat-for-bg: #F8F0E8;
+      --cat-fri: #2A5C45; --cat-fri-bg: #E5F2EA;
+      --cat-erh: #5A2A7A; --cat-erh-bg: #F1E8F8;
+      --cat-gui: #6B6B2A; --cat-gui-bg: #F5F5E8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); background: var(--white); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 72px;
+      background: rgba(255,255,255,0.94); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 28px; width: auto; filter: brightness(0) saturate(100%) invert(28%) sepia(22%) saturate(900%) hue-rotate(103deg) brightness(85%) contrast(95%); transform: translateZ(0); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--green-800); }
+    .btn-cta {
+      padding: 9px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 700;
+      color: white; background: var(--green-800); border: none;
+      text-decoration: none; transition: all 0.2s;
+      font-family: var(--font-d); display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-cta:hover { background: var(--green-900); }
+    @media (max-width: 800px) { .nav-links { display: none; } }
+
+    .cat-chip { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 100px; font-size: 0.73rem; font-weight: 700; text-decoration: none; }
+    .cat-nej { color: var(--cat-nej); background: var(--cat-nej-bg); }
+    .cat-kob { color: var(--cat-kob); background: var(--cat-kob-bg); }
+    .cat-for { color: var(--cat-for); background: var(--cat-for-bg); }
+    .cat-fri { color: var(--cat-fri); background: var(--cat-fri-bg); }
+    .cat-erh { color: var(--cat-erh); background: var(--cat-erh-bg); }
+    .cat-gui { color: var(--cat-gui); background: var(--cat-gui-bg); }
+
+    footer { background: var(--green-900); padding: 52px 48px 36px; }
+    .foot-inner { max-width: 1200px; margin: 0 auto; }
+    .foot-disclosure { border-top: 1px solid rgba(255,255,255,0.08); padding: 20px 0; margin-bottom: 6px; }
+    .foot-disclosure p { font-size: 0.72rem; color: rgba(255,255,255,0.3); line-height: 1.65; margin: 0 0 6px; }
+    .foot-disclosure p:last-child { margin-bottom: 0; }
+    .foot-btm { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .foot-legal { font-size: 0.76rem; color: rgba(255,255,255,0.3); line-height: 1.6; }
+    .foot-legal a { color: rgba(255,255,255,0.38); text-decoration: none; }
+    .foot-legal a:hover { color: rgba(255,255,255,0.65); }
+
+    .art-wrap { max-width: 760px; margin: 0 auto; padding: 128px 48px 40px; }
+    .art-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.83rem; color: var(--text-muted); text-decoration: none; margin-bottom: 24px; }
+    .art-back:hover { color: var(--green-800); }
+    .art-head { margin-bottom: 40px; }
+    .art-head .cat-chip { margin-bottom: 16px; }
+    .art-head h1 { font-family: var(--font-d); font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+    .art-intro { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.75; }
+    .art-body h2 { font-family: var(--font-d); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; margin: 40px 0 14px; }
+    .art-body p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 14px; }
+    .art-cta { background: var(--green-800); border-radius: var(--rxl); padding: 36px; margin-top: 48px; text-align: center; }
+    .art-cta h3 { font-family: var(--font-d); color: white; font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .art-cta p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 22px; }
+    .art-cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .art-cta .btn-cta { background: white; color: var(--green-800); }
+    .art-cta .btn-cta:hover { background: var(--green-50); }
+    .art-cta .btn-ghost-w { padding: 9px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 700; color: white; border: 1.5px solid rgba(255,255,255,0.4); text-decoration: none; font-family: var(--font-d); }
+    .art-cta .btn-ghost-w:hover { background: rgba(255,255,255,0.1); }
+    .art-related { max-width: 760px; margin: 56px auto 0; padding: 0 48px; }
+    .art-related h4 { font-family: var(--font-d); font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 18px; }
+    .art-related-list { display: flex; flex-direction: column; gap: 4px; }
+    .art-related-list a { display: block; padding: 14px 0; border-top: 1px solid var(--border-light); font-size: 0.92rem; font-weight: 600; color: var(--text-primary); text-decoration: none; }
+    .art-related-list a:hover { color: var(--green-800); }
+    @media (max-width: 700px) {
+      .art-wrap { padding: 100px 24px 32px; }
+      .art-related { padding: 0 24px; }
+    }
+
+    @media (max-width: 700px) {
+      nav { padding: 0 20px; }
+      footer { padding: 40px 24px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/" class="nav-logo">
+    <img src="../brand_assets/faktor-logo.png" alt="Faktor">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#produkter">Produkter</a></li>
+    <li><a href="../artikler.html">Artikler</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+    <li><a href="/#om">Om os</a></li>
+  </ul>
+  <a href="/#kontakt" class="btn-cta">Bliv ringet op</a>
+</nav>
+
+<main class="art-wrap">
+  <a href="../artikler.html" class="art-back">&larr; Alle artikler</a>
+  <div class="art-head">
+    <span class="cat-chip cat-for">Forældrekøb</span>
+    <h1>Skal du hjælpe dit barn ind på boligmarkedet? Her er dine muligheder</h1>
+    <p class="art-intro">Boligpriserne gør det svært for mange unge at komme ind på markedet alene. Her er de mest almindelige måder, forældre kan hjælpe på — og hvor friværdi kommer ind i billedet som en fleksibel finansieringskilde.</p>
+  </div>
+  <div class="art-body">
+    <h2>Hvorfor unge har sværere ved at låne alene</h2>
+    <p>Kravet om udbetaling, en kort eller ustabil indkomsthistorik og bankernes gældsfaktor-model gør det ofte svært for førstegangskøbere at opnå fuld finansiering på egen hånd, selv med en fast indtægt. Mange unge har simpelthen ikke haft tid til at opbygge den opsparing eller indkomsthistorik, som bankens model forudsætter.</p>
+    <p>Det gælder særligt i de større byer, hvor købesprisen på selv en mindre lejlighed kræver en betydelig udbetaling, som kan tage år at spare sammen til på egen hånd.</p>
+    <h2>De mest almindelige måder at hjælpe på</h2>
+    <p>Nogle forældre stiller kaution for en del af lånet, hvilket giver barnet adgang til en større finansiering, uden at forældrene selv skal eje boligen. Andre finansierer selve udbetalingen som et forskud eller et familielån.</p>
+    <p>En tredje model er forældrekøb, hvor forældrene står som ejere og udlejer boligen til barnet, indtil barnet selv har opbygget økonomi og historik nok til at overtage den. Hver model har forskellige økonomiske og skattemæssige konsekvenser, som bør afklares på forhånd.</p>
+    <h2>Hvor friværdi gør en forskel</h2>
+    <p>Har du friværdi i din egen bolig, kan den bruges til at finansiere udbetalingen, et forældrekøb, eller stilles som en del af sikkerheden — uden at du behøver at gå igennem en ny, separat godkendelse i barnets egen bank.</p>
+    <p>Det gør processen hurtigere, fordi vurderingen tager udgangspunkt i en ejendom, hvis værdi og historik allerede er kendt, frem for at skulle godkendes forfra som en ny, selvstændig sag.</p>
+    <h2>Sådan finder I den rigtige model sammen</h2>
+    <p>Det rigtige valg afhænger af, om det skal være en midlertidig løsning eller en langsigtet investering, og af jeres samlede økonomi som familie. Er planen, at barnet selv skal overtage boligen om nogle år, kan det tale for en anden løsning end hvis det er en langsigtet investering for familien.</p>
+    <p>Vi gennemgår gerne mulighederne med jer og regner på, hvad friværdien i din bolig konkret kan finansiere, så I kan træffe beslutningen på et oplyst grundlag.</p>
+    <h2>Hvad enighed i familien betyder for processen</h2>
+    <p>Et forældrekøb eller en kautionsordning fungerer bedst, når forventningerne er afstemt på forhånd: hvem betaler hvad, hvad sker der, hvis barnet flytter, og hvordan håndteres det, hvis økonomien ændrer sig undervejs.</p>
+    <p>Vi oplever, at de sager, der forløber gnidningsfrit, ofte er dem, hvor familien har talt tingene igennem inden ansøgningen — ikke fordi vi kræver det, men fordi det gør hele forløbet nemmere for alle parter.</p>
+    <h2>Hvad det koster at få et konkret svar</h2>
+    <p>Det koster dig intet at få regnet på, hvad friværdien i din bolig kan finansiere til et forældrekøb eller en anden form for hjælp til dit barn. Vi giver et konkret, uforpligtende svar, som I kan bruge til at træffe beslutningen — uanset om I vælger at gå videre hos os eller ej.</p>
+  </div>
+  <div class="art-cta">
+    <h3>Klar til at høre dine muligheder?</h3>
+    <p>Gratis og uforpligtende. Svar inden 24 timer på hverdage.</p>
+    <div class="art-cta-actions">
+      <a href="/#kontakt" class="btn-cta">Bliv ringet op →</a>
+      <a href="tel:53606375" class="btn-ghost-w">Ring: 53 60 63 75</a>
+    </div>
+  </div>
+</main>
+<div class="art-related">
+  <h4>Relateret</h4>
+  <div class="art-related-list">
+    <a href="foraeldrekoeb-uden-om-banken.html">Forældrekøb uden om banken: sådan bruger du din egen friværdi</a>
+        <a href="fra-afslag-til-finansiering.html">Fra afslag til finansiering: sådan læser vi din sag anderledes end banken</a>
+        <a href="hvad-kan-du-koebe-hus-for.html">Hvad kan du reelt købe hus for, når banken har sagt nej?</a>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-disclosure">
+      <p><strong>Kreditoplysninger</strong> — Løbetid: 12–300 måneder (1–25 år) · Maks. ÅOP: 12,90%</p>
+      <p><strong>Repræsentativt eksempel:</strong> Lånebeløb: 3.000.000 kr. · Løbetid: 24 måneder · Nominel rente: 8,25% (fast) · Månedlig ydelse: 21.904 kr. · Etableringsgebyr: 10.000 kr. · Stempelomkostninger: 46.250 kr. · Tinglysningsafgift: 1.850 kr. · Samlede kreditomkostninger: 806.810 kr. · Samlet tilbagebetaling: 3.807.270 kr. · ÅOP: 12,90%</p>
+    </div>
+    <div class="foot-btm">
+      <div class="foot-legal">© 2026 Faktor · Lånemægler for Ditboliglaan.DK Ejendomskreditselskab ApS (CVR 34464324) · <a href="/privatlivspolitik.html">Privatlivspolitik</a> · <a href="#">Cookies</a></div>
+      <div class="foot-legal">Lån altid med omtanke. Boliglån indebærer risiko for tab af bolig ved manglende betaling.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
