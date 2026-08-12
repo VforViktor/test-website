@@ -401,6 +401,7 @@
     <li><a href="#hvordan">Sådan virker det</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#om">Om os</a></li>
+    <li><a href="artikler.html">Artikler</a></li>
   </ul>
   <div class="nav-actions">
     <a href="https://ansog.faktorkredit.dk/estimator" class="btn-ghost" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout')">Start ansøgning</a>
@@ -416,6 +417,7 @@
   <a href="#hvordan" onclick="toggleMob()">Sådan virker det</a>
   <a href="#faq" onclick="toggleMob()">FAQ</a>
   <a href="#om" onclick="toggleMob()">Om os</a>
+  <a href="artikler.html" onclick="toggleMob()">Artikler</a>
   <a href="tel:53606375" onclick="toggleMob()">Ring til os: 53 60 63 75</a>
   <a href="#kontakt" class="btn-cta" onclick="toggleMob()">Bliv ringet op</a>
 </div>
@@ -817,6 +819,7 @@
           <li><a href="#om">Hvem er vi?</a></li>
           <li><a href="#faq">Spørgsmål & svar</a></li>
           <li><a href="#hvordan">Sådan virker det</a></li>
+          <li><a href="artikler.html">Artikler</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -873,34 +876,11 @@
     btn.disabled = true;
     btn.textContent = 'Sender…';
 
-    const name = form.querySelector('input[name="name"]').value;
-    const telefon = form.querySelector('input[name="telefon"]').value;
-    const laneformaal = form.querySelector('select[name="låneformål"]').value;
     const data = new FormData(form);
 
-    const zdBody = JSON.stringify({
-      request: {
-        subject: 'Ny henvendelse – ' + laneformaal,
-        requester: {
-          name: name,
-          email: telefon.replace(/\s/g, '') + '@lead.faktorkredit.dk'
-        },
-        comment: {
-          body: 'Navn: ' + name + '\nTelefon: ' + telefon + '\nLåneformål: ' + laneformaal
-        }
-      }
-    });
-
     try {
-      const [w3f] = await Promise.allSettled([
-        fetch('https://api.web3forms.com/submit', { method: 'POST', body: data }),
-        fetch('https://faktorkreditdk.zendesk.com/api/v2/requests.json', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: zdBody
-        })
-      ]);
-      const json = w3f.status === 'fulfilled' ? await w3f.value.json() : null;
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+      const json = await res.json();
       if (json && json.success) {
         fbq('track', 'Lead');
         form.style.display = 'none';
