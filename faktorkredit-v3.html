@@ -245,10 +245,8 @@
     .test-card-q { font-family: var(--font-d); font-size: 1rem; font-weight: 600; line-height: 1.55; letter-spacing: -0.01em; color: var(--text-primary); margin-bottom: 22px; }
     .test-card-q::before { content: '\201C'; }
     .test-card-q::after { content: '\201D'; }
-    .test-card-by { display: flex; align-items: center; gap: 10px; padding-top: 18px; border-top: 1px solid var(--border-light); }
-    .test-card-av { width: 40px; height: 40px; border-radius: 50%; background: var(--green-100); display: flex; align-items: center; justify-content: center; font-family: var(--font-d); font-weight: 700; color: var(--green-800); font-size: 0.8rem; flex-shrink: 0; }
-    .test-card-info h5 { font-weight: 700; font-size: 0.85rem; margin-bottom: 2px; }
-    .test-card-info p { font-size: 0.75rem; color: var(--text-muted); }
+    .test-card-by { padding-top: 18px; border-top: 1px solid var(--border-light); }
+    .test-card-role { font-family: var(--font-d); font-weight: 700; font-size: 0.8rem; color: var(--green-800); letter-spacing: -0.01em; }
 
     /* ── FAQ ── */
     .faq-list { max-width: 700px; margin: 0 auto; }
@@ -660,26 +658,23 @@
     <div class="test-grid">
       <div class="test-card fu">
         <div class="test-card-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div class="test-card-q">Jeg troede aldrig vi kunne frigøre friværdien, da banken vendte os. Faktor var professionelle, hurtige og forklarede alt i et sprog vi forstod.</div>
+        <div class="test-card-q">Vi troede ikke, vi kunne frigøre friværdien, efter banken sagde nej. Faktor var hurtige og forklarede alt i et sprog, vi forstod. Stor anbefaling herfra.</div>
         <div class="test-card-by">
-          <div class="test-card-av">LH</div>
-          <div class="test-card-info"><h5>Lars Henriksen</h5><p>Lån i friværdi · Odense</p></div>
+          <p class="test-card-role">Boligejer, lån i friværdi</p>
         </div>
       </div>
       <div class="test-card fu">
         <div class="test-card-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div class="test-card-q">Vi var afvist i to banker. Faktor forstod vores situation og fik finansieringen til boligkøbet på plads på under en uge. Utrolig service.</div>
+        <div class="test-card-q">Vi var blevet afvist to gange. Faktor forstod vores situation og fandt en løsning på under en uge.</div>
         <div class="test-card-by">
-          <div class="test-card-av">MK</div>
-          <div class="test-card-info"><h5>Mette & Kasper</h5><p>Boligkøb · Aarhus</p></div>
+          <p class="test-card-role">Boligkøber</p>
         </div>
       </div>
       <div class="test-card fu">
         <div class="test-card-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div class="test-card-q">Brugte friværdien til at renovere huset. Processen var nem, rådgiveren svarede hurtigt og vilkårene var klare og forståelige fra start.</div>
+        <div class="test-card-q">Processen var enkel, Faktor svarede hurtigt, og vilkårene var klare fra start.</div>
         <div class="test-card-by">
-          <div class="test-card-av">SB</div>
-          <div class="test-card-info"><h5>Søren & Birgit</h5><p>Lån i friværdi · Horsens</p></div>
+          <p class="test-card-role">Boligejer, renoveringslån</p>
         </div>
       </div>
     </div>
