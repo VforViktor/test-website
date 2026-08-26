@@ -134,12 +134,51 @@
         <button type="button" data-type="boligkøb" onclick="setType(this)">Boligkøb</button>
       </div>
 
+      <!-- FRIVÆRDI INPUTS -->
+      <div id="fields-friværdi">
+        <div class="calc-row">
+          <div class="calc-row-head">
+            <span class="calc-label">Hvad er din ejendom værd?</span>
+            <span class="calc-val" id="propValVal">3.000.000 kr</span>
+          </div>
+          <input type="range" id="propValRange" min="500000" max="10000000" step="50000" value="3000000" oninput="calc()">
+        </div>
+        <div class="calc-row">
+          <div class="calc-row-head">
+            <span class="calc-label">Hvor meget gæld har du i ejendommen?</span>
+            <span class="calc-val" id="debtVal">1.000.000 kr</span>
+          </div>
+          <input type="range" id="debtRange" min="0" max="10000000" step="50000" value="1000000" oninput="calc()">
+        </div>
+        <div class="calc-result" style="margin-bottom:14px;">
+          <span class="calc-result-label">Din friværdi</span>
+          <span class="calc-result-num" id="equityVal">— <span>kr</span></span>
+        </div>
+      </div>
+
+      <!-- BOLIGKØB INPUTS -->
+      <div id="fields-boligkøb" style="display:none;">
+        <div class="calc-row">
+          <div class="calc-row-head">
+            <span class="calc-label">Hvad koster ejendommen du vil købe?</span>
+            <span class="calc-val" id="priceVal">3.000.000 kr</span>
+          </div>
+          <input type="range" id="priceRange" min="500000" max="10000000" step="50000" value="3000000" oninput="calc()">
+        </div>
+        <div class="calc-row">
+          <div class="calc-row-head">
+            <span class="calc-label">Hvor meget udbetaling har du?</span>
+            <span class="calc-val" id="downVal">300.000 kr</span>
+          </div>
+          <input type="range" id="downRange" min="0" max="10000000" step="25000" value="300000" oninput="calc()">
+        </div>
+      </div>
+
       <div class="calc-row">
         <div class="calc-row-head">
-          <span class="calc-label">Lånebeløb</span>
-          <span class="calc-val" id="loanVal">1.000.000 kr</span>
+          <span class="calc-label" id="loanAmountLabel">Maks. lånebeløb (op til 80%)</span>
+          <span class="calc-val" id="loanVal">— kr</span>
         </div>
-        <input type="range" id="loanRange" min="100000" max="3000000" step="25000" value="1000000" oninput="calc()">
       </div>
 
       <div class="calc-row">
@@ -156,15 +195,26 @@
       </div>
 
       <a href="#" class="btn-submit">Se dit tilbud →</a>
-      <p class="calc-note">Eksempel til illustration ved 8,25% nominel rente (fast). Dit faktiske tilbud afhænger af en konkret vurdering af din sag.</p>
+      <p class="calc-note">Eksempel til illustration ved 8,25% nominel rente (fast), op til 80% belåning. Dit faktiske tilbud afhænger af en konkret vurdering af din sag.</p>
     </div>
   </div>
 </section>
 
 <script>
+  let currentType = 'friværdi';
+
   function setType(btn) {
     document.querySelectorAll('.calc-toggle button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    currentType = btn.dataset.type;
+
+    document.getElementById('fields-friværdi').style.display = currentType === 'friværdi' ? '' : 'none';
+    document.getElementById('fields-boligkøb').style.display = currentType === 'boligkøb' ? '' : 'none';
+    document.getElementById('loanAmountLabel').textContent = currentType === 'friværdi'
+      ? 'Maks. lånebeløb (op til 80%)'
+      : 'Lånebehov';
+
+    calc();
   }
 
   function formatKr(n) {
@@ -172,15 +222,38 @@
   }
 
   function calc() {
-    const loan = parseInt(document.getElementById('loanRange').value, 10);
     const years = parseInt(document.getElementById('termRange').value, 10);
-    document.getElementById('loanVal').textContent = formatKr(loan);
     document.getElementById('termVal').textContent = years + ' år';
+
+    let loanAmount = 0;
+
+    if (currentType === 'friværdi') {
+      const propValue = parseInt(document.getElementById('propValRange').value, 10);
+      const debt = parseInt(document.getElementById('debtRange').value, 10);
+      document.getElementById('propValVal').textContent = formatKr(propValue);
+      document.getElementById('debtVal').textContent = formatKr(debt);
+
+      const equity = Math.max(0, propValue - debt);
+      document.getElementById('equityVal').textContent = formatKr(equity);
+
+      loanAmount = Math.max(0, propValue * 0.8 - debt);
+    } else {
+      const price = parseInt(document.getElementById('priceRange').value, 10);
+      const down = parseInt(document.getElementById('downRange').value, 10);
+      document.getElementById('priceVal').textContent = formatKr(price);
+      document.getElementById('downVal').textContent = formatKr(down);
+
+      loanAmount = Math.max(0, price - down);
+    }
+
+    document.getElementById('loanVal').textContent = formatKr(loanAmount);
 
     const nominalRate = 0.0825;
     const monthlyRate = nominalRate / 12;
     const months = years * 12;
-    const payment = loan * monthlyRate / (1 - Math.pow(1 + monthlyRate, -months));
+    const payment = loanAmount > 0
+      ? loanAmount * monthlyRate / (1 - Math.pow(1 + monthlyRate, -months))
+      : 0;
 
     document.getElementById('paymentVal').innerHTML = Math.round(payment).toLocaleString('da-DK') + ' <span>kr/md.</span>';
   }
