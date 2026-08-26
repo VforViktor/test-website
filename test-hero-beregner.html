@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEST — Hero-beregner (eksempel) — Faktor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --off-white: #F6F8F6;
+    --green-900: #1A3828;
+    --green-800: #2A5C45;
+    --green-700: #3D7A60;
+    --green-600: #4E9476;
+    --green-100: #E5F2EA;
+    --green-50: #F0F8F2;
+    --text-primary: #1A2B24;
+    --text-secondary: #4A5E55;
+    --text-muted: #7A8C84;
+    --border: #DCE8E2;
+    --border-light: #EEF4F0;
+    --shadow-lg: 0 12px 40px rgba(26,43,36,0.12);
+    --font-d: 'Bricolage Grotesque', sans-serif;
+    --font-b: 'Nunito Sans', sans-serif;
+    --r: 12px;
+    --rl: 20px;
+    --rxl: 28px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-b); background: var(--white); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+
+  .demo-banner { background: #3D2E12; color: #F5D48A; text-align: center; padding: 10px 20px; font-size: 0.82rem; font-weight: 600; font-family: var(--font-d); letter-spacing: 0.02em; }
+
+  nav {
+    position: sticky; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 72px;
+    background: rgba(255,255,255,0.94); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .nav-logo { font-family: var(--font-d); font-weight: 700; font-size: 1.4rem; letter-spacing: -0.02em; color: var(--green-900); text-decoration: none; }
+  .btn-cta {
+    padding: 9px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 700;
+    color: white; background: var(--green-800); border: none;
+    text-decoration: none; font-family: var(--font-d);
+  }
+
+  .hero-section { position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background-image: url('brand_assets/faktor-hero.png'); background-size: cover; background-position: center 40%; z-index: 0; }
+  .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(105deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.88) 40%, rgba(255,255,255,0.35) 100%); }
+  .hero-wrap { padding: 60px 48px 80px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 440px; gap: 64px; align-items: center; position: relative; z-index: 1; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--green-100); color: var(--green-800);
+    padding: 5px 13px; border-radius: 100px; font-size: 0.775rem; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 22px;
+  }
+  .hero-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green-600); }
+  .hero-left h1 {
+    font-family: var(--font-d); font-size: clamp(2.1rem, 4vw, 3.3rem);
+    font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px;
+  }
+  .hero-left h1 em { font-style: normal; color: var(--green-800); }
+  .hero-sub { font-size: 1.05rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: 28px; max-width: 460px; }
+
+  /* ── CALCULATOR CARD ── */
+  .calc-card { background: white; border: 1px solid var(--border); border-radius: var(--rxl); padding: 30px; box-shadow: var(--shadow-lg); }
+  .calc-label { font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 10px; display: block; }
+  .calc-toggle { display: flex; gap: 8px; margin-bottom: 22px; }
+  .calc-toggle button {
+    flex: 1; padding: 11px 10px; border-radius: 9px; border: 1.5px solid var(--border);
+    background: var(--off-white); color: var(--text-secondary); font-family: var(--font-b);
+    font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.15s;
+  }
+  .calc-toggle button.active { background: var(--green-800); border-color: var(--green-800); color: white; }
+
+  .calc-row { margin-bottom: 22px; }
+  .calc-row-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+  .calc-row-head .calc-label { margin-bottom: 0; }
+  .calc-val { font-family: var(--font-d); font-weight: 700; font-size: 1.05rem; color: var(--green-800); }
+
+  input[type="range"] {
+    -webkit-appearance: none; width: 100%; height: 5px; border-radius: 4px;
+    background: var(--border); outline: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
+    background: var(--green-800); cursor: pointer; border: 3px solid white;
+    box-shadow: 0 1px 4px rgba(26,56,40,0.35);
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 20px; height: 20px; border-radius: 50%; background: var(--green-800);
+    cursor: pointer; border: 3px solid white; box-shadow: 0 1px 4px rgba(26,56,40,0.35);
+  }
+
+  .calc-result { background: var(--green-50); border: 1px solid var(--green-100); border-radius: var(--r); padding: 16px 18px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+  .calc-result-label { font-size: 0.82rem; color: var(--text-secondary); font-weight: 600; }
+  .calc-result-num { font-family: var(--font-d); font-weight: 700; font-size: 1.4rem; color: var(--green-900); }
+  .calc-result-num span { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); }
+
+  .btn-submit { display: block; width: 100%; padding: 14px; background: var(--green-800); color: white; border: none; border-radius: 9px; font-size: 1rem; font-weight: 700; font-family: var(--font-d); cursor: pointer; text-align: center; text-decoration: none; }
+  .calc-note { font-size: 0.72rem; color: var(--text-muted); text-align: center; margin-top: 12px; line-height: 1.5; }
+
+  @media (max-width: 960px) {
+    .hero-wrap { grid-template-columns: 1fr; padding: 40px 24px 56px; gap: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-banner">🧪 TEST-SIDE — eksempel på hero-beregner, ikke live på faktorkredit.dk</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">FAKTOR</a>
+  <a href="#" class="btn-cta">Bliv ringet op</a>
+</nav>
+
+<section class="hero-section">
+  <div class="hero-bg"></div>
+  <div class="hero-wrap">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Hvis du har fået for meget bank</div>
+      <h1>Lån med din bolig<br>som <em>sikkerhed</em></h1>
+      <p class="hero-sub">Vi hjælper boligejere og erhvervsdrivende med fleksible lån. Hurtig sagsbehandling, personlig rådgivning og svar inden 24 timer.</p>
+    </div>
+
+    <div class="calc-card">
+      <span class="calc-label">Hvad vil du låne til?</span>
+      <div class="calc-toggle">
+        <button type="button" class="active" data-type="friværdi" onclick="setType(this)">Lån i friværdi</button>
+        <button type="button" data-type="boligkøb" onclick="setType(this)">Boligkøb</button>
+      </div>
+
+      <div class="calc-row">
+        <div class="calc-row-head">
+          <span class="calc-label">Lånebeløb</span>
+          <span class="calc-val" id="loanVal">1.000.000 kr</span>
+        </div>
+        <input type="range" id="loanRange" min="100000" max="3000000" step="25000" value="1000000" oninput="calc()">
+      </div>
+
+      <div class="calc-row">
+        <div class="calc-row-head">
+          <span class="calc-label">Løbetid</span>
+          <span class="calc-val" id="termVal">15 år</span>
+        </div>
+        <input type="range" id="termRange" min="1" max="25" step="1" value="15" oninput="calc()">
+      </div>
+
+      <div class="calc-result">
+        <span class="calc-result-label">Månedlig ydelse</span>
+        <span class="calc-result-num" id="paymentVal">— <span>kr/md.</span></span>
+      </div>
+
+      <a href="#" class="btn-submit">Se dit tilbud →</a>
+      <p class="calc-note">Eksempel til illustration ved 8,25% nominel rente (fast). Dit faktiske tilbud afhænger af en konkret vurdering af din sag.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function setType(btn) {
+    document.querySelectorAll('.calc-toggle button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  function formatKr(n) {
+    return Math.round(n).toLocaleString('da-DK') + ' kr';
+  }
+
+  function calc() {
+    const loan = parseInt(document.getElementById('loanRange').value, 10);
+    const years = parseInt(document.getElementById('termRange').value, 10);
+    document.getElementById('loanVal').textContent = formatKr(loan);
+    document.getElementById('termVal').textContent = years + ' år';
+
+    const nominalRate = 0.0825;
+    const monthlyRate = nominalRate / 12;
+    const months = years * 12;
+    const payment = loan * monthlyRate / (1 - Math.pow(1 + monthlyRate, -months));
+
+    document.getElementById('paymentVal').innerHTML = Math.round(payment).toLocaleString('da-DK') + ' <span>kr/md.</span>';
+  }
+
+  calc();
+</script>
+
+</body>
+</html>
