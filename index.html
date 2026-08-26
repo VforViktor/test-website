@@ -4,23 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Faktor · Lån med din bolig som sikkerhed</title>
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel stub — queues calls but loads no tracking script or cookies until marketing consent is given. See loadMetaPixel() near the cookie banner script. -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
   if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  n.queue=[];}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '898274282176177');
-  fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=898274282176177&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+  <!-- End Meta Pixel stub -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -191,8 +184,9 @@
     .uc-bg::after { content: ''; position: absolute; inset: 0; background: rgba(246,248,246,0.78); z-index: 1; }
     .uc-bg .sec-in { position: relative; z-index: 2; }
     .uc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-    .uc-card { background: white; border: 1px solid var(--border); border-radius: var(--r); padding: 26px; transition: all 0.2s; cursor: default; }
-    .uc-card:hover { border-color: var(--green-400); box-shadow: var(--shadow-md); }
+    .uc-card { background: white; border: 1px solid var(--border); border-radius: var(--r); padding: 26px; transition: all 0.2s; cursor: pointer; display: block; text-decoration: none; color: inherit; font: inherit; text-align: left; width: 100%; }
+    .uc-card:hover { border-color: var(--green-400); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .uc-card .uc-more { display: block; margin-top: 10px; font-size: 0.78rem; font-weight: 700; color: var(--green-700); }
     .uc-icon { font-size: 1.7rem; margin-bottom: 12px; display: block; }
     .uc-card h4 { font-family: var(--font-d); font-size: 0.975rem; font-weight: 700; margin-bottom: 7px; }
     .uc-card p { font-size: 0.825rem; color: var(--text-secondary); line-height: 1.6; }
@@ -221,14 +215,11 @@
     .cmp-bg .sec-sub { color: rgba(255,255,255,0.6); }
     .cmp-table { width: 100%; border-collapse: collapse; margin-top: 44px; }
     .cmp-table th { padding: 14px 22px; text-align: left; font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.45); letter-spacing: 0.05em; text-transform: uppercase; }
-    .cmp-table td { padding: 16px 22px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.875rem; color: rgba(255,255,255,0.75); vertical-align: middle; white-space: nowrap; }
-    .cmp-table td:first-child { color: white; font-weight: 500; }
-    .cmp-table td:nth-child(2) { color: var(--green-400); font-weight: 600; }
+    .cmp-table td { padding: 16px 22px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.875rem; color: rgba(255,255,255,0.75); vertical-align: middle; }
+    .cmp-table td:first-child { color: white; font-weight: 600; white-space: nowrap; width: 220px; }
     .cmp-hd { font-family: var(--font-d); font-size: 0.95rem; font-weight: 700; color: white !important; }
     .cmp-hd-g { color: var(--green-400) !important; }
     tr.alt td { background: rgba(255,255,255,0.03); }
-    .ck { color: var(--green-400); }
-    .cx { color: rgba(255,255,255,0.22); }
 
     /* ── TESTIMONIALS ── */
     .test-bg { position: relative; overflow: hidden; }
@@ -354,9 +345,7 @@
       .cmp-table tr { margin-bottom: 12px; padding: 16px; background: rgba(255,255,255,0.05); border-radius: 12px; border-top: none; }
       .cmp-table tr.alt { background: rgba(255,255,255,0.07); }
       .cmp-table td { padding: 4px 0; border: none; white-space: normal; font-size: 0.875rem; }
-      .cmp-table td:first-child { font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
-      .cmp-table td:nth-child(2)::before { content: 'Faktor: '; font-size: 0.72rem; color: rgba(255,255,255,0.4); font-weight: 400; }
-      .cmp-table td:nth-child(3)::before { content: 'Din bank: '; font-size: 0.72rem; color: rgba(255,255,255,0.4); font-weight: 400; }
+      .cmp-table td:first-child { font-size: 0.78rem; font-weight: 700; color: var(--green-400); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; width: auto; }
     }
     @media (max-width: 600px) {
       nav { padding: 0 16px; height: 64px; }
@@ -385,6 +374,19 @@
   </style>
 </head>
 <body>
+
+<!-- COOKIE CONSENT BANNER -->
+<div id="cookieBanner" style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:9500;background:var(--green-900);padding:20px 24px;box-shadow:0 -8px 30px rgba(0,0,0,0.2);">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between;">
+    <p style="font-size:0.85rem;color:rgba(255,255,255,0.8);line-height:1.6;margin:0;flex:1;min-width:240px;">
+      Vi bruger nødvendige cookies for at sitet fungerer, og – hvis du siger ja – marketingcookies til at måle annonceeffekt. Læs mere i vores <a href="/privatlivspolitik.html#cookies" style="color:white;text-decoration:underline;">cookiepolitik</a>.
+    </p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button type="button" onclick="setCookieConsent(false)" style="padding:10px 18px;border-radius:8px;font-size:0.85rem;font-weight:700;font-family:var(--font-d);cursor:pointer;background:transparent;color:white;border:1.5px solid rgba(255,255,255,0.4);">Kun nødvendige</button>
+      <button type="button" onclick="setCookieConsent(true)" style="padding:10px 18px;border-radius:8px;font-size:0.85rem;font-weight:700;font-family:var(--font-d);cursor:pointer;background:white;color:var(--green-900);border:none;">Accepter alle</button>
+    </div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav id="nav">
@@ -424,7 +426,7 @@
     <div class="hero-left fu">
       <div class="hero-eyebrow">Hvis du har fået for meget bank</div>
       <h1>Lån med din bolig<br>som <em>sikkerhed</em></h1>
-      <p class="hero-sub">Vi hjælper boligejere og erhvervsdrivende med fleksible lån. Hurtig sagsbehandling, personlig rådgivning og svar inden 24 timer.</p>
+      <p class="hero-sub">Vi hjælper boligejere og erhvervsdrivende med fleksible lån. Hurtig sagsbehandling og personlig rådgivning – vi ringer dig op samme hverdag.</p>
       <div class="hero-trust">
         <div class="trust-pill">
           <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
@@ -432,7 +434,7 @@
         </div>
         <div class="trust-pill">
           <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
-          Svar inden 24 timer
+          Tilbagekald samme hverdag
         </div>
         <div class="trust-pill">
           <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
@@ -442,7 +444,7 @@
     </div>
     <div class="form-card fu" id="hero-form-area">
       <h3>Klar til at høre dine muligheder?</h3>
-      <p>Gratis og uforpligtende. Svar inden 24 timer på hverdage.</p>
+      <p>Gratis og uforpligtende. Vi ringer dig op samme hverdag.</p>
       <a href="https://ansog.faktorkredit.dk/estimator" class="btn-submit" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout')" style="display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;margin-top:16px;">
         Start ansøgning
         <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
@@ -455,9 +457,9 @@
 <!-- STATS -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div class="stat fu"><div class="stat-n">24t</div><div class="stat-l">Svartid på hverdage</div></div>
-    <div class="stat fu"><div class="stat-n">1–2 uger</div><div class="stat-l">Fra ansøgning til udbetaling</div></div>
-    <div class="stat fu"><div class="stat-n">100%</div><div class="stat-l">Gratis rådgivning</div></div>
+    <div class="stat fu"><div class="stat-n">Samme dag</div><div class="stat-l">Vi ringer dig op</div></div>
+    <div class="stat fu"><div class="stat-n">1–2 uger</div><div class="stat-l">Fra godkendelse til udbetaling</div></div>
+    <div class="stat fu"><div class="stat-n">100%</div><div class="stat-l">Gratis indtil du takker ja</div></div>
     <div class="stat fu"><div class="stat-n">3 typer</div><div class="stat-l">Friværdi, boligkøb & erhverv</div></div>
   </div>
 </div>
@@ -477,8 +479,8 @@
         <p>Frigør den opsparing, der sidder gemt i din bolig. Brug pengene til det du ønsker: renovering, investering, gældsoptimering eller noget helt fjerde.</p>
         <ul class="prod-details">
           <li>Lån op til 80% af boligens værdi</li>
-          <li>Ingen krav om fast indkomst</li>
-          <li>Svar inden 24 timer</li>
+          <li>Vi vurderer hele din økonomi – ikke kun lønsedler og standard-kreditscore</li>
+          <li>Tilbagekald samme hverdag</li>
           <li>Gælder alle ejendomstyper</li>
         </ul>
         <div class="prod-tags">
@@ -556,9 +558,9 @@
       </div>
     </div>
     <div class="steps-grid steps-3col">
-      <div class="step fu"><div class="step-n">1</div><h4>Vi vurderer din sag</h4><p>Vi gennemgår din ansøgning, vurderer din sag og kontakter dig med afklaring.</p></div>
-      <div class="step fu"><div class="step-n">2</div><h4>Konkret tilbud</h4><p>Du modtager et tilbud med alle vilkår i klart sprog. Ingen skjulte gebyrer, ingen overraskelser.</p></div>
-      <div class="step fu"><div class="step-n">3</div><h4>Underskrift & udbetaling</h4><p>Tinglysning og udbetaling. Typisk inden for 1-2 uger fra godkendelse.</p></div>
+      <div class="step fu"><div class="step-n">1</div><h4>Vi ringer dig op</h4><p>Tilbagekald samme hverdag, og et indikativt svar inden 24 timer.</p></div>
+      <div class="step fu"><div class="step-n">2</div><h4>Konkret tilbud</h4><p>Du modtager et tilbud inden 3–7 hverdage, med alle vilkår i klart sprog. Ingen skjulte gebyrer.</p></div>
+      <div class="step fu"><div class="step-n">3</div><h4>Underskrift & udbetaling</h4><p>Tinglysning og udbetaling, typisk 1–2 uger efter godkendelse.</p></div>
     </div>
   </div>
 </section>
@@ -572,12 +574,12 @@
       <p class="sec-sub">Uanset din situation har vi sandsynligvis hjulpet nogen i den samme.</p>
     </div>
     <div class="uc-grid">
-      <div class="uc-card fu"><span class="uc-icon">🔨</span><h4>Renovering & forbedring</h4><p>Frigør friværdi til at modernisere dit hjem, bygge til eller opdatere energiforhold.</p></div>
-      <div class="uc-card fu"><span class="uc-icon">💳</span><h4>Gældskonsolidering</h4><p>Saml dyr gæld i ét samlet lån med lavere rente og bedre månedligt overblik.</p></div>
-      <div class="uc-card fu"><span class="uc-icon">🏠</span><h4>Mellemfinansiering</h4><p>Køb ny bolig inden du sælger din nuværende. Vi løser finansieringsgabet hurtigt.</p></div>
-      <div class="uc-card fu"><span class="uc-icon">📈</span><h4>Ejendomsinvestering</h4><p>Investering i erhvervs- og udlejningsejendomme.</p></div>
-      <div class="uc-card fu"><span class="uc-icon">👨‍👩‍👧</span><h4>Hjælp til børn</h4><p>Hjælp dine børn ind på boligmarkedet ved at frigøre din opsparing i ejendommen.</p></div>
-      <div class="uc-card fu"><span class="uc-icon">🏢</span><h4>Erhvervsfinansiering</h4><p>Brug boligen som sikkerhed for driftslån, vækstkapital eller erhvervskøb.</p></div>
+      <a href="artikler/friveerdi-til-renovering.html" class="uc-card fu"><span class="uc-icon">🔨</span><h4>Renovering & forbedring</h4><p>Frigør friværdi til at modernisere dit hjem, bygge til eller opdatere energiforhold.</p><span class="uc-more">Læs mere →</span></a>
+      <a href="artikler/skattegaeld-og-friveerdi.html" class="uc-card fu"><span class="uc-icon">💳</span><h4>Gældskonsolidering</h4><p>Saml dyr gæld i ét samlet lån med lavere rente og bedre månedligt overblik.</p><span class="uc-more">Læs mere →</span></a>
+      <button type="button" class="uc-card fu" onclick="openMellemfinModal()"><span class="uc-icon">🏠</span><h4>Mellemfinansiering</h4><p>Køb ny bolig inden du sælger din nuværende. Vi løser finansieringsgabet hurtigt.</p><span class="uc-more">Se dine muligheder →</span></button>
+      <a href="artikler/sommerhus-som-investering.html" class="uc-card fu"><span class="uc-icon">📈</span><h4>Ejendomsinvestering</h4><p>Investering i erhvervs- og udlejningsejendomme.</p><span class="uc-more">Læs mere →</span></a>
+      <a href="artikler/hjaelp-dit-barn-paa-boligmarkedet.html" class="uc-card fu"><span class="uc-icon">👨‍👩‍👧</span><h4>Hjælp til børn</h4><p>Hjælp dine børn ind på boligmarkedet ved at frigøre din opsparing i ejendommen.</p><span class="uc-more">Læs mere →</span></a>
+      <a href="#kontakt" class="uc-card fu"><span class="uc-icon">🏢</span><h4>Erhvervsfinansiering</h4><p>Brug boligen som sikkerhed for driftslån, vækstkapital eller erhvervskøb.</p><span class="uc-more">Bliv ringet op →</span></a>
     </div>
   </div>
 </section>
@@ -604,6 +606,11 @@
             <div><h4>Fuld transparens</h4><p>Vi forklarer alle vilkår i klart sprog. Ingen overraskelser, ingen skjulte gebyrer.</p></div>
           </div>
         </div>
+        <div style="background:var(--off-white);border:1px solid var(--border);border-radius:var(--rl);padding:22px 24px;margin-top:28px;">
+          <h4 style="font-family:var(--font-d);font-size:0.95rem;font-weight:700;margin-bottom:8px;">Hvad vi ikke finansierer</h4>
+          <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.65;margin-bottom:8px;">Vi finansierer ikke rent forbrugsrelaterede formål uden tilknytning til bolig eller investering – for eksempel bil, rejser eller løbende forbrug.</p>
+          <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.65;">Vi kan heller ikke overbelåne din ejendom. Som udgangspunkt finansierer vi op til 80% af boligens værdi. I særlige tilfælde kan vi gå til et absolut loft på 95% – men det kræver altid en konkret vurdering af din sag.</p>
+        </div>
       </div>
       <div class="why-card fu">
         <div class="why-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
@@ -614,28 +621,27 @@
   </div>
 </section>
 
-<!-- COMPARISON -->
+<!-- ASSESSMENT PROCESS -->
 <section class="sec cmp-bg">
   <div class="sec-in">
     <div class="sec-head c">
-      <div class="sec-label">Sammenligning</div>
-      <h2 class="sec-title">Faktor vs. alternativerne</h2>
-      <p class="sec-sub">Se hvad der adskiller os fra de traditionelle banker.</p>
+      <div class="sec-label">Vurderingsmetode</div>
+      <h2 class="sec-title">Sådan vurderer vi din sag</h2>
+      <p class="sec-sub">Vores proces tager udgangspunkt i din bolig og din samlede situation.</p>
     </div>
     <table class="cmp-table">
       <thead>
         <tr>
-          <th></th>
-          <th class="cmp-hd cmp-hd-g">Faktor</th>
-          <th class="cmp-hd">Din bank</th>
+          <th class="cmp-hd cmp-hd-g">Vi lægger vægt på</th>
+          <th class="cmp-hd">Sådan gør vi det</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="alt"><td>Vurdering af bolig</td><td><span class="ck">✓</span> Primær fokus</td><td>Delvist</td></tr>
-<tr class="alt"><td>Personlig rådgiver</td><td><span class="ck">✓</span> Fast kontakt hele forløbet</td><td>Skifter ofte</td></tr>
-        <tr><td>Rimelig rente</td><td><span class="ck">✓</span> Markedspris</td><td><span class="ck">✓</span></td></tr>
-        <tr class="alt"><td>Ingen skjulte gebyrer</td><td><span class="ck">✓</span> Fuld transparens</td><td>Varierer</td></tr>
-        <tr><td>Fleksibel ansøgning</td><td><span class="ck">✓</span> Individuel vurdering</td><td>Rigid kreditscoring</td></tr>
+        <tr class="alt"><td>Boligens værdi og stand</td><td>Primær fokus i vurderingen af din sag</td></tr>
+        <tr><td>Din økonomi som helhed</td><td>Løn, øvrig formue og betalingsevne – ikke kun en standard-kreditscore</td></tr>
+        <tr class="alt"><td>Belåningsgrad (LTV)</td><td>Op til 80% af boligens værdi som udgangspunkt, jf. "Hvad vi ikke finansierer" ovenfor</td></tr>
+        <tr><td>Rådgivning</td><td>Fast, personlig rådgiver gennem hele forløbet</td></tr>
+        <tr class="alt"><td>Vilkår</td><td>Fuldt gennemsigtige, ingen skjulte gebyrer</td></tr>
       </tbody>
     </table>
   </div>
@@ -709,7 +715,7 @@
       </div>
       <div class="faq-it">
         <button class="faq-btn" onclick="toggleFaq(this)">Hvor hurtigt kan jeg få svar?<span class="faq-ic"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg></span></button>
-        <div class="faq-body"><div class="faq-body-in">Vi ringer typisk tilbage inden for 2 timer på hverdage. Du vil få et foreløbigt svar inden 24 timer. Den fulde sagsbehandling tager 3–7 hverdage afhængigt af sagens kompleksitet.</div></div>
+        <div class="faq-body"><div class="faq-body-in">Vi ringer dig op samme hverdag og giver dig et indikativt svar inden 24 timer. Et konkret tilbud modtager du inden 3–7 hverdage, og efter godkendelse går der typisk 1–2 uger til udbetaling.</div></div>
       </div>
       <div class="faq-it">
         <button class="faq-btn" onclick="toggleFaq(this)">Hvilke ejendomstyper accepterer I?<span class="faq-ic"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg></span></button>
@@ -729,10 +735,10 @@
     <div>
       <div class="sec-label" style="color:var(--green-400);--sec-label-color:var(--green-400)">Kom i gang</div>
       <h2 class="sec-title" style="color:white">Klar til at høre dine muligheder?</h2>
-      <p class="sec-sub" style="color:rgba(255,255,255,0.68)">Uforpligtende samtale. Gratis rådgivning. Vi ringer dig op inden for 24 timer på hverdage.</p>
+      <p class="sec-sub" style="color:rgba(255,255,255,0.68)">Uforpligtende samtale. Gratis rådgivning. Vi ringer dig op samme hverdag.</p>
       <div class="cta-pts">
         <div class="cta-pt">Ingen kreditvurdering ved første kontakt</div>
-        <div class="cta-pt">Svar inden for 24 timer på hverdage</div>
+        <div class="cta-pt">Tilbagekald samme hverdag</div>
         <div class="cta-pt">Fast personlig rådgiver hele forløbet</div>
         <div class="cta-pt">Ingen skjulte gebyrer</div>
       </div>
@@ -764,7 +770,7 @@
       <div class="form-ok" id="cfok">
         <div class="ok-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5C45" stroke-width="2.5" width="26" height="26"><polyline points="20 6 9 17 4 12"/></svg></div>
         <h4>Tak! Vi ringer dig op.</h4>
-        <p>Forvent opkald inden for 24 timer på hverdage.</p>
+        <p>Forvent opkald samme hverdag.</p>
       </div>
     </div>
   </div>
@@ -776,7 +782,7 @@
     <button onclick="closeRingModal()" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.4rem;color:#888;cursor:pointer;line-height:1;" aria-label="Luk">×</button>
     <div style="font-size:1.6rem;margin-bottom:8px;">📞</div>
     <h3 style="font-family:var(--font-d);font-size:1.25rem;font-weight:800;margin-bottom:6px;color:var(--text-dark)">Vi ringer dig op</h3>
-    <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:24px;line-height:1.55;">Indtast dit telefonnummer, så ringer vi dig op inden for 24 timer på hverdage. Gratis og uforpligtende.</p>
+    <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:24px;line-height:1.55;">Indtast dit telefonnummer, så ringer vi dig op samme hverdag. Gratis og uforpligtende.</p>
     <div id="ringModalForm">
       <form onsubmit="submitRingModal(event)">
         <input type="hidden" name="access_key" value="c2146291-1856-4354-ad97-9be169b6d99e">
@@ -796,10 +802,46 @@
     <div id="ringModalOk" style="display:none;text-align:center;padding:12px 0;">
       <div style="width:52px;height:52px;background:#e8f5ee;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5C45" stroke-width="2.5" width="26" height="26"><polyline points="20 6 9 17 4 12"/></svg></div>
       <h4 style="font-family:var(--font-d);font-size:1.1rem;font-weight:800;margin-bottom:6px;">Tak! Vi ringer dig op.</h4>
-      <p style="font-size:0.875rem;color:var(--text-muted);margin:0;">Forvent opkald inden for 24 timer på hverdage.</p>
+      <p style="font-size:0.875rem;color:var(--text-muted);margin:0;">Forvent opkald samme hverdag.</p>
     </div>
   </div>
 </div>
+
+<!-- MELLEMFINANSIERING MODAL -->
+<div id="mellemfinModal" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.45);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px;" onclick="if(event.target===this)closeMellemfinModal()">
+  <div style="background:white;border-radius:16px;padding:36px 32px;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.2);position:relative;animation:modalIn 0.22s ease-out;">
+    <button onclick="closeMellemfinModal()" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.4rem;color:#888;cursor:pointer;line-height:1;" aria-label="Luk">×</button>
+    <div style="font-size:1.6rem;margin-bottom:8px;">🏠</div>
+    <h3 style="font-family:var(--font-d);font-size:1.25rem;font-weight:800;margin-bottom:6px;color:var(--text-dark)">Mellemfinansiering</h3>
+    <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:24px;line-height:1.55;">Fortæl os om de to ejendomme, så vurderer vi finansieringsgabet og ringer dig op samme hverdag.</p>
+    <div id="mellemfinModalForm">
+      <form onsubmit="submitMellemfinModal(event)">
+        <input type="hidden" name="access_key" value="c2146291-1856-4354-ad97-9be169b6d99e">
+        <input type="hidden" name="subject" value="Mellemfinansiering – FaktorKredit">
+        <div style="margin-bottom:14px;">
+          <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--text-dark);margin-bottom:5px;">Hvilken ejendom vil du købe?</label>
+          <input type="text" name="ejendom_koeb" placeholder="Adresse på den nye bolig" required style="width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:1rem;font-family:var(--font-b);outline:none;transition:border-color 0.15s;box-sizing:border-box;" onfocus="this.style.borderColor='var(--green-700)'" onblur="this.style.borderColor='var(--border)'">
+        </div>
+        <div style="margin-bottom:14px;">
+          <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--text-dark);margin-bottom:5px;">Hvilken ejendom ejer du allerede?</label>
+          <input type="text" name="ejendom_ejer" placeholder="Adresse på din nuværende bolig" required style="width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:1rem;font-family:var(--font-b);outline:none;transition:border-color 0.15s;box-sizing:border-box;" onfocus="this.style.borderColor='var(--green-700)'" onblur="this.style.borderColor='var(--border)'">
+        </div>
+        <div style="margin-bottom:20px;">
+          <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--text-dark);margin-bottom:5px;">Telefonnummer</label>
+          <input type="tel" name="telefon" placeholder="12 34 56 78" required style="width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:1rem;font-family:var(--font-b);outline:none;transition:border-color 0.15s;box-sizing:border-box;" onfocus="this.style.borderColor='var(--green-700)'" onblur="this.style.borderColor='var(--border)'">
+        </div>
+        <button type="submit" id="mellemfinModalBtn" style="width:100%;background:var(--green-800);color:white;border:none;border-radius:8px;padding:13px;font-size:0.95rem;font-weight:700;font-family:var(--font-d);cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='var(--green-900)'" onmouseout="this.style.background='var(--green-800)'">Se dine muligheder →</button>
+        <p style="font-size:0.75rem;color:var(--text-muted);text-align:center;margin-top:10px;margin-bottom:0;">Dine oplysninger behandles fortroligt.</p>
+      </form>
+    </div>
+    <div id="mellemfinModalOk" style="display:none;text-align:center;padding:12px 0;">
+      <div style="width:52px;height:52px;background:#e8f5ee;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;"><svg viewBox="0 0 24 24" fill="none" stroke="#2A5C45" stroke-width="2.5" width="26" height="26"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <h4 style="font-family:var(--font-d);font-size:1.1rem;font-weight:800;margin-bottom:6px;">Tak! Vi ringer dig op.</h4>
+      <p style="font-size:0.875rem;color:var(--text-muted);margin:0;">Forvent opkald samme hverdag.</p>
+    </div>
+  </div>
+</div>
+
 <style>
 @keyframes modalIn {
   from { opacity:0; transform:scale(0.95) translateY(8px); }
@@ -825,7 +867,7 @@
         <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="foot-logo">
           <img src="brand_assets/faktor-logo.png" alt="Faktor">
         </a>
-        <p class="foot-tag">Fleksible lån med din bolig som sikkerhed. Godkendt lånemægler for Ditboliglaan.DK Ejendomskreditselskab ApS.</p>
+        <p class="foot-tag">Fleksible lån med din bolig som sikkerhed. Et produkt fra Glittertind ApS.</p>
         <div class="foot-ct">
           <div><a href="tel:53606375">53 60 63 75</a></div>
           <div><a href="mailto:kontakt@faktorkredit.dk">kontakt@faktorkredit.dk</a></div>
@@ -862,13 +904,46 @@
       <p><strong>Repræsentativt eksempel:</strong> Lånebeløb: 3.000.000 kr. · Løbetid: 24 måneder · Nominel rente: 8,25% (fast) · Månedlig ydelse: 21.904 kr. · Etableringsgebyr: 10.000 kr. · Stempelomkostninger: 46.250 kr. · Tinglysningsafgift: 1.850 kr. · Samlede kreditomkostninger: 806.810 kr. · Samlet tilbagebetaling: 3.807.270 kr. · ÅOP: 12,90%</p>
     </div>
     <div class="foot-btm">
-      <div class="foot-legal">© 2026 Faktor · Lånemægler for Ditboliglaan.DK Ejendomskreditselskab ApS (CVR 34464324) · <a href="/privatlivspolitik.html">Privatlivspolitik</a> · <a href="#">Cookies</a></div>
+      <div class="foot-legal">© 2026 Faktor · Et produkt fra Glittertind ApS (CVR 46183843), Bornholmsgade 3, 1266 København K · <a href="/privatlivspolitik.html">Privatlivspolitik</a> · <a href="#" onclick="showCookieBanner();return false;">Cookies</a></div>
       <div class="foot-legal">Lån altid med omtanke. Boliglån indebærer risiko for tab af bolig ved manglende betaling.</div>
     </div>
   </div>
 </footer>
 
 <script>
+  // Cookie consent
+  const COOKIE_CONSENT_KEY = 'faktor_cookie_consent'; // 'granted' | 'denied'
+
+  function loadMetaPixel() {
+    if (window._metaPixelLoaded) return;
+    window._metaPixelLoaded = true;
+    const t = document.createElement('script');
+    t.async = true;
+    t.src = 'https://connect.facebook.net/en_US/fbevents.js';
+    document.getElementsByTagName('script')[0].parentNode.insertBefore(t, document.getElementsByTagName('script')[0]);
+    fbq('init', '898274282176177');
+    fbq('track', 'PageView');
+  }
+
+  function showCookieBanner() {
+    document.getElementById('cookieBanner').style.display = 'block';
+  }
+
+  function setCookieConsent(granted) {
+    localStorage.setItem(COOKIE_CONSENT_KEY, granted ? 'granted' : 'denied');
+    document.getElementById('cookieBanner').style.display = 'none';
+    if (granted) loadMetaPixel();
+  }
+
+  (function initCookieConsent() {
+    const stored = localStorage.getItem(COOKIE_CONSENT_KEY);
+    if (stored === 'granted') {
+      loadMetaPixel();
+    } else if (stored !== 'denied') {
+      showCookieBanner();
+    }
+  })();
+
   // Nav shadow on scroll
   window.addEventListener('scroll', () => {
     document.getElementById('nav').style.boxShadow = window.scrollY > 8 ? '0 2px 20px rgba(0,0,0,0.07)' : 'none';
@@ -958,6 +1033,45 @@
     } catch {
       btn.disabled = false;
       btn.textContent = 'Ring mig op →';
+      alert('Noget gik galt. Prøv igen eller ring direkte: 53 60 63 75');
+    }
+  }
+
+  // Mellemfinansiering modal
+  function openMellemfinModal() {
+    const m = document.getElementById('mellemfinModal');
+    m.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => m.querySelector('input[type="text"]').focus(), 50);
+  }
+  function closeMellemfinModal() {
+    document.getElementById('mellemfinModal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMellemfinModal(); });
+
+  async function submitMellemfinModal(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = document.getElementById('mellemfinModalBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sender…';
+    const data = new FormData(form);
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+      const json = await res.json();
+      if (json && json.success) {
+        fbq('track', 'Lead');
+        document.getElementById('mellemfinModalForm').style.display = 'none';
+        document.getElementById('mellemfinModalOk').style.display = 'block';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Se dine muligheder →';
+        alert('Noget gik galt. Prøv igen eller ring direkte: 53 60 63 75');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Se dine muligheder →';
       alert('Noget gik galt. Prøv igen eller ring direkte: 53 60 63 75');
     }
   }
