@@ -18,6 +18,15 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
+    // Google Consent Mode v2 — default: deny all until the user actively accepts via the cookie banner.
+    // Required by Google for ad personalisation/delivery in the EEA. See setCookieConsent() near the cookie banner script.
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
   </script>
   <!-- End Google Ads tag stub -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -959,15 +968,26 @@
     document.getElementById('cookieBanner').style.display = 'block';
   }
 
+  function updateConsentMode(granted) {
+    gtag('consent', 'update', {
+      'ad_storage': granted ? 'granted' : 'denied',
+      'ad_user_data': granted ? 'granted' : 'denied',
+      'ad_personalization': granted ? 'granted' : 'denied',
+      'analytics_storage': granted ? 'granted' : 'denied'
+    });
+  }
+
   function setCookieConsent(granted) {
     localStorage.setItem(COOKIE_CONSENT_KEY, granted ? 'granted' : 'denied');
     document.getElementById('cookieBanner').style.display = 'none';
+    updateConsentMode(granted);
     if (granted) { loadMetaPixel(); loadGoogleAds(); }
   }
 
   (function initCookieConsent() {
     const stored = localStorage.getItem(COOKIE_CONSENT_KEY);
     if (stored === 'granted') {
+      updateConsentMode(true);
       loadMetaPixel();
       loadGoogleAds();
     } else if (stored !== 'denied') {
